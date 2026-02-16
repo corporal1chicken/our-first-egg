@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://oo6t5nyoeyde"]
+
+[ext_resource type="Script" uid="uid://2xm1eo2six2a" path="res://hover.gd" id="1_f3sb7"]
+[ext_resource type="Script" uid="uid://b7sn66on3cc4v" path="res://static_body_3d.gd" id="2_fj7yv"]
+[ext_resource type="Script" uid="uid://2b7s6beppq0" path="res://static_body_3d_2.gd" id="3_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://dwk11d5qjyiai" path="res://user_interface.tscn" id="4_aqk2v"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
+
+[sub_resource type="Sky" id="Sky_f3sb7"]
+sky_material = SubResource("ProceduralSkyMaterial_gv5m4")
+
+[sub_resource type="Environment" id="Environment_fj7yv"]
+background_mode = 2
+sky = SubResource("Sky_f3sb7")
+
+[sub_resource type="BoxMesh" id="BoxMesh_tlwt5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_aqk2v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f3sb7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fj7yv"]
+
+[node name="world" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_fj7yv")
+
+[node name="build" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="build"]
+transform = Transform3D(6.618861, 0, 0, 0, 0.25347352, 0, 0, 0, 5.70435, 0, 0, 0)
+mesh = SubResource("BoxMesh_tlwt5")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="build"]
+transform = Transform3D(0.19394, 0, 0, 0, 3.353698, 0, 0, 0, 5.1616964, -3.051615, 1.7518532, 0)
+mesh = SubResource("BoxMesh_aqk2v")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="build"]
+transform = Transform3D(-8.477387e-09, 0, 5.832391, 0, 3.353698, 0, -0.19394, 0, -2.549419e-07, -0.15645564, 1.7518532, 2.4713807)
+mesh = SubResource("BoxMesh_aqk2v")
+skeleton = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.68835455, -0.3394243, 0.641061, 0, 0.88376564, 0.4679298, -0.72537446, 0.3221016, -0.6083441, 1.2172517, 2.139788, -1.2437899)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.82114923, -0.23213013, 0.5213728, 0, 0.9135454, 0.40673664, -0.5707136, 0.33399147, -0.7501571, 1.4746647, 2.805417, -2.2078736)
+spot_range = 12.022
+spot_attenuation = 0.38
+spot_angle = 91.99
+
+[node name="hover" type="Node3D" parent="."]
+script = ExtResource("1_f3sb7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["interactables"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3310353, 1.1511405, 1.0936617)
+script = ExtResource("2_fj7yv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_f3sb7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_fj7yv")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." groups=["interactables"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.41609955, 1.1511405, 1.0936617)
+script = ExtResource("3_tlwt5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_f3sb7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("BoxMesh_fj7yv")
+
+[node name="user_interface" parent="." instance=ExtResource("4_aqk2v")]

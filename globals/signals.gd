@@ -1,0 +1,4 @@
+extends Node
+
+signal hover_started(hover_text)
+signal hover_ended()
