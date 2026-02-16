@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://do4r82hqr4u1n"]
+
+[ext_resource type="Script" uid="uid://dj5ha3vpyrxoe" path="res://scenes/chicken/chicken.gd" id="1_374a2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qvtvv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_374a2"]
+
+[node name="chicken" type="StaticBody3D"]
+script = ExtResource("1_374a2")
+hover_text = "quack"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_qvtvv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_374a2")
+
+[node name="egg_position" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3759464, 0, 0)

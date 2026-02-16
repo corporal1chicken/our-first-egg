@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddikpf4n1i5wd"]
+
+[ext_resource type="Script" uid="uid://bs481merf0egh" path="res://scenes/crate/crate.gd" id="1_jpei4"]
+[ext_resource type="PackedScene" uid="uid://bjw31wopisgbx" path="res://scenes/crate/crate.glb" id="2_j1jke"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1jke"]
+transparency = 1
+cull_mode = 1
+depth_draw_mode = 2
+shading_mode = 0
+grow = true
+grow_amount = 0.01
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j1jke"]
+size = Vector3(1.5881348, 0.7529297, 2.2070313)
+
+[node name="crate" type="StaticBody3D"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+script = ExtResource("1_jpei4")
+hover_text = "Basic Crate"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="mesh" parent="." instance=ExtResource("2_j1jke")]
+
+[node name="outline" parent="." instance=ExtResource("2_j1jke")]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0.008723259, 0, 0)
+visible = false
+
+[node name="side_walls" parent="outline" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_j1jke")
+
+[node name="large_walls" parent="outline" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_j1jke")
+
+[node name="floor" parent="outline" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_j1jke")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65826416, 0, -0.2734375)
+shape = SubResource("BoxShape3D_j1jke")
+
+[editable path="mesh"]
+[editable path="outline"]

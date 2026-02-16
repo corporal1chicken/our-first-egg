@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://byc6vgm5a6k8w"]
+
+[ext_resource type="FontFile" uid="uid://2lelg2toamun" path="res://assets/fonts/jetbrains_extrabold.ttf" id="1_i71n2"]
+
+[resource]
+default_font = ExtResource("1_i71n2")

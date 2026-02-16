@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwk11d5qjyiai"]
+
+[ext_resource type="Theme" uid="uid://byc6vgm5a6k8w" path="res://resources/default.tres" id="1_i7dvk"]
+[ext_resource type="Script" uid="uid://b2sjugmasc1ns" path="res://ui/user_interface.gd" id="1_kxhmu"]
+[ext_resource type="FontFile" uid="uid://2lelg2toamun" path="res://assets/fonts/jetbrains_extrabold.ttf" id="3_juc2q"]
+
+[node name="user_interface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_i7dvk")
+script = ExtResource("1_kxhmu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="interaction_label" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -751.0
+offset_top = -219.0
+offset_right = 751.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("3_juc2q")
+theme_override_font_sizes/normal_font_size = 72
+text = "text goes here"
+horizontal_alignment = 1
+vertical_alignment = 1

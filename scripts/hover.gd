@@ -14,12 +14,12 @@ func _process(_delta: float):
 	var query = PhysicsRayQueryParameters3D.create(from, to)
 	var result = space.intersect_ray(query)
 	
-	var hit = null
+	var hit: Interactable = null
 	
 	if result:
 		hit = result.collider
 		
-		if hit and not hit.is_in_group("interactables"):
+		if hit and not hit is Interactable:
 			hit = null
 			
 	if current_hover != hit:
@@ -31,7 +31,7 @@ func _process(_delta: float):
 		
 		if current_hover:
 			current_hover.call("start_hover")
-			Signals.hover_started.emit("test text")
+			Signals.hover_started.emit(hit.hover_text)
 
 func _unhandled_input(event: InputEvent):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
