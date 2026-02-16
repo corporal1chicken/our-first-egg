@@ -8,6 +8,7 @@
 
 [node name="chicken" type="StaticBody3D"]
 script = ExtResource("1_374a2")
+possible_eggs = Array[String](["basic"])
 hover_text = "quack"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -15,6 +16,3 @@ mesh = SubResource("BoxMesh_qvtvv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_374a2")
-
-[node name="egg_position" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3759464, 0, 0)

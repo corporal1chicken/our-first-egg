@@ -1,18 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://bicp0i368104h"]
+[gd_scene load_steps=5 format=3 uid="uid://bicp0i368104h"]
 
-[ext_resource type="Script" uid="uid://bts5t57j4eyk7" path="res://scenes/eggs/basic/basic_egg.gd" id="1_rdtmt"]
+[ext_resource type="Script" uid="uid://bts5t57j4eyk7" path="res://scenes/egg/egg.gd" id="1_rdtmt"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_c0yse"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g0os2"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_rdtmt"]
 
-[node name="basic_egg" type="AnimatableBody3D"]
+[node name="egg" type="AnimatableBody3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_rdtmt")
+egg_types = Dictionary[String, Dictionary]({
+"basic": {
+"colour": Color(0, 0, 0, 1)
+}
+})
 hover_text = "basic egg"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_c0yse")
+surface_material_override/0 = SubResource("StandardMaterial3D_g0os2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_rdtmt")

@@ -30,10 +30,14 @@ func _process(_delta: float):
 		current_hover = hit
 		
 		if current_hover:
+			if current_hover.block_hover: return
+			
 			current_hover.call("start_hover")
 			Signals.hover_started.emit(hit.hover_text)
 
 func _unhandled_input(event: InputEvent):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if current_hover:
+			if current_hover.block_click: return
+			
 			current_hover.call("clicked")

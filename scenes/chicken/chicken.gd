@@ -1,16 +1,12 @@
 extends Interactable
 
-# Pick random egg and spawn it
-# Egg click and crate logic
-# Possibly dedicated manager for it
-
-@onready var egg_position: Node3D = $egg_position
+@export_category("Chicken")
+@export var egg: PackedScene
 
 var egg_spawned: bool = false
 
 func _ready():
 	_add_to_group(self)
-	print(egg_position.position)
 
 func start_hover():
 	print("hovering %s" % self.name)
@@ -21,5 +17,10 @@ func exit_hover():
 func clicked():
 	if egg_spawned: return
 	
+	var clone: Interactable = egg.instantiate()
+	get_tree().current_scene.add_child(clone)
+	
+	Manager.egg_scene = clone
+	
 	egg_spawned = true
-	Signals.spawn_egg.emit(Vector3(1.0, 1.0, 0.0))
+	clone.call("spawn_egg")

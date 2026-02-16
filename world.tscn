@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://do4r82hqr4u1n" path="res://scenes/chicken/chicken.tscn" id="4_036b0"]
 [ext_resource type="PackedScene" uid="uid://dwk11d5qjyiai" path="res://ui/user_interface.tscn" id="4_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://ddikpf4n1i5wd" path="res://scenes/crate/crate.tscn" id="5_036b0"]
-[ext_resource type="PackedScene" uid="uid://bicp0i368104h" path="res://scenes/eggs/basic/basic_egg.tscn" id="5_dwbse"]
+[ext_resource type="PackedScene" uid="uid://bicp0i368104h" path="res://scenes/egg/egg.tscn" id="5_dwbse"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
 sky_top_color = Color(0, 0.4561432, 0.796217, 1)
@@ -45,13 +45,11 @@ spot_angle = 91.99
 [node name="hover" type="Node3D" parent="."]
 script = ExtResource("1_f3sb7")
 
-[node name="user_interface" parent="." instance=ExtResource("4_aqk2v")]
-
 [node name="crate" parent="." instance=ExtResource("5_036b0")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.5611329, 1.774097, 1.4471757)
+transform = Transform3D(0.48433074, 0, 0.35415208, 0, 0.59999996, 0, -0.35415208, 0, 0.48433074, -1.9335982, 0.46856165, 1.645797)
 
 [node name="chicken" parent="." instance=ExtResource("4_036b0")]
-transform = Transform3D(0.8270119, 0, 0.56218445, 0, 1, 0, -0.56218445, 0, 0.8270119, -0.9619278, 1.0189292, 1.2645392)
+transform = Transform3D(0.8270119, 0, 0.56218445, 0, 1, 0, -0.56218445, 0, 0.8270119, 1.4000608, 0.6950842, 1.6411555)
+egg = ExtResource("5_dwbse")
 
-[node name="basic_egg" parent="." instance=ExtResource("5_dwbse")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.113081, 0.7311343, 1.6872265)
+[node name="user_interface" parent="." instance=ExtResource("4_aqk2v")]

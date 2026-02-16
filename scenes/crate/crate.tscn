@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddikpf4n1i5wd"]
+[gd_scene load_steps=6 format=3 uid="uid://ddikpf4n1i5wd"]
 
 [ext_resource type="Script" uid="uid://bs481merf0egh" path="res://scenes/crate/crate.gd" id="1_jpei4"]
 [ext_resource type="PackedScene" uid="uid://bjw31wopisgbx" path="res://scenes/crate/crate.glb" id="2_j1jke"]
@@ -8,6 +8,15 @@ transparency = 1
 cull_mode = 1
 depth_draw_mode = 2
 shading_mode = 0
+grow = true
+grow_amount = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3v208"]
+transparency = 1
+cull_mode = 1
+depth_draw_mode = 2
+shading_mode = 0
+albedo_color = Color(0.9527884, 0.0007622467, 0.090926, 1)
 grow = true
 grow_amount = 0.01
 
@@ -23,22 +32,39 @@ hover_text = "Basic Crate"
 
 [node name="mesh" parent="." instance=ExtResource("2_j1jke")]
 
-[node name="outline" parent="." instance=ExtResource("2_j1jke")]
+[node name="white_outline" parent="." instance=ExtResource("2_j1jke")]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0.008723259, 0, 0)
 visible = false
 
-[node name="side_walls" parent="outline" index="0"]
+[node name="side_walls" parent="white_outline" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_j1jke")
 
-[node name="large_walls" parent="outline" index="1"]
+[node name="large_walls" parent="white_outline" index="1"]
 surface_material_override/0 = SubResource("StandardMaterial3D_j1jke")
 
-[node name="floor" parent="outline" index="2"]
+[node name="floor" parent="white_outline" index="2"]
 surface_material_override/0 = SubResource("StandardMaterial3D_j1jke")
+
+[node name="red_outline" parent="." instance=ExtResource("2_j1jke")]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0.008723259, 0, 0)
+visible = false
+
+[node name="side_walls" parent="red_outline" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3v208")
+
+[node name="large_walls" parent="red_outline" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3v208")
+
+[node name="floor" parent="red_outline" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3v208")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65826416, 0, -0.2734375)
 shape = SubResource("BoxShape3D_j1jke")
 
+[node name="item_position" type="Node3D" parent="."]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -0.65075165, 0.23811248, -0.268968)
+
 [editable path="mesh"]
-[editable path="outline"]
+[editable path="white_outline"]
+[editable path="red_outline"]
