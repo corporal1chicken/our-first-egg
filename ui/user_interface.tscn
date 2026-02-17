@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwk11d5qjyiai"]
+[gd_scene load_steps=7 format=3 uid="uid://dwk11d5qjyiai"]
 
 [ext_resource type="Theme" uid="uid://byc6vgm5a6k8w" path="res://resources/default.tres" id="1_i7dvk"]
 [ext_resource type="Script" uid="uid://b2sjugmasc1ns" path="res://ui/user_interface.gd" id="1_kxhmu"]
 [ext_resource type="FontFile" uid="uid://2lelg2toamun" path="res://assets/fonts/jetbrains_extrabold.ttf" id="3_juc2q"]
+[ext_resource type="PackedScene" uid="uid://3xj71bw3hus4" path="res://ui/main_menu/main_menu.tscn" id="4_5skvp"]
+[ext_resource type="StyleBox" uid="uid://blhovwbquxv71" path="res://resources/buttons/normal.tres" id="5_wy7nh"]
+[ext_resource type="StyleBox" uid="uid://ycngd8comrtl" path="res://resources/buttons/hover.tres" id="6_bmx2r"]
 
 [node name="user_interface" type="Control"]
 layout_mode = 3
@@ -38,10 +41,32 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="money" type="RichTextLabel" parent="CanvasLayer"]
-offset_right = 207.0
-offset_bottom = 149.0
+visible = false
+offset_left = 21.0
+offset_top = 110.0
+offset_right = 228.0
+offset_bottom = 179.0
 theme_override_fonts/normal_font = ExtResource("3_juc2q")
 theme_override_font_sizes/normal_font_size = 48
-text = "£0"
+text = "£0.00"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="main_menu" parent="CanvasLayer" instance=ExtResource("4_5skvp")]
+
+[node name="menu" type="Button" parent="CanvasLayer"]
+visible = false
+offset_left = 23.0
+offset_top = 27.0
+offset_right = 218.0
+offset_bottom = 93.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_juc2q")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("5_wy7nh")
+theme_override_styles/pressed_mirrored = ExtResource("5_wy7nh")
+theme_override_styles/hover = ExtResource("6_bmx2r")
+text = "MENU"
+
+[connection signal="pressed" from="CanvasLayer/menu" to="." method="_on_button_pressed"]

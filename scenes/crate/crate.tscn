@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddikpf4n1i5wd"]
+[gd_scene load_steps=7 format=3 uid="uid://ddikpf4n1i5wd"]
 
 [ext_resource type="Script" uid="uid://bs481merf0egh" path="res://scenes/crate/crate.gd" id="1_jpei4"]
 [ext_resource type="PackedScene" uid="uid://bjw31wopisgbx" path="res://scenes/crate/crate.glb" id="2_j1jke"]
+[ext_resource type="FontFile" uid="uid://2lelg2toamun" path="res://assets/fonts/jetbrains_extrabold.ttf" id="3_3v208"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1jke"]
 transparency = 1
@@ -66,9 +67,10 @@ shape = SubResource("BoxShape3D_j1jke")
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -0.65075165, 0.23811248, -0.268968)
 
 [node name="current_value" type="Label3D" parent="."]
-transform = Transform3D(-4.371138e-08, 0, 0.99999976, 0, 0.99999976, 0, -0.99999976, 0, -4.371138e-08, 0.07380207, -0.054246802, -0.25830784)
-outline_modulate = Color(0, 0, 0, 0)
-text = "Value: £0"
+transform = Transform3D(-4.371138e-08, 0, 0.99999976, 0, 0.99999976, 0, -0.99999976, 0, -4.371138e-08, 0.07380207, -0.0542468, -0.28156188)
+text = "[0/4] Value: £0.00"
+font = ExtResource("3_3v208")
+font_size = 28
 
 [editable path="mesh"]
 [editable path="white_outline"]

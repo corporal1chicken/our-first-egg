@@ -5,6 +5,8 @@ extends Node3D
 var current_hover = null
 
 func _process(_delta: float):
+	if Manager.is_on_menu: return
+	
 	var mouse_position = get_viewport().get_mouse_position()
 	
 	var from = camera_3d.project_ray_origin(mouse_position)

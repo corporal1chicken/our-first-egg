@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://6f5dggfdh0rf" path="res://assets/meshes/large_crate.glb" id="7_pkg7o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
-sky_top_color = Color(0, 0.4561432, 0.796217, 1)
-sky_horizon_color = Color(0.5878827, 0.77331084, 1, 1)
-ground_bottom_color = Color(0.63514894, 0.8104832, 0.9999992, 1)
-ground_horizon_color = Color(0.47000384, 0.72830206, 0.99999803, 1)
+sky_top_color = Color(0, 0.33471826, 0.59548074, 1)
+sky_horizon_color = Color(0.012199605, 0.5351886, 0.99998957, 1)
+ground_bottom_color = Color(0.29361096, 0.6517652, 0.9999966, 1)
+ground_horizon_color = Color(0, 0.49402648, 0.8588477, 1)
 
 [sub_resource type="Sky" id="Sky_f3sb7"]
 sky_material = SubResource("ProceduralSkyMaterial_gv5m4")
@@ -43,10 +43,17 @@ transform = Transform3D(0.56842995, 0, -0.40851852, 0, 0.7, 0, 0.40851852, 0, 0.
 
 [node name="crates" type="Node3D" parent="build"]
 
-[node name="crate" parent="build/crates" instance=ExtResource("5_036b0")]
+[node name="basic" parent="build/crates" instance=ExtResource("5_036b0")]
 transform = Transform3D(0.30494127, 0, 0.39624593, 0, 0.5, 0, -0.39624593, 0, 0.30494127, -2.0198107, 0.52806133, 1.0512773)
 accepts = "basic"
 hover_position = Vector3(-1.59, 0.526, 0.465)
+
+[node name="basic2" parent="build/crates" instance=ExtResource("5_036b0")]
+transform = Transform3D(0.15237404, 0, 0.4762165, 0, 0.5, 0, -0.4762165, 0, 0.15237404, -0.97779673, 0.52806133, 1.8556213)
+accepts = "rare"
+max_capacity = 2
+hover_position = Vector3(-0.66, 0.526, 1.333)
+hover_text = "Rare Crate"
 
 [node name="decor" type="Node3D" parent="build"]
 
@@ -68,14 +75,12 @@ transform = Transform3D(0.2211007, 0, 0.33333835, 0, 0.39999995, 0, -0.33333835,
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.68835455, -0.27173004, 0.6725555, 0, 0.92718387, 0.3746066, -0.72537446, 0.25786212, -0.6382312, 1.2172517, 2.5356507, -1.2437899)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(-0.82114923, -0.23213013, 0.5213728, 0, 0.9135454, 0.40673664, -0.5707136, 0.33399147, -0.7501571, 1.4746647, 2.805417, -2.2078736)
-spot_range = 12.022
-spot_attenuation = 0.38
-spot_angle = 91.99
-
 [node name="user_interface" parent="." instance=ExtResource("4_aqk2v")]
 
 [node name="chicken" parent="." instance=ExtResource("4_036b0")]
 transform = Transform3D(0.5434251, 0, -0.441236, 0, 0.7, 0, 0.441236, 0, 0.5434251, 1.1285251, 0.45620292, 1.7815998)
 egg = ExtResource("5_dwbse")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.85775065, -0.23591211, 0.45673794, 0.0053635146, 0.88432556, 0.46684036, -0.5140382, 0.40288228, -0.7572653, 4.569177, 6.444495, -8.916667)
+light_energy = 0.5

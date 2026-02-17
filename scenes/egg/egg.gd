@@ -9,10 +9,15 @@ const NEW_POSITION = Vector3(0.2, 0.3, 1.0)
 const STARTING_OFFSET = Vector3(0.0, 4.0, 0.0)
 const DEFAULT_TWEEN_DURATION: float = 1.0
 
+enum State{IDLE, HELD}
+
 var current_type: Dictionary
+var current_state: State
 
 func _ready():
 	_add_to_group(self)
+	
+	current_state = State.IDLE
 	
 func _change_colour(colour: Color):
 	var material = mesh_instance.get_surface_override_material(0)
@@ -51,6 +56,11 @@ func exit_hover():
 	pass
 	
 func clicked():
-	if Manager.holding_egg: return
-	
-	Manager.set_holding_egg()
+	match current_state:
+		0:
+			if Manager.holding_egg: return
+			Manager.set_holding_egg()
+			current_state = State.HELD
+		1:
+			Manager.cancel_egg()
+			current_state = State.IDLE

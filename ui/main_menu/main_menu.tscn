@@ -1,0 +1,203 @@
+[gd_scene load_steps=8 format=3 uid="uid://3xj71bw3hus4"]
+
+[ext_resource type="Theme" uid="uid://byc6vgm5a6k8w" path="res://resources/default.tres" id="1_mu8pm"]
+[ext_resource type="Script" uid="uid://2eqlbmxx5g8w" path="res://ui/main_menu/main_menu.gd" id="1_uhj5c"]
+[ext_resource type="StyleBox" uid="uid://blhovwbquxv71" path="res://resources/buttons/normal.tres" id="3_omy8q"]
+[ext_resource type="StyleBox" uid="uid://ycngd8comrtl" path="res://resources/buttons/hover.tres" id="4_i5wg5"]
+
+[sub_resource type="Animation" id="Animation_mu8pm"]
+resource_name = "play"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_omy8q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i5wg5"]
+_data = {
+&"RESET": SubResource("Animation_omy8q"),
+&"play": SubResource("Animation_mu8pm")
+}
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_mu8pm")
+script = ExtResource("1_uhj5c")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.45490196)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.5
+offset_top = -254.5
+offset_right = 207.5
+offset_bottom = 254.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="play" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("3_omy8q")
+theme_override_styles/pressed = ExtResource("4_i5wg5")
+theme_override_styles/hover = ExtResource("4_i5wg5")
+text = "PLAY"
+
+[node name="about" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("3_omy8q")
+theme_override_styles/pressed = ExtResource("4_i5wg5")
+theme_override_styles/hover = ExtResource("4_i5wg5")
+text = "ABOUT"
+
+[node name="quit" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("3_omy8q")
+theme_override_styles/pressed = ExtResource("4_i5wg5")
+theme_override_styles/hover = ExtResource("4_i5wg5")
+text = "QUIT"
+
+[node name="about_screen" type="ColorRect" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="back" type="Button" parent="ColorRect/about_screen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0109375
+anchor_top = 0.8759259
+anchor_right = 0.18072917
+anchor_bottom = 0.9425926
+offset_top = 6.1035156e-05
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("3_omy8q")
+theme_override_styles/pressed = ExtResource("4_i5wg5")
+theme_override_styles/hover = ExtResource("4_i5wg5")
+text = "BACK"
+metadata/_edit_use_anchors_ = true
+
+[node name="description" type="RichTextLabel" parent="ColorRect/about_screen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.051041666
+anchor_top = 0.08888889
+anchor_right = 0.94895834
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 52
+text = "a lot of text goes here
+
+
+
+
+-------------------------------------------------"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="links" type="HBoxContainer" parent="ColorRect/about_screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -589.0
+offset_top = -7.0
+offset_right = 589.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="youtube" type="Button" parent="ColorRect/about_screen/links"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = ExtResource("3_omy8q")
+theme_override_styles/pressed = ExtResource("4_i5wg5")
+theme_override_styles/hover = ExtResource("4_i5wg5")
+text = "YouTube"
+metadata/_edit_use_anchors_ = true
+
+[node name="notion" type="Button" parent="ColorRect/about_screen/links"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = ExtResource("3_omy8q")
+theme_override_styles/pressed = ExtResource("4_i5wg5")
+theme_override_styles/hover = ExtResource("4_i5wg5")
+text = "Notion"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_i5wg5")
+}
+
+[connection signal="pressed" from="ColorRect/about_screen/back" to="." method="_on_back_pressed"]
