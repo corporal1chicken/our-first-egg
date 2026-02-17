@@ -65,6 +65,11 @@ shape = SubResource("BoxShape3D_j1jke")
 [node name="item_position" type="Node3D" parent="."]
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -0.65075165, 0.23811248, -0.268968)
 
+[node name="current_value" type="Label3D" parent="."]
+transform = Transform3D(-4.371138e-08, 0, 0.99999976, 0, 0.99999976, 0, -0.99999976, 0, -4.371138e-08, 0.07380207, -0.054246802, -0.25830784)
+outline_modulate = Color(0, 0, 0, 0)
+text = "Value: £0"
+
 [editable path="mesh"]
 [editable path="white_outline"]
 [editable path="red_outline"]

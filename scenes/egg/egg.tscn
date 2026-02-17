@@ -13,7 +13,14 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_rdtmt")
 egg_types = Dictionary[String, Dictionary]({
 "basic": {
-"colour": Color(0, 0, 0, 1)
+"colour": Color(0, 0, 0, 1),
+"type": "basic",
+"value": 2.0
+},
+"rare": {
+"colour": Color(0.99105686, 0, 0.20411015, 1),
+"type": "rare",
+"value": 4.0
 }
 })
 hover_text = "basic egg"

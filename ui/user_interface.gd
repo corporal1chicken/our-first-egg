@@ -12,3 +12,6 @@ func _on_hover_started(hover_text):
 	
 func _on_hover_ended():
 	interaction_label.visible = false
+
+func _on_crates_sold():
+	pass

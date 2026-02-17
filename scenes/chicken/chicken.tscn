@@ -7,8 +7,8 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_374a2"]
 
 [node name="chicken" type="StaticBody3D"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
 script = ExtResource("1_374a2")
-possible_eggs = Array[String](["basic"])
 hover_text = "quack"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
