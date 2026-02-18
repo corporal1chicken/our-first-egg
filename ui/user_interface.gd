@@ -8,8 +8,8 @@ func _ready():
 	Signals.update_ui.connect(_on_update_ui)
 	Signals.menu_opened.connect(_on_menu_opened)
 	Signals.menu_closed.connect(_on_menu_closed)
-	Signals.is_holding_egg.connect(_on_holding_egg)
-	Signals.finished_holding_egg.connect(_on_cancel_egg)
+	Signals.start_hold_egg.connect(_on_holding_egg)
+	Signals.end_hold_egg.connect(_on_cancel_egg)
 	
 func _on_hover_started(hover_text):
 	interaction_label.text = hover_text
@@ -41,4 +41,4 @@ func _on_cancel_egg():
 	$CanvasLayer/egg_status.visible = false
 
 func _on_sell_all_pressed() -> void:
-	Signals.sell_crates.emit()
+	Manager.sell_all()

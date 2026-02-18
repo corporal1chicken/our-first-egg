@@ -5,43 +5,39 @@ extends Interactable
 
 @onready var mesh_instance: MeshInstance3D = $MeshInstance3D
 
-const NEW_POSITION = Vector3(0.2, 0.3, 1.0)
-const STARTING_OFFSET = Vector3(0.0, 4.0, 0.0)
-const DEFAULT_TWEEN_DURATION: float = 1.0
+const GROUND_POSITION = Vector3(0.2, 0.3, 1.0)
 
 enum State{IDLE, HELD}
 
 var current_type: Dictionary
 var current_state: State
 
+var move_tween: Tween
+
 func _ready():
 	_add_to_group(self)
 	
 	current_state = State.IDLE
-	
-func _change_colour(colour: Color):
-	var material = mesh_instance.get_surface_override_material(0)
-	material.albedo_color = colour
 
 func tween_egg(property: String, change, duration: float):
-	var tween = create_tween()
+	if move_tween and move_tween.is_running():
+		move_tween.kill()
 	
-	tween.tween_property(self, property, change, duration or DEFAULT_TWEEN_DURATION).set_trans(Tween.TRANS_SINE)
-	await tween.finished
+	move_tween = create_tween()
+	
+	move_tween.tween_property(self, property, change, duration).set_trans(Tween.TRANS_SINE)
+	await move_tween.finished
 
-func spawn_egg():
+func setup():
+	await get_tree().process_frame
+	
 	var chosen_egg = egg_types.keys().pick_random()
-	
 	current_type = egg_types[chosen_egg]
-	_change_colour(current_type.colour)
 	
-	var starting_position = NEW_POSITION + STARTING_OFFSET
-	self.position = starting_position
+	var material = mesh_instance.get_surface_override_material(0)
+	material.albedo_color = current_type.colour
 	
-	#var tween = create_tween()
-	
-	#tween.tween_property(self, "position", NEW_POSITION, 1.0)
-	tween_egg("position", NEW_POSITION, 1.0)
+	await tween_egg("position", GROUND_POSITION, 1.0)
 
 func get_sell_value():
 	return current_type.value
@@ -59,8 +55,8 @@ func clicked():
 	match current_state:
 		0:
 			if Manager.holding_egg: return
-			Manager.set_holding_egg()
+			Manager.start_hold_egg()
 			current_state = State.HELD
 		1:
-			Manager.cancel_egg()
+			Manager.cancel_hold_egg()
 			current_state = State.IDLE

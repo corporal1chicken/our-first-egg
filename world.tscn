@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://oo6t5nyoeyde"]
+[gd_scene load_steps=13 format=3 uid="uid://oo6t5nyoeyde"]
 
 [ext_resource type="Script" uid="uid://2xm1eo2six2a" path="res://scripts/hover.gd" id="1_f3sb7"]
+[ext_resource type="Script" uid="uid://xjxmssdetvb4" path="res://world.gd" id="1_ioo17"]
 [ext_resource type="PackedScene" uid="uid://do4r82hqr4u1n" path="res://scenes/chicken/chicken.tscn" id="4_036b0"]
 [ext_resource type="PackedScene" uid="uid://dwk11d5qjyiai" path="res://ui/user_interface.tscn" id="4_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://ddikpf4n1i5wd" path="res://scenes/crate/crate.tscn" id="5_036b0"]
@@ -24,6 +25,7 @@ sky = SubResource("Sky_f3sb7")
 [sub_resource type="BoxMesh" id="BoxMesh_tlwt5"]
 
 [node name="world" type="Node3D"]
+script = ExtResource("1_ioo17")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fj7yv")
@@ -52,13 +54,13 @@ transform = Transform3D(0.37862045, 0, 0.58876693, 0, 0.7, 0, -0.58876693, 0, 0.
 [node name="basic" parent="build/crates" instance=ExtResource("5_036b0")]
 transform = Transform3D(0.3653911, 0, 0.34130535, 0, 0.5, 0, -0.34130535, 0, 0.3653911, -1.9335861, 0.52806133, 0.99138165)
 accepts = "basic"
-hover_position = Vector3(-1.394, 0.528, 0.46)
+hover_position = Vector3(-1.47, 0.528, 0.522)
 
-[node name="basic2" parent="build/crates" instance=ExtResource("5_036b0")]
+[node name="rare" parent="build/crates" instance=ExtResource("5_036b0")]
 transform = Transform3D(0.22788128, 0, 0.4450507, 0, 0.5, 0, -0.4450507, 0, 0.22788128, -0.9452728, 0.52806133, 1.954659)
 accepts = "rare"
 max_capacity = 2
-hover_position = Vector3(-0.65, 0.528, 1.56)
+hover_position = Vector3(-0.58, 0.528, 1.476)
 hover_text = "Rare Crate"
 
 [node name="decor" type="Node3D" parent="build"]
@@ -85,8 +87,10 @@ transform = Transform3D(-0.68835455, -0.27173004, 0.6725555, 0, 0.92718387, 0.37
 
 [node name="chicken" parent="." instance=ExtResource("4_036b0")]
 transform = Transform3D(0.5434251, 0, -0.441236, 0, 0.7, 0, 0.441236, 0, 0.5434251, 1.1285251, 0.45620292, 1.7815998)
-egg = ExtResource("5_dwbse")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.85775065, -0.23591211, 0.45673794, 0.0053635146, 0.88432556, 0.46684036, -0.5140382, 0.40288228, -0.7572653, 4.569177, 6.444495, -8.916667)
 light_energy = 0.5
+
+[node name="template" parent="." instance=ExtResource("5_dwbse")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 4, 1.2)

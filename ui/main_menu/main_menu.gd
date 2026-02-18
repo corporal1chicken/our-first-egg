@@ -37,7 +37,7 @@ func _on_link_pressed(button: Button):
 	button.release_focus()
 	
 func show_menu():
-	Manager.is_on_menu = true
+	Manager.on_menu = true
 	self.visible = true
 	
 	Signals.menu_opened.emit()
@@ -45,7 +45,7 @@ func show_menu():
 	animation_player.play_backwards("play")
 	
 func hide_menu():
-	Manager.is_on_menu = false
+	Manager.on_menu = false
 	
 	Signals.menu_closed.emit()
 	
