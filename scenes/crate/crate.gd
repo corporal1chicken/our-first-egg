@@ -9,6 +9,8 @@ extends Interactable
 @export var default_position: Vector3
 @export var item_position: Vector3
 
+@onready var display_eggs: Node3D = $eggs
+
 enum CrateState{FILLING, SELLING}
 
 var crate_state: CrateState
@@ -17,6 +19,8 @@ var move_tween: Tween
 
 var mouse_hovering: bool = false
 var busy: bool = false
+
+var autosell: bool = false
 
 func _ready():
 	_add_to_group(self)
@@ -28,6 +32,7 @@ func _ready():
 	
 	Signals.start_hold_egg.connect(_on_start_hold)
 	Signals.end_hold_egg.connect(_on_end_hold)
+	Signals.upgrade_bought.connect(_on_upgrade_bought)
 	
 func _hover_state():
 	var target_position = hover_position if mouse_hovering else default_position
@@ -58,6 +63,8 @@ func selling():
 	current_fill = 0
 	crate_value = 0.0
 	
+	for egg in display_eggs.get_children(): egg.visible = false
+	
 	_update_text()
 	busy = false
 	block_click = false
@@ -66,7 +73,8 @@ func selling():
 func _filling():
 	if busy: return
 	if not Manager.holding_egg: return
-	if _check_if_full(): return
+	if _check_if_full(): 
+		return
 	
 	await Manager.egg.tween_egg("position", $Node3D.global_position, 0.8)
 	
@@ -80,7 +88,17 @@ func _filling():
 	
 	_update_text()
 	
+	var found_egg = display_eggs.get_node(str(current_fill))
+	var sphere = found_egg.get_node("Sphere")
+	var material_clone = sphere.get_surface_override_material(0).duplicate()
+	material_clone.albedo_color = Manager.egg.current_type.colour
+	sphere.set_surface_override_material(0, material_clone)
+	found_egg.visible = true
+	
 	Manager.end_hold_egg()
+	
+	if autosell:
+		selling()
 	
 	busy = false
 	block_click = false
@@ -118,128 +136,9 @@ func _on_end_hold():
 	$red_outline.visible = false
 	crate_state = CrateState.SELLING
 
-"""
-@export_category("Crate")
-@export var accepts: String
-@export var is_full: bool = false
-@export var current_fill: int = 0
-@export var max_capacity: int = 4
-@export var sell_value: float = 0.0
-@export var hover_position: Vector3
-@export var default_position: Vector3
-
-@onready var white_outline: Node3D = $white_outline
-@onready var red_outline: Node3D = $red_outline
-@onready var item_position: Node3D = $item_position
-
-enum State{FILLING, SELLING}
-
-var is_hovering: bool = false
-var current_state: State
-
-func _ready():
-	_add_to_group(self)
-	
-	$current_value.text = "[0/%d] Value: £0.00" % [max_capacity]
-	
-	default_position = self.position
-	current_state = State.SELLING
-	
-	Signals.start_hold_egg.connect(_on_holding_egg)
-	Signals.end_hold_egg.connect(_on_finished_holding_egg)
-	Signals.sell_crates.connect(_selling)
-
-func _tween_crate(property: String, change, duration):
-	var tween = create_tween()
-	tween.tween_property(self, property, change, duration)
-	
-	await tween.finished
-	
-func _hover_actions(action: String):
-	block_hover = true
-	block_click = true
-	
-	match action:
-		"start":
-			is_hovering = true
-			await _tween_crate("position", hover_position, 0.4)
-		"exit":
-			is_hovering = false
-			await _tween_crate("position", default_position, 0.4)
-			
-	block_hover = false
-	block_click = false
-
-func start_hover():
-	if Manager.holding_egg: red_outline.visible = false
-	
-	white_outline.visible = true
-	_hover_actions("start")
-	
-func exit_hover():
-	if Manager.holding_egg: 
-		red_outline.visible = true
-		return
-	
-	white_outline.visible = false
-	_hover_actions("exit")
-	
-func _sell_receipt():
-	$sell_receipt.text = "+£%s0" % str(sell_value)
-	$AnimationPlayer.play("sell_receipt")
-	await $AnimationPlayer.animation_finished
-	$AnimationPlayer.play("RESET")
-	
-func _selling():
-	Manager.change_money("add", sell_value)
-	
-	_sell_receipt()
-	
-	current_fill = 0
-	sell_value = 0.0
-	$current_value.text = "[0/%d] Value: £0.00" % [max_capacity]
-	
-func _filling():
-	if not Manager.holding_egg: return
-	if not is_hovering: return
-	if is_full: return
-	
-	block_hover = true
-	block_click = true
-	
-	await Manager.egg.tween_egg("position", item_position.global_position, 0.8)
-	
-	var multiplier: float = 1.0
-	
-	if accepts != Manager.egg.get_type():
-		multiplier = 0.5
-	
-	sell_value += Manager.egg.get_sell_value() * multiplier
-	current_fill += 1
-	
-	if current_fill >= max_capacity: is_full = true
-	
-	$current_value.text = "[%d/%d] Value: £%s0" % [current_fill, max_capacity, str(sell_value)]
-	
-	Manager.end_hold_egg()
-	_hover_actions("exit")
-	block_hover = false
-	block_click = false
-	
-func clicked():
-	match current_state:
-		0: _filling()
-		1: _selling()
-
-func _on_holding_egg():
-	red_outline.visible = true
-	current_state = State.FILLING
-	_hover_actions("start")
-	block_hover = true
-
-func _on_finished_holding_egg():
-	red_outline.visible = false
-	current_state = State.SELLING
-	_hover_actions("exit")
-	block_hover = false
-"""
+func _on_upgrade_bought(key: String):
+	if key == "storage":
+		max_capacity += 6
+		_update_text()
+	elif key == "autosell":
+		autosell = true

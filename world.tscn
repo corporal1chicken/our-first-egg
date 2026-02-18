@@ -86,7 +86,8 @@ transform = Transform3D(-0.68835455, -0.27173004, 0.6725555, 0, 0.92718387, 0.37
 [node name="user_interface" parent="." instance=ExtResource("4_aqk2v")]
 
 [node name="chicken" parent="." instance=ExtResource("4_036b0")]
-transform = Transform3D(0.5434251, 0, -0.441236, 0, 0.7, 0, 0.441236, 0, 0.5434251, 1.1285251, 0.45620292, 1.7815998)
+transform = Transform3D(-0.5609289, 0, 0.41875872, 0, 0.6999999, 0, -0.41875872, 0, -0.5609289, 1.1285251, 0.45620292, 1.7815998)
+hover_text = "Get Egg"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.85775065, -0.23591211, 0.45673794, 0.0053635146, 0.88432556, 0.46684036, -0.5140382, 0.40288228, -0.7572653, 4.569177, 6.444495, -8.916667)

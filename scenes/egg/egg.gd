@@ -3,7 +3,7 @@ extends Interactable
 @export_category("Egg")
 @export var egg_types: Dictionary[String, Dictionary]
 
-@onready var mesh_instance: MeshInstance3D = $MeshInstance3D
+@onready var mesh_instance: MeshInstance3D = $mesh/Sphere
 
 const GROUND_POSITION = Vector3(0.2, 0.3, 1.0)
 
@@ -36,6 +36,8 @@ func setup():
 	
 	var material = mesh_instance.get_surface_override_material(0)
 	material.albedo_color = current_type.colour
+	
+	self.hover_text = "%s Egg" % current_type.type.capitalize()
 	
 	await tween_egg("position", GROUND_POSITION, 1.0)
 

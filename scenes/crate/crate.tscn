@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddikpf4n1i5wd"]
+[gd_scene load_steps=19 format=3 uid="uid://ddikpf4n1i5wd"]
 
 [ext_resource type="Script" uid="uid://bs481merf0egh" path="res://scenes/crate/crate.gd" id="1_jpei4"]
 [ext_resource type="PackedScene" uid="uid://bjw31wopisgbx" path="res://scenes/crate/crate.glb" id="2_j1jke"]
 [ext_resource type="FontFile" uid="uid://2lelg2toamun" path="res://assets/fonts/jetbrains_extrabold.ttf" id="3_3v208"]
+[ext_resource type="PackedScene" uid="uid://dx4hbyeoix42l" path="res://scenes/egg/egg.glb" id="4_ssudb"]
 
 [sub_resource type="Animation" id="Animation_ssudb"]
 length = 0.001
@@ -109,6 +110,22 @@ grow_amount = 0.01
 [sub_resource type="BoxShape3D" id="BoxShape3D_j1jke"]
 size = Vector3(1.5881348, 0.7529297, 2.2070313)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ssudb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37q77"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2m3p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mr6sf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wltqf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ysvy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lddwh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2rbhf"]
+
 [node name="crate" type="AnimatableBody3D"]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 script = ExtResource("1_jpei4")
@@ -168,6 +185,72 @@ font_size = 48
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -0.6536404, 0.24810758, -0.25898972)
 
+[node name="eggs" type="Node3D" parent="."]
+
+[node name="7" parent="eggs" instance=ExtResource("4_ssudb")]
+transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.4691065, -0.10219388, -0.48945984)
+visible = false
+
+[node name="Sphere" parent="eggs/7" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ssudb")
+
+[node name="8" parent="eggs" instance=ExtResource("4_ssudb")]
+transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.4691065, -0.10219388, -0.9134933)
+visible = false
+
+[node name="Sphere" parent="eggs/8" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_37q77")
+
+[node name="3" parent="eggs" instance=ExtResource("4_ssudb")]
+transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.887787, -0.10219388, -0.48945984)
+visible = false
+
+[node name="Sphere" parent="eggs/3" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p2m3p")
+
+[node name="4" parent="eggs" instance=ExtResource("4_ssudb")]
+transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.887787, -0.10219388, -0.9134933)
+visible = false
+
+[node name="Sphere" parent="eggs/4" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mr6sf")
+
+[node name="5" parent="eggs" instance=ExtResource("4_ssudb")]
+transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.4691065, -0.10219388, 0.3535861)
+visible = false
+
+[node name="Sphere" parent="eggs/5" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_wltqf")
+
+[node name="6" parent="eggs" instance=ExtResource("4_ssudb")]
+transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.4691065, -0.10219388, -0.070447385)
+visible = false
+
+[node name="Sphere" parent="eggs/6" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_6ysvy")
+
+[node name="1" parent="eggs" instance=ExtResource("4_ssudb")]
+transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.887787, -0.10219388, 0.3535861)
+visible = false
+
+[node name="Sphere" parent="eggs/1" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_lddwh")
+
+[node name="2" parent="eggs" instance=ExtResource("4_ssudb")]
+transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.887787, -0.10219388, -0.070447266)
+visible = false
+
+[node name="Sphere" parent="eggs/2" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_2rbhf")
+
 [editable path="mesh"]
 [editable path="white_outline"]
 [editable path="red_outline"]
+[editable path="eggs/7"]
+[editable path="eggs/8"]
+[editable path="eggs/3"]
+[editable path="eggs/4"]
+[editable path="eggs/5"]
+[editable path="eggs/6"]
+[editable path="eggs/1"]
+[editable path="eggs/2"]

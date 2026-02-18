@@ -45,28 +45,11 @@ func sell_all():
 	for child in crates.get_children():
 		child.selling()
 
-"""
-var is_on_menu: bool = true
-
-var holding_egg: bool = false
-
-var player_money: float = 0.0
+func pass_upgrade(upgrade_info: Dictionary):
+	if player_money < upgrade_info.cost:
+		return false
+		
+	change_money("remove", upgrade_info.cost)
+	Signals.upgrade_bought.emit(upgrade_info.key)
 	
-func set_holding_egg():
-	holding_egg = true
-	Signals.is_holding_egg.emit()
-	
-func cancel_egg():
-	holding_egg = false
-	
-	Signals.finished_holding_egg.emit()
-
-func clear_egg():
-	holding_egg = false
-	
-	Signals.finished_holding_egg.emit()
-
-func add_money(amount: float):
-	player_money += amount
-	Signals.update_ui.emit()
-"""
+	return true

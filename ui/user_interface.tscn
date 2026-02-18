@@ -35,7 +35,7 @@ offset_bottom = -42.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/normal_font = ExtResource("3_juc2q")
-theme_override_font_sizes/normal_font_size = 72
+theme_override_font_sizes/normal_font_size = 54
 text = "text goes here"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -89,11 +89,9 @@ text = "MENU"
 visible = false
 anchors_preset = -1
 anchor_left = 0.011979166
-anchor_top = 0.10185185
+anchor_top = 0.8759259
 anchor_right = 0.14375
-anchor_bottom = 0.16296296
-offset_top = 836.0
-offset_bottom = 836.0
+anchor_bottom = 0.93703705
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_juc2q")
@@ -102,6 +100,76 @@ theme_override_styles/normal = ExtResource("5_wy7nh")
 theme_override_styles/pressed_mirrored = ExtResource("5_wy7nh")
 theme_override_styles/hover = ExtResource("6_bmx2r")
 text = "SELL ALL"
+metadata/_edit_use_anchors_ = true
+
+[node name="upgrades" type="VBoxContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -402.0
+offset_top = -284.5
+offset_right = -35.0
+offset_bottom = 284.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="value" type="Button" parent="CanvasLayer/upgrades"]
+visible = false
+layout_mode = 2
+tooltip_text = "Sell eggs for double the value!"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_juc2q")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = ExtResource("5_wy7nh")
+theme_override_styles/pressed_mirrored = ExtResource("5_wy7nh")
+theme_override_styles/hover = ExtResource("6_bmx2r")
+text = "[£10.00] BETTER VALUE"
+metadata/_edit_use_anchors_ = true
+
+[node name="storage" type="Button" parent="CanvasLayer/upgrades"]
+layout_mode = 2
+tooltip_text = "Upgrade all crates to have +6 storage!"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_juc2q")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = ExtResource("5_wy7nh")
+theme_override_styles/pressed_mirrored = ExtResource("5_wy7nh")
+theme_override_styles/hover = ExtResource("6_bmx2r")
+text = "[£8.00] MORE STORAGE"
+metadata/_edit_use_anchors_ = true
+
+[node name="special" type="Button" parent="CanvasLayer/upgrades"]
+visible = false
+layout_mode = 2
+tooltip_text = "Add special eggs to the mix!"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_juc2q")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = ExtResource("5_wy7nh")
+theme_override_styles/pressed_mirrored = ExtResource("5_wy7nh")
+theme_override_styles/hover = ExtResource("6_bmx2r")
+text = "[£5.00] SPECIAL EGGS"
+metadata/_edit_use_anchors_ = true
+
+[node name="autosell" type="Button" parent="CanvasLayer/upgrades"]
+layout_mode = 2
+tooltip_text = "When the crate is full, sell automatically!"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_juc2q")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = ExtResource("5_wy7nh")
+theme_override_styles/pressed_mirrored = ExtResource("5_wy7nh")
+theme_override_styles/hover = ExtResource("6_bmx2r")
+text = "[£1.00] AUTO SELL"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="CanvasLayer/menu" to="." method="_on_button_pressed"]

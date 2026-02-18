@@ -9,3 +9,5 @@ signal menu_closed()
 
 signal start_hold_egg()
 signal end_hold_egg()
+
+signal upgrade_bought(key: String)

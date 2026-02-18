@@ -1,6 +1,26 @@
 extends Control
 
 @onready var interaction_label: RichTextLabel = $CanvasLayer/interaction_label
+@onready var upgrades_holder: VBoxContainer = $CanvasLayer/upgrades
+
+var upgrades = {
+	value = {
+		key = "value",
+		cost = 10.0
+	},
+	storage = {
+		key = "storage",
+		cost = 8.0
+	},
+	special = {
+		key = "special",
+		cost = 5.0
+	},
+	autosell = {
+		key = "autosell",
+		cost = 1.0
+	}
+}
 
 func _ready():
 	Signals.hover_started.connect(_on_hover_started)
@@ -10,6 +30,9 @@ func _ready():
 	Signals.menu_closed.connect(_on_menu_closed)
 	Signals.start_hold_egg.connect(_on_holding_egg)
 	Signals.end_hold_egg.connect(_on_cancel_egg)
+	
+	for upgrade in upgrades_holder.get_children():
+		upgrade.pressed.connect(_on_upgrade_pressed.bind(upgrade))
 	
 func _on_hover_started(hover_text):
 	interaction_label.text = hover_text
@@ -25,11 +48,13 @@ func _on_menu_opened():
 	$CanvasLayer/menu.visible = false
 	$CanvasLayer/money.visible = false
 	$CanvasLayer/sell_all.visible = false
+	$CanvasLayer/upgrades.visible = false
 	
 func _on_menu_closed():
 	$CanvasLayer/menu.visible = true
 	$CanvasLayer/money.visible = true
 	$CanvasLayer/sell_all.visible = true
+	$CanvasLayer/upgrades.visible = true
 
 func _on_button_pressed():
 	$CanvasLayer/main_menu.show_menu()
@@ -42,3 +67,9 @@ func _on_cancel_egg():
 
 func _on_sell_all_pressed() -> void:
 	Manager.sell_all()
+	
+func _on_upgrade_pressed(button: Button):
+	var success: bool = Manager.pass_upgrade(upgrades[button.name])
+	
+	if success:
+		button.disabled = true
