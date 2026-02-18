@@ -52,6 +52,22 @@ text = "£0.00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="egg_status" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -36.0
+offset_right = 257.0
+offset_bottom = 33.0
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("3_juc2q")
+theme_override_font_sizes/normal_font_size = 32
+text = "Holding Egg"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="main_menu" parent="CanvasLayer" instance=ExtResource("4_5skvp")]
 
 [node name="menu" type="Button" parent="CanvasLayer"]
@@ -69,4 +85,24 @@ theme_override_styles/pressed_mirrored = ExtResource("5_wy7nh")
 theme_override_styles/hover = ExtResource("6_bmx2r")
 text = "MENU"
 
+[node name="sell_all" type="Button" parent="CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.011979166
+anchor_top = 0.10185185
+anchor_right = 0.14375
+anchor_bottom = 0.16296296
+offset_top = 836.0
+offset_bottom = 836.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_juc2q")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("5_wy7nh")
+theme_override_styles/pressed_mirrored = ExtResource("5_wy7nh")
+theme_override_styles/hover = ExtResource("6_bmx2r")
+text = "SELL ALL"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="CanvasLayer/menu" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/sell_all" to="." method="_on_sell_all_pressed"]

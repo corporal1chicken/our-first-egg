@@ -39,38 +39,44 @@ mesh = SubResource("BoxMesh_tlwt5")
 skeleton = NodePath("../..")
 
 [node name="rack" parent="build" instance=ExtResource("6_dwbse")]
-transform = Transform3D(0.56842995, 0, -0.40851852, 0, 0.7, 0, 0.40851852, 0, 0.56842995, -1.8363035, 1.3329825, 1.7351346)
+transform = Transform3D(0.4943264, 0, -0.49562222, 0, 0.7, 0, 0.49562222, 0, 0.4943264, -1.863878, 1.3329825, 1.6959925)
+
+[node name="rack2" parent="build" instance=ExtResource("6_dwbse")]
+transform = Transform3D(0.6341674, 0, 0.2963642, 0, 0.7, 0, -0.2963642, 0, 0.6341674, 2.5102785, 1.3329825, 2.9112635)
+
+[node name="rack3" parent="build" instance=ExtResource("6_dwbse")]
+transform = Transform3D(0.37862045, 0, 0.58876693, 0, 0.7, 0, -0.58876693, 0, 0.37862045, -2.5004919, 1.3329825, -3.1963916)
 
 [node name="crates" type="Node3D" parent="build"]
 
 [node name="basic" parent="build/crates" instance=ExtResource("5_036b0")]
-transform = Transform3D(0.30494127, 0, 0.39624593, 0, 0.5, 0, -0.39624593, 0, 0.30494127, -2.0198107, 0.52806133, 1.0512773)
+transform = Transform3D(0.3653911, 0, 0.34130535, 0, 0.5, 0, -0.34130535, 0, 0.3653911, -1.9335861, 0.52806133, 0.99138165)
 accepts = "basic"
-hover_position = Vector3(-1.59, 0.526, 0.465)
+hover_position = Vector3(-1.394, 0.528, 0.46)
 
 [node name="basic2" parent="build/crates" instance=ExtResource("5_036b0")]
-transform = Transform3D(0.15237404, 0, 0.4762165, 0, 0.5, 0, -0.4762165, 0, 0.15237404, -0.97779673, 0.52806133, 1.8556213)
+transform = Transform3D(0.22788128, 0, 0.4450507, 0, 0.5, 0, -0.4450507, 0, 0.22788128, -0.9452728, 0.52806133, 1.954659)
 accepts = "rare"
 max_capacity = 2
-hover_position = Vector3(-0.66, 0.526, 1.333)
+hover_position = Vector3(-0.65, 0.528, 1.56)
 hover_text = "Rare Crate"
 
 [node name="decor" type="Node3D" parent="build"]
 
 [node name="decor_crate" parent="build/decor" instance=ExtResource("7_pkg7o")]
-transform = Transform3D(0.34818697, 0, 0.19689043, 0, 0.4, 0, -0.19689043, 0, 0.34818697, -3.440695, 0.601429, 0.04846841)
+transform = Transform3D(0.34818697, 0, 0.19689043, 0, 0.4, 0, -0.19689043, 0, 0.34818697, -3.7932248, 0.601429, 0.13679272)
 
 [node name="decor_crate4" parent="build/decor" instance=ExtResource("7_pkg7o")]
-transform = Transform3D(0.08718232, 0, -0.39038342, 0, 0.39999995, 0, 0.39038342, 0, 0.08718232, 0.063749254, 0.601429, 3.051562)
+transform = Transform3D(0.08718232, 0, -0.39038342, 0, 0.39999995, 0, 0.39038342, 0, 0.08718232, 0.122151315, 0.601429, 3.1683037)
 
 [node name="decor_crate5" parent="build/decor" instance=ExtResource("7_pkg7o")]
-transform = Transform3D(-0.15971088, 0, -0.36673206, 0, 0.39999992, 0, 0.36673206, 0, -0.15971088, 0.063749254, 1.4608794, 3.051562)
+transform = Transform3D(-0.15971088, 0, -0.36673206, 0, 0.39999992, 0, 0.36673206, 0, -0.15971088, 0.08705056, 1.4608794, 3.1683037)
 
 [node name="decor_crate2" parent="build/decor" instance=ExtResource("7_pkg7o")]
-transform = Transform3D(0.399321, 0, 0.023297414, 0, 0.39999998, 0, -0.023297414, 0, 0.399321, -3.440695, 0.601429, -1.1768107)
+transform = Transform3D(0.399321, 0, 0.023297414, 0, 0.39999998, 0, -0.023297414, 0, 0.399321, -3.7932248, 0.6004257, -1.0735626)
 
 [node name="decor_crate3" parent="build/decor" instance=ExtResource("7_pkg7o")]
-transform = Transform3D(0.2211007, 0, 0.33333835, 0, 0.39999995, 0, -0.33333835, 0, 0.2211007, -3.440695, 1.4678327, -0.45264208)
+transform = Transform3D(0.2211007, 0, 0.33333835, 0, 0.39999995, 0, -0.33333835, 0, 0.2211007, -3.7932248, 1.4678327, -0.36431777)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.68835455, -0.27173004, 0.6725555, 0, 0.92718387, 0.3746066, -0.72537446, 0.25786212, -0.6382312, 1.2172517, 2.5356507, -1.2437899)

@@ -9,3 +9,5 @@ signal finished_holding_egg()
 signal update_ui()
 signal menu_opened()
 signal menu_closed()
+
+signal sell_crates()

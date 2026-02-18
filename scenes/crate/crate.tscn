@@ -1,8 +1,93 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddikpf4n1i5wd"]
+[gd_scene load_steps=10 format=3 uid="uid://ddikpf4n1i5wd"]
 
 [ext_resource type="Script" uid="uid://bs481merf0egh" path="res://scenes/crate/crate.gd" id="1_jpei4"]
 [ext_resource type="PackedScene" uid="uid://bjw31wopisgbx" path="res://scenes/crate/crate.glb" id="2_j1jke"]
 [ext_resource type="FontFile" uid="uid://2lelg2toamun" path="res://assets/fonts/jetbrains_extrabold.ttf" id="3_3v208"]
+
+[sub_resource type="Animation" id="Animation_3v208"]
+resource_name = "sell_receipt"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sell_receipt:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.662686, -0.009417782, -0.24992484), Vector3(-0.662686, 0.8286186, -0.24992484)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sell_receipt:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sell_receipt:outline_modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ssudb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sell_receipt:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.662686, -0.009417782, -0.24992484)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sell_receipt:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sell_receipt:outline_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_37q77"]
+_data = {
+&"RESET": SubResource("Animation_ssudb"),
+&"sell_receipt": SubResource("Animation_3v208")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1jke"]
 transparency = 1
@@ -30,6 +115,9 @@ script = ExtResource("1_jpei4")
 hover_text = "Basic Crate"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_37q77")
+}
 
 [node name="mesh" parent="." instance=ExtResource("2_j1jke")]
 
@@ -71,6 +159,14 @@ transform = Transform3D(-4.371138e-08, 0, 0.99999976, 0, 0.99999976, 0, -0.99999
 text = "[0/4] Value: £0.00"
 font = ExtResource("3_3v208")
 font_size = 28
+
+[node name="sell_receipt" type="Label3D" parent="."]
+transform = Transform3D(-4.371138e-08, 0, 0.99999976, 0, 0.99999976, 0, -0.99999976, 0, -4.371138e-08, -0.662686, -0.009417782, -0.24992484)
+modulate = Color(1, 1, 1, 0)
+outline_modulate = Color(0, 0, 0, 0)
+text = "+£0.00"
+font = ExtResource("3_3v208")
+font_size = 48
 
 [editable path="mesh"]
 [editable path="white_outline"]

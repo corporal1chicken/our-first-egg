@@ -28,6 +28,7 @@ func _ready():
 	
 	Signals.is_holding_egg.connect(_on_holding_egg)
 	Signals.finished_holding_egg.connect(_on_finished_holding_egg)
+	Signals.sell_crates.connect(_selling)
 
 func _tween_crate(property: String, change, duration):
 	var tween = create_tween()
@@ -57,13 +58,24 @@ func start_hover():
 	_hover_actions("start")
 	
 func exit_hover():
-	if Manager.holding_egg: red_outline.visible = true
+	if Manager.holding_egg: 
+		red_outline.visible = true
+		return
 	
 	white_outline.visible = false
 	_hover_actions("exit")
 	
+func _sell_receipt():
+	$sell_receipt.text = "+£%s0" % str(sell_value)
+	$AnimationPlayer.play("sell_receipt")
+	await $AnimationPlayer.animation_finished
+	$AnimationPlayer.play("RESET")
+	
 func _selling():
 	Manager.add_money(sell_value)
+	
+	_sell_receipt()
+	
 	current_fill = 0
 	sell_value = 0.0
 	$current_value.text = "[0/%d] Value: £0.00" % [max_capacity]
@@ -91,6 +103,7 @@ func _filling():
 	$current_value.text = "[%d/%d] Value: £%s0" % [current_fill, max_capacity, str(sell_value)]
 	
 	Manager.clear_egg()
+	_hover_actions("exit")
 	block_hover = false
 	block_click = false
 	
@@ -104,7 +117,11 @@ func clicked():
 func _on_holding_egg():
 	red_outline.visible = true
 	current_state = State.FILLING
+	_hover_actions("start")
+	block_hover = true
 
 func _on_finished_holding_egg():
 	red_outline.visible = false
 	current_state = State.SELLING
+	_hover_actions("exit")
+	block_hover = false
