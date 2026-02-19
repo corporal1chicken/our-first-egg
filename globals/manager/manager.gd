@@ -9,14 +9,21 @@ var holding_egg: bool = false
 
 var egg: Interactable
 
+var special_unlocked: bool = false
+
+var upgrades_bought: int = 0
+
 func change_money(action: String, amount: float):
 	match action:
 		"add": player_money += amount
 		"remove": player_money -= amount
 		
 	Signals.update_ui.emit()
+	check_if_finished()
 		
 func create_egg():
+	if egg != null: return
+	
 	var clone = template.duplicate()
 	get_tree().current_scene.add_child(clone)
 	
@@ -50,6 +57,18 @@ func pass_upgrade(upgrade_info: Dictionary):
 		return false
 		
 	change_money("remove", upgrade_info.cost)
-	Signals.upgrade_bought.emit(upgrade_info.key)
+	
+	if upgrade_info.key == "special":
+		special_unlocked = true
+	else:
+		Signals.upgrade_bought.emit(upgrade_info.key)
+	
+	upgrades_bought += 1
+	
+	check_if_finished()
 	
 	return true
+
+func check_if_finished():
+	if upgrades_bought == 4 and player_money >= 150.0:
+		Signals.ending_reached.emit()

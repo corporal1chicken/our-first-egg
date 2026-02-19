@@ -12,15 +12,33 @@ size = Vector3(0.34472656, 0.543396, 0.39453125)
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_rdtmt")
 egg_types = Dictionary[String, Dictionary]({
-"basic": {
+"burnt": {
+"chance": 10,
 "colour": Color(0, 0, 0, 1),
-"type": "basic",
-"value": 2.0
+"type": "burnt",
+"value": 1.5,
+"weight": 1
 },
-"rare": {
-"colour": Color(0.99105686, 0, 0.20411015, 1),
-"type": "rare",
-"value": 4.0
+"regular": {
+"chance": 50,
+"colour": Color(1, 1, 1, 1),
+"type": "regular",
+"value": 2.5,
+"weight": 1
+},
+"special": {
+"chance": 15,
+"colour": Color(0, 0.77766156, 0.8371578, 1),
+"type": "special",
+"value": 7.0,
+"weight": 3
+},
+"yellow": {
+"chance": 25,
+"colour": Color(0.9699101, 0.77601546, 0, 1),
+"type": "yellow",
+"value": 4.0,
+"weight": 2
 }
 })
 hover_text = "basic egg"

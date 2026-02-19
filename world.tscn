@@ -46,22 +46,34 @@ transform = Transform3D(0.4943264, 0, -0.49562222, 0, 0.7, 0, 0.49562222, 0, 0.4
 [node name="rack2" parent="build" instance=ExtResource("6_dwbse")]
 transform = Transform3D(0.6341674, 0, 0.2963642, 0, 0.7, 0, -0.2963642, 0, 0.6341674, 2.5102785, 1.3329825, 2.9112635)
 
-[node name="rack3" parent="build" instance=ExtResource("6_dwbse")]
-transform = Transform3D(0.37862045, 0, 0.58876693, 0, 0.7, 0, -0.58876693, 0, 0.37862045, -2.5004919, 1.3329825, -3.1963916)
-
 [node name="crates" type="Node3D" parent="build"]
 
-[node name="basic" parent="build/crates" instance=ExtResource("5_036b0")]
+[node name="regular" parent="build/crates" instance=ExtResource("5_036b0")]
 transform = Transform3D(0.3653911, 0, 0.34130535, 0, 0.5, 0, -0.34130535, 0, 0.3653911, -1.9335861, 0.52806133, 0.99138165)
-accepts = "basic"
+accepts = "regular"
+max_capacity = 6
 hover_position = Vector3(-1.47, 0.528, 0.522)
+hover_text = "Regular Crate"
 
-[node name="rare" parent="build/crates" instance=ExtResource("5_036b0")]
+[node name="yellow" parent="build/crates" instance=ExtResource("5_036b0")]
 transform = Transform3D(0.22788128, 0, 0.4450507, 0, 0.5, 0, -0.4450507, 0, 0.22788128, -0.9452728, 0.52806133, 1.954659)
-accepts = "rare"
-max_capacity = 2
+accepts = "yellow"
 hover_position = Vector3(-0.58, 0.528, 1.476)
-hover_text = "Rare Crate"
+hover_text = "Yellow Crate"
+
+[node name="burnt" parent="build/crates" instance=ExtResource("5_036b0")]
+transform = Transform3D(0.45019737, 0, 0.2175369, 0, 0.5, 0, -0.2175369, 0, 0.45019737, -1.9872838, 1.8254209, 1.1341082)
+accepts = "burnt"
+max_capacity = 3
+hover_position = Vector3(-1.476, 1.825, 0.673)
+hover_text = "Burnt Crate"
+
+[node name="special" parent="build/crates" instance=ExtResource("5_036b0")]
+transform = Transform3D(0.3486703, 0, 0.35837013, 0, 0.5, 0, -0.35837013, 0, 0.3486703, -1.0074911, 1.8254209, 2.0984046)
+accepts = "special"
+max_capacity = 3
+hover_position = Vector3(-0.48, 1.825, 1.537)
+hover_text = "Special Crate"
 
 [node name="decor" type="Node3D" parent="build"]
 
@@ -81,12 +93,12 @@ transform = Transform3D(0.399321, 0, 0.023297414, 0, 0.39999998, 0, -0.023297414
 transform = Transform3D(0.2211007, 0, 0.33333835, 0, 0.39999995, 0, -0.33333835, 0, 0.2211007, -3.7932248, 1.4678327, -0.36431777)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.68835455, -0.27173004, 0.6725555, 0, 0.92718387, 0.3746066, -0.72537446, 0.25786212, -0.6382312, 1.2172517, 2.5356507, -1.2437899)
+transform = Transform3D(-0.92672557, -0.22032298, 0.30436435, 5.7281353e-09, 0.8100418, 0.58637226, -0.37573913, 0.5434061, -0.75068635, 0.036373496, 3.0407865, -0.37115204)
 
 [node name="user_interface" parent="." instance=ExtResource("4_aqk2v")]
 
 [node name="chicken" parent="." instance=ExtResource("4_036b0")]
-transform = Transform3D(-0.5609289, 0, 0.41875872, 0, 0.6999999, 0, -0.41875872, 0, -0.5609289, 1.1285251, 0.45620292, 1.7815998)
+transform = Transform3D(-0.5609289, 0, 0.41875872, 0, 0.6999999, 0, -0.41875872, 0, -0.5609289, 1.1737689, 0.45620292, 1.9912634)
 hover_text = "Get Egg"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -94,4 +106,4 @@ transform = Transform3D(-0.85775065, -0.23591211, 0.45673794, 0.0053635146, 0.88
 light_energy = 0.5
 
 [node name="template" parent="." instance=ExtResource("5_dwbse")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 4, 1.2)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.281, 5, 1.845)
