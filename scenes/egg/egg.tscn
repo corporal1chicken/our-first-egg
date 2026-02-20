@@ -16,28 +16,28 @@ egg_types = Dictionary[String, Dictionary]({
 "chance": 10,
 "colour": Color(0, 0, 0, 1),
 "type": "burnt",
-"value": 1.5,
+"value": 2.0,
 "weight": 1
 },
 "regular": {
 "chance": 50,
 "colour": Color(1, 1, 1, 1),
 "type": "regular",
-"value": 2.5,
+"value": 3.5,
 "weight": 1
 },
 "special": {
 "chance": 15,
 "colour": Color(0, 0.77766156, 0.8371578, 1),
 "type": "special",
-"value": 7.0,
+"value": 8.0,
 "weight": 3
 },
 "yellow": {
 "chance": 25,
 "colour": Color(0.9699101, 0.77601546, 0, 1),
 "type": "yellow",
-"value": 4.0,
+"value": 5.0,
 "weight": 2
 }
 })

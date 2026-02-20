@@ -3,6 +3,7 @@ extends Node
 var template: Interactable
 var crates: Node3D
 
+# Test Amount: 1178
 var player_money: float = 0.0
 var on_menu: bool = true
 var holding_egg: bool = false
@@ -70,5 +71,5 @@ func pass_upgrade(upgrade_info: Dictionary):
 	return true
 
 func check_if_finished():
-	if upgrades_bought == 4 and player_money >= 150.0:
+	if upgrades_bought == 5 and player_money >= 150.0:
 		Signals.ending_reached.emit()

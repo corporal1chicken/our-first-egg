@@ -26,6 +26,9 @@ func _on_option_pressed(button: Button):
 		"info":
 			$ColorRect/VBoxContainer.visible = false
 			$ColorRect/info_screen.visible = true
+		"how_to":
+			$ColorRect/how_to_screen.visible = true
+			$ColorRect/VBoxContainer.visible = false
 		"quit":
 			get_tree().quit()
 
@@ -39,6 +42,10 @@ func _on_info_back_pressed():
 	$ColorRect/VBoxContainer.visible = true
 	$ColorRect/info_screen.visible = false
 	
+func _on_how_to_back_pressed():
+	$ColorRect/how_to_screen.visible = false
+	$ColorRect/VBoxContainer.visible = true
+
 func _on_link_pressed(button: Button):
 	OS.shell_open(links[button.name])
 	button.release_focus()
@@ -57,3 +64,7 @@ func hide_menu():
 	
 	self.visible = false
 	Signals.menu_closed.emit()
+
+func _enable_buttons():
+	for button in $ColorRect/VBoxContainer.get_children():
+		button.disabled = false

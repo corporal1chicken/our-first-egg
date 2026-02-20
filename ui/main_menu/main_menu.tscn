@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://3xj71bw3hus4"]
+[gd_scene load_steps=10 format=3 uid="uid://3xj71bw3hus4"]
 
 [ext_resource type="Theme" uid="uid://byc6vgm5a6k8w" path="res://resources/default.tres" id="1_mu8pm"]
 [ext_resource type="Script" uid="uid://2eqlbmxx5g8w" path="res://ui/main_menu/main_menu.gd" id="1_uhj5c"]
 [ext_resource type="StyleBox" uid="uid://blhovwbquxv71" path="res://resources/buttons/normal.tres" id="3_omy8q"]
 [ext_resource type="StyleBox" uid="uid://ycngd8comrtl" path="res://resources/buttons/hover.tres" id="4_i5wg5"]
+[ext_resource type="Texture2D" uid="uid://cn48kdutpbro5" path="res://assets/images/godot_logo.png" id="5_3c04x"]
 
 [sub_resource type="Animation" id="Animation_omy8q"]
 length = 0.001
@@ -43,6 +44,96 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect/logo:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect/made_with:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i5wg5"]
+resource_name = "intro"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect/game_name:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 1.5, 3, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/VBoxContainer:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6.5, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(6.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_enable_buttons"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect/logo:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.5, 3.9666667, 6, 6.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ColorRect/made_with:modulate")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.5, 4, 6, 6.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_mu8pm"]
 resource_name = "play"
@@ -58,34 +149,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_i5wg5"]
-resource_name = "intro"
-length = 7.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect/game_name:modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1, 2, 4, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect/VBoxContainer:modulate")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 5, 6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i5wg5"]
@@ -140,6 +203,7 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("3_omy8q")
 theme_override_styles/pressed = ExtResource("4_i5wg5")
 theme_override_styles/hover = ExtResource("4_i5wg5")
+disabled = true
 text = "PLAY"
 
 [node name="about" type="Button" parent="ColorRect/VBoxContainer"]
@@ -150,6 +214,7 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("3_omy8q")
 theme_override_styles/pressed = ExtResource("4_i5wg5")
 theme_override_styles/hover = ExtResource("4_i5wg5")
+disabled = true
 text = "ABOUT"
 
 [node name="info" type="Button" parent="ColorRect/VBoxContainer"]
@@ -160,7 +225,19 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("3_omy8q")
 theme_override_styles/pressed = ExtResource("4_i5wg5")
 theme_override_styles/hover = ExtResource("4_i5wg5")
-text = "INFORMATION"
+disabled = true
+text = "EGGS"
+
+[node name="how_to" type="Button" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("3_omy8q")
+theme_override_styles/pressed = ExtResource("4_i5wg5")
+theme_override_styles/hover = ExtResource("4_i5wg5")
+disabled = true
+text = "HOW TO PLAY"
 
 [node name="quit" type="Button" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
@@ -170,6 +247,7 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("3_omy8q")
 theme_override_styles/pressed = ExtResource("4_i5wg5")
 theme_override_styles/hover = ExtResource("4_i5wg5")
+disabled = true
 text = "QUIT"
 
 [node name="about_screen" type="ColorRect" parent="ColorRect"]
@@ -210,12 +288,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 52
-text = "a lot of text goes here
-
-
-
-
--------------------------------------------------"
+text = "This was my first 3D game in Godot. I've done a couple of UI only projects but this is 3D. Everything was logged in Notion and recorded entirely. Footage on YouTube. This was started on the 15/02/26 and completed on the 20/02/26."
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -299,12 +372,61 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 52
 bbcode_enabled = true
 text = "[color=white]EGGS:
-Regular 	Rate (50%) | Value (£2.00) | Weight (1)
-[color=yellow]Yellow 		Rate (25%) | Value (£3.00) | Weight (2)
-[color=A9A9A9]Burnt		Rate (10%) | Value (£1.00) | Weight (1)
-[color=cyan]Special		Rate (15%) | Value (£5.00) | Weight (3)
+Regular 	Rate (50%) | Value (£3.50) | Weight (1)
+[color=yellow]Yellow 		Rate (25%) | Value (£5.00) | Weight (2)
+[color=A9A9A9]Burnt		Rate (10%) | Value (£2.50) | Weight (1)
+[color=cyan]Special		Rate (15%) | Value (£8.00) | Weight (3)
 
 [color=white]"
+metadata/_edit_use_anchors_ = true
+
+[node name="how_to_screen" type="ColorRect" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="back" type="Button" parent="ColorRect/how_to_screen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0109375
+anchor_top = 0.8759259
+anchor_right = 0.18072917
+anchor_bottom = 0.9425926
+offset_top = 6.1035156e-05
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("3_omy8q")
+theme_override_styles/pressed = ExtResource("4_i5wg5")
+theme_override_styles/hover = ExtResource("4_i5wg5")
+text = "BACK"
+metadata/_edit_use_anchors_ = true
+
+[node name="description" type="RichTextLabel" parent="ColorRect/how_to_screen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.023958333
+anchor_top = 0.08888889
+anchor_right = 0.9760417
+anchor_bottom = 0.8240741
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 52
+bbcode_enabled = true
+text = "HOW TO PLAY:
+
+1. Click the crate to get an egg
+2. Click the egg and put it in it's respective crate
+3. Egg and Crate types are displayed at the bottom
+4. Click the crate with an egg to fill it, click the crate without an egg to sell its contents
+5. Purchase all 5 upgrades and get £150 to finish"
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="game_name" type="RichTextLabel" parent="ColorRect"]
@@ -328,6 +450,44 @@ text = "OUR FIRST EGG"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="made_with" type="RichTextLabel" parent="ColorRect"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -388.5
+offset_top = 110.0
+offset_right = 388.5
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 54
+text = "Made with Godot"
+horizontal_alignment = 1
+
+[node name="logo" type="TextureRect" parent="ColorRect"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_3c04x")
+expand_mode = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_i5wg5")
@@ -335,3 +495,4 @@ libraries = {
 
 [connection signal="pressed" from="ColorRect/about_screen/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="ColorRect/info_screen/back" to="." method="_on_info_back_pressed"]
+[connection signal="pressed" from="ColorRect/how_to_screen/back" to="." method="_on_how_to_back_pressed"]

@@ -78,7 +78,7 @@ hover_text = "Special Crate"
 [node name="decor" type="Node3D" parent="build"]
 
 [node name="decor_crate" parent="build/decor" instance=ExtResource("7_pkg7o")]
-transform = Transform3D(0.34818697, 0, 0.19689043, 0, 0.4, 0, -0.19689043, 0, 0.34818697, -3.7932248, 0.601429, 0.13679272)
+transform = Transform3D(0.34818697, 0, 0.19689043, 0, 0.4, 0, -0.19689043, 0, 0.34818697, -3.4814038, 0.601429, 0.13679272)
 
 [node name="decor_crate4" parent="build/decor" instance=ExtResource("7_pkg7o")]
 transform = Transform3D(0.08718232, 0, -0.39038342, 0, 0.39999995, 0, 0.39038342, 0, 0.08718232, 0.122151315, 0.601429, 3.1683037)
@@ -87,10 +87,10 @@ transform = Transform3D(0.08718232, 0, -0.39038342, 0, 0.39999995, 0, 0.39038342
 transform = Transform3D(-0.15971088, 0, -0.36673206, 0, 0.39999992, 0, 0.36673206, 0, -0.15971088, 0.08705056, 1.4608794, 3.1683037)
 
 [node name="decor_crate2" parent="build/decor" instance=ExtResource("7_pkg7o")]
-transform = Transform3D(0.399321, 0, 0.023297414, 0, 0.39999998, 0, -0.023297414, 0, 0.399321, -3.7932248, 0.6004257, -1.0735626)
+transform = Transform3D(0.399321, 0, 0.023297414, 0, 0.39999998, 0, -0.023297414, 0, 0.399321, -3.4814038, 0.6004257, -1.0735626)
 
 [node name="decor_crate3" parent="build/decor" instance=ExtResource("7_pkg7o")]
-transform = Transform3D(0.2211007, 0, 0.33333835, 0, 0.39999995, 0, -0.33333835, 0, 0.2211007, -3.7932248, 1.4678327, -0.36431777)
+transform = Transform3D(0.2211007, 0, 0.33333835, 0, 0.39999995, 0, -0.33333835, 0, 0.2211007, -3.4814038, 1.4678327, -0.36431777)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.92672557, -0.22032298, 0.30436435, 5.7281353e-09, 0.8100418, 0.58637226, -0.37573913, 0.5434061, -0.75068635, 0.036373496, 3.0407865, -0.37115204)

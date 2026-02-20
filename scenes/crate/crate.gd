@@ -21,6 +21,9 @@ var mouse_hovering: bool = false
 var busy: bool = false
 
 var autosell: bool = false
+var sell_multiplier: float = 1.0
+
+var actual_amount: int = 0
 
 func _ready():
 	_add_to_group(self)
@@ -45,26 +48,34 @@ func _hover_state():
 
 func _update_text():
 	$current_value.text = "[%d/%d] Value: £%s0" % [current_fill, max_capacity, str(crate_value)]
-	$sell_receipt.text = "+£%s0" % str(crate_value)
+	$sell_receipt.text = "+£%s0" % str(crate_value * sell_multiplier)
 	
+func _set_hover_text(action: String):
+	match action:
+		"full":
+			hover_text = "[FULL] %s Crate" % accepts.capitalize()
+		"default":
+			hover_text = "%s Crate" % accepts.capitalize()
+			
+		
 func _check_if_full(weight) -> bool:
-
 	if max_capacity == current_fill:
-		hover_text = "[FULL] %s" % hover_text
+		_set_hover_text("full")
 		
 		if autosell: 
 			selling()
-			hover_text = "%s Crate" % accepts.capitalize()
+			_set_hover_text("default")
 		
 		return true
 	elif weight > max_capacity - current_fill:
-		hover_text = "%s Crate" % accepts.capitalize()
+		_set_hover_text("default")
 		return true
-	else:
-		return false
+	
+	_set_hover_text("default")
+	return false
 	
 func _show_egg():
-	var found_egg = display_eggs.get_node_or_null(str(current_fill))
+	var found_egg = display_eggs.get_node_or_null(str(actual_amount))
 	
 	if found_egg == null:
 		return
@@ -79,7 +90,11 @@ func selling():
 	if busy: return
 	busy = true
 	block_click = true
-	Manager.change_money("add", crate_value)
+	
+	if max_capacity == current_fill and sell_multiplier == 2.0:
+		Manager.change_money("add", crate_value * 2.0)
+	else:
+		Manager.change_money("add", crate_value)
 
 	$AnimationPlayer.play("sell_receipt")
 	await $AnimationPlayer.animation_finished
@@ -87,10 +102,12 @@ func selling():
 	
 	current_fill = 0
 	crate_value = 0.0
+	actual_amount = 0
 	
 	for egg in display_eggs.get_children(): egg.visible = false
 	
 	_update_text()
+	_set_hover_text("default")
 	busy = false
 	block_click = false
 	_hover_state()
@@ -110,6 +127,8 @@ func _filling():
 	
 	crate_value += Manager.egg.get_sell_value() * multiplier
 	current_fill += weight
+	
+	actual_amount += 1
 	
 	_update_text()
 	_show_egg()
@@ -160,3 +179,5 @@ func _on_upgrade_bought(key: String):
 		_update_text()
 	elif key == "autosell":
 		autosell = true
+	elif key == "bonus":
+		sell_multiplier = 2.0

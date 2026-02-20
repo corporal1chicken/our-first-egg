@@ -9,6 +9,69 @@
 [sub_resource type="Theme" id="Theme_kwc50"]
 default_font = ExtResource("2_imuuq")
 
+[sub_resource type="Animation" id="Animation_kwc50"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("money:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-446, 776)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("menu:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-446, 861)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sell_all:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-446, 946)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("upgrades:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-446, 36)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("info:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-178, 909)]
+}
+
 [sub_resource type="Animation" id="Animation_imuuq"]
 resource_name = "enter"
 length = 0.5
@@ -71,69 +134,6 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-178, 909), Vector2(296, 909)]
-}
-
-[sub_resource type="Animation" id="Animation_kwc50"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("money:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-446, 776)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("menu:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-446, 861)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("sell_all:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-446, 946)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("upgrades:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-446, 36)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("info:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-178, 909)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gfles"]
@@ -280,19 +280,21 @@ offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 32
-text = "Purchase all 4 upgrades and make £300 to reach the end!"
+text = "Purchase all 5 upgrades and make £150  to reach the end!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="upgrades" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.013541667
-anchor_top = 0.033333335
-anchor_right = 0.15416692
-anchor_bottom = 0.24722221
-offset_left = -472.0
-offset_right = -472.0
+anchor_left = 0.0140625
+anchor_top = 0.012037037
+anchor_right = 0.15468775
+anchor_bottom = 0.26944444
+offset_left = -473.0
+offset_top = 23.0
+offset_right = -473.0
+offset_bottom = 23.0
 grow_vertical = 2
 theme_override_constants/separation = 12
 alignment = 1
@@ -391,7 +393,39 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 21
-text = "[£50.00]"
+text = "[£48.00]"
+vertical_alignment = 1
+
+[node name="bonus" type="Button" parent="upgrades"]
+layout_mode = 2
+tooltip_text = "Double the value of the crate if sold when full!"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_imuuq")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = ExtResource("3_kwc50")
+theme_override_styles/pressed_mirrored = ExtResource("3_kwc50")
+theme_override_styles/hover = ExtResource("4_o2lis")
+theme_override_styles/disabled = ExtResource("5_imuuq")
+text = "EXTRA BONUS"
+metadata/_edit_use_anchors_ = true
+
+[node name="cost" type="RichTextLabel" parent="upgrades/bonus"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -19.5
+offset_right = 135.0
+offset_bottom = 20.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 21
+text = "[£56.00]"
 vertical_alignment = 1
 
 [node name="autosell" type="Button" parent="upgrades"]

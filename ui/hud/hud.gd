@@ -16,7 +16,11 @@ var upgrades = {
 	},
 	special = {
 		key = "special",
-		cost = 50.0
+		cost = 48.0
+	},
+	bonus = {
+		key = "bonus",
+		cost = 56.0
 	},
 	autosell = {
 		key = "autosell",
