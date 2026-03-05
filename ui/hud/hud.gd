@@ -48,7 +48,7 @@ func _on_hover_ended():
 	interaction_label.visible = false
 
 func _on_update_ui():
-	$money.text = "£%s0" % str(Manager.player_money)
+	$money.text = "£%.2f" % Manager.player_money
 
 func _on_menu_opened():
 	$AnimationPlayer.play_backwards("enter")

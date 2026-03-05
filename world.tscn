@@ -50,27 +50,23 @@ transform = Transform3D(0.6341674, 0, 0.2963642, 0, 0.7, 0, -0.2963642, 0, 0.634
 
 [node name="regular" parent="build/crates" instance=ExtResource("5_036b0")]
 transform = Transform3D(0.3653911, 0, 0.34130535, 0, 0.5, 0, -0.34130535, 0, 0.3653911, -1.9335861, 0.52806133, 0.99138165)
-accepts = "regular"
 max_capacity = 6
 hover_position = Vector3(-1.47, 0.528, 0.522)
 hover_text = "Regular Crate"
 
 [node name="yellow" parent="build/crates" instance=ExtResource("5_036b0")]
 transform = Transform3D(0.22788128, 0, 0.4450507, 0, 0.5, 0, -0.4450507, 0, 0.22788128, -0.9452728, 0.52806133, 1.954659)
-accepts = "yellow"
 hover_position = Vector3(-0.58, 0.528, 1.476)
 hover_text = "Yellow Crate"
 
 [node name="burnt" parent="build/crates" instance=ExtResource("5_036b0")]
 transform = Transform3D(0.45019737, 0, 0.2175369, 0, 0.5, 0, -0.2175369, 0, 0.45019737, -1.9872838, 1.8254209, 1.1341082)
-accepts = "burnt"
 max_capacity = 3
 hover_position = Vector3(-1.476, 1.825, 0.673)
 hover_text = "Burnt Crate"
 
 [node name="special" parent="build/crates" instance=ExtResource("5_036b0")]
 transform = Transform3D(0.3486703, 0, 0.35837013, 0, 0.5, 0, -0.35837013, 0, 0.3486703, -1.0074911, 1.8254209, 2.0984046)
-accepts = "special"
 max_capacity = 3
 hover_position = Vector3(-0.48, 1.825, 1.537)
 hover_text = "Special Crate"

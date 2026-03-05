@@ -174,6 +174,11 @@ text = "[0/4] Value: £0.00"
 font = ExtResource("3_3v208")
 font_size = 28
 
+[node name="order" type="Label3D" parent="."]
+transform = Transform3D(-4.371138e-08, 0, 0.99999976, 0, 0.99999976, 0, -0.99999976, 0, -4.371138e-08, -0.64897424, 0.6374425, -0.28156182)
+font = ExtResource("3_3v208")
+font_size = 28
+
 [node name="sell_receipt" type="Label3D" parent="."]
 transform = Transform3D(-4.371138e-08, 0, 0.99999976, 0, 0.99999976, 0, -0.99999976, 0, -4.371138e-08, -0.662686, -0.009417782, -0.24992484)
 modulate = Color(1, 1, 1, 0)

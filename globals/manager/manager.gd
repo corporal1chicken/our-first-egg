@@ -73,3 +73,9 @@ func pass_upgrade(upgrade_info: Dictionary):
 func check_if_finished():
 	if upgrades_bought == 5 and player_money >= 150.0:
 		Signals.ending_reached.emit()
+
+func get_file_contents(file_path: String) -> Dictionary:
+	var json_text = FileAccess.get_file_as_string(file_path)
+	var json_dictionary = JSON.parse_string(json_text)
+	
+	return json_dictionary

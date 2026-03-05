@@ -1,0 +1,32 @@
+{
+	"red": {
+		"chance": 10.0,
+	},
+	"orange": {
+		"chance": 10.0,
+	},
+	"yellow": {
+		"chance": 10.0,
+	},
+	"green": {
+		"chance": 10.0,
+	},
+	"blue": {
+		"chance": 10.0,
+	},
+	"purple": {
+		"chance": 10.0,
+	},
+	"pink": {
+		"chance": 10.0,
+	},
+	"white": {
+		"chance": 10.0,
+	},
+	"grey": {
+		"chance": 10.0,
+	},
+	"black": {
+		"chance": 10.0,
+	},
+}

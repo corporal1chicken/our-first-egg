@@ -1,7 +1,7 @@
 extends Interactable
 
 @export_category("Crate")
-@export var accepts: String
+#@export var accepts: String
 @export var current_fill: int = 0
 @export var max_capacity: int = 4
 @export var crate_value: float = 0.0
@@ -16,26 +16,68 @@ enum CrateState{FILLING, SELLING}
 var crate_state: CrateState
 
 var move_tween: Tween
-
 var mouse_hovering: bool = false
 var busy: bool = false
-
 var autosell: bool = false
 var sell_multiplier: float = 1.0
-
 var actual_amount: int = 0
+var file_path: String = "res://resources/data/temp_types.json"
+#"res://resources/data/egg_types.json"
+var pool: Dictionary
+var current_order: Array
 
 func _ready():
 	_add_to_group(self)
 	
 	default_position = self.position
-	crate_state = CrateState.FILLING
+	crate_state = CrateState.SELLING
 	
 	_update_text()
+	max_capacity = 0
+	
+	pool = Manager.get_file_contents(file_path)
+	#var egg_types = Manager.get_file_contents(file_path)
+	
+	#for key in egg_types.keys():
+	#	pool[key] = egg_types[key].chance
+		
+	_create_order()
 	
 	Signals.start_hold_egg.connect(_on_start_hold)
 	Signals.end_hold_egg.connect(_on_end_hold)
 	Signals.upgrade_bought.connect(_on_upgrade_bought)
+
+func _get_random_egg():
+	var total_weight = 0
+	
+	for key in pool.keys(): 
+		total_weight += pool[key].chance
+	
+	var roll = randi_range(1, total_weight)
+	
+	var c = 0
+	for egg in pool:
+		c += pool[egg].chance
+		
+		if roll <= c:
+			return egg
+			
+	return "red"
+	
+func _create_order():
+	var amount = randi_range(2, 5)
+	
+	current_order = []
+	max_capacity = 0
+	
+	for i in range(amount):
+		var egg = _get_random_egg()
+		
+		current_order.append(egg)
+		max_capacity += pool[egg].weight
+	
+	#$order.text = ", ".join(current_order)
+	_update_text()
 	
 func _hover_state():
 	var target_position = hover_position if mouse_hovering else default_position
@@ -47,31 +89,31 @@ func _hover_state():
 	move_tween.tween_property(self, "position", target_position, 0.3)
 
 func _update_text():
-	$current_value.text = "[%d/%d] Value: £%s0" % [current_fill, max_capacity, str(crate_value)]
-	$sell_receipt.text = "+£%s0" % str(crate_value * sell_multiplier)
+	$current_value.text = "[%d/%d] Value: £%.2f" % [current_fill, max_capacity, crate_value]
+	$sell_receipt.text = "+£%.2f" % (crate_value * sell_multiplier)
+	$order.text = ", ".join(current_order)
 	
-func _set_hover_text(action: String):
-	match action:
-		"full":
-			hover_text = "[FULL] %s Crate" % accepts.capitalize()
-		"default":
-			hover_text = "%s Crate" % accepts.capitalize()
-			
+#func _set_hover_text(action: String):
+	#match action:
+	#	"full":
+	#		hover_text = "[FULL] %s Crate" % accepts.capitalize()
+	#	"default":
+	#		hover_text = "%s Crate" % accepts.capitalize()
 		
 func _check_if_full(weight) -> bool:
 	if max_capacity == current_fill:
-		_set_hover_text("full")
+		#_set_hover_text("full")
 		
-		if autosell: 
-			selling()
-			_set_hover_text("default")
+		#if autosell: 
+		#	selling()
+			#_set_hover_text("default")
 		
 		return true
 	elif weight > max_capacity - current_fill:
-		_set_hover_text("default")
+		#_set_hover_text("default")
 		return true
 	
-	_set_hover_text("default")
+	#_set_hover_text("default")
 	return false
 	
 func _show_egg():
@@ -86,15 +128,18 @@ func _show_egg():
 	sphere.set_surface_override_material(0, material_clone)
 	found_egg.visible = true
 	
-func selling():
+func selling():	
 	if busy: return
+	if current_fill == 0: return
+	
 	busy = true
 	block_click = true
 	
-	if max_capacity == current_fill and sell_multiplier == 2.0:
-		Manager.change_money("add", crate_value * 2.0)
-	else:
-		Manager.change_money("add", crate_value)
+	#if max_capacity == current_fill and sell_multiplier == 2.0:
+	#	Manager.change_money("add", crate_value * 2.0)
+	#else:
+	#	Manager.change_money("add", crate_value)
+	Manager.change_money("add", crate_value)
 
 	$AnimationPlayer.play("sell_receipt")
 	await $AnimationPlayer.animation_finished
@@ -106,8 +151,8 @@ func selling():
 	
 	for egg in display_eggs.get_children(): egg.visible = false
 	
-	_update_text()
-	_set_hover_text("default")
+	_create_order()
+	#_set_hover_text("default")
 	busy = false
 	block_click = false
 	_hover_state()
@@ -117,15 +162,22 @@ func _filling():
 	if not Manager.holding_egg: return
 	
 	var weight = Manager.egg.get_weight()
+	var type = Manager.egg.get_type()
+	var sell_value = Manager.egg.get_sell_value()
 	var multiplier: float = 1.0
 	
 	if _check_if_full(weight): 
 		return
 	
-	if accepts != Manager.egg.get_type():
+	if current_order.has(type):
+		current_order.erase(type)
+	else:
 		multiplier = 0.5
 	
-	crate_value += Manager.egg.get_sell_value() * multiplier
+	#if accepts != Manager.egg.get_type():
+	#	multiplier = 0.5
+	
+	crate_value += sell_value * multiplier
 	current_fill += weight
 	
 	actual_amount += 1
@@ -135,7 +187,7 @@ func _filling():
 	
 	Manager.end_hold_egg()
 	
-	_check_if_full(weight)
+	#_check_if_full(weight)
 	
 	busy = false
 	block_click = false

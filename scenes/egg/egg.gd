@@ -41,8 +41,8 @@ func _pick_egg() -> String:
 	pool["yellow"] = egg_types["yellow"].chance
 	pool["burnt"] = egg_types["burnt"].chance
 	
-	if Manager.special_unlocked:
-		pool["special"] = egg_types["special"].chance
+	#if Manager.special_unlocked:
+	pool["special"] = egg_types["special"].chance
 	
 	for chance in pool.values(): 
 		total_weight += chance
@@ -67,7 +67,7 @@ func setup():
 	var material = mesh_instance.get_surface_override_material(0)
 	material.albedo_color = current_type.colour
 	
-	self.hover_text = "[Value: £%s0] %s Egg" % [str(get_sell_value()), chosen_egg.capitalize()]
+	self.hover_text = "[Value: £%.2f] %s Egg" % [get_sell_value(), chosen_egg.capitalize()]
 	
 	tween_egg("position", GROUND_POSITION, 1.0)
 
