@@ -11,36 +11,6 @@ size = Vector3(0.34472656, 0.543396, 0.39453125)
 [node name="egg" type="AnimatableBody3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 script = ExtResource("1_rdtmt")
-egg_types = Dictionary[String, Dictionary]({
-"burnt": {
-"chance": 10,
-"colour": Color(0, 0, 0, 1),
-"type": "burnt",
-"value": 2.0,
-"weight": 1
-},
-"regular": {
-"chance": 50,
-"colour": Color(1, 1, 1, 1),
-"type": "regular",
-"value": 3.5,
-"weight": 1
-},
-"special": {
-"chance": 15,
-"colour": Color(0, 0.77766156, 0.8371578, 1),
-"type": "special",
-"value": 8.0,
-"weight": 3
-},
-"yellow": {
-"chance": 25,
-"colour": Color(0.9699101, 0.77601546, 0, 1),
-"type": "yellow",
-"value": 5.0,
-"weight": 2
-}
-})
 hover_text = "basic egg"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

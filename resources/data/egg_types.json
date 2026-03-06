@@ -1,32 +1,82 @@
 {
 	"red": {
 		"chance": 10.0,
+		"weight": 1,
+		"value": 1.0,
+		"colour": "#fb003a",
+		"type": "red",
+		"emoji": "🟥"
 	},
 	"orange": {
 		"chance": 10.0,
+		"weight": 1,
+		"value": 1.0,
+		"colour": "#ff9d00",
+		"type": "orange",
+		"emoji": "🟧"
 	},
 	"yellow": {
 		"chance": 10.0,
+		"weight": 1,
+		"value": 1.0,
+		"colour": "#f5eb27",
+		"type": "yellow",
+		"emoji": "🟨"
 	},
 	"green": {
 		"chance": 10.0,
+		"weight": 1,
+		"value": 1.0,
+		"colour": "#2af527",
+		"type": "green",
+		"emoji": "🟩"
 	},
 	"blue": {
 		"chance": 10.0,
+		"weight": 1,
+		"value": 1.0,
+		"colour": "#2761f5",
+		"type": "blue",
+		"emoji": "🟦"
 	},
 	"purple": {
 		"chance": 10.0,
+		"weight": 1,
+		"value": 1.0,
+		"colour": "#9f27f5",
+		"type": "purple",
+		"emoji": "🟪"
 	},
 	"pink": {
 		"chance": 10.0,
-	},
-	"white": {
-		"chance": 10.0,
+		"weight": 1,
+		"value": 1.0,
+		"colour": "#f527eb",
+		"type": "pink",
+		"emoji": "pink"
 	},
 	"grey": {
 		"chance": 10.0,
+		"weight": 1,
+		"value": 1.0,
+		"colour": "#808080",
+		"type": "grey",
+		"emoji": "grey"
+	},
+	"white": {
+		"chance": 10.0,
+		"weight": 1,
+		"value": 1.0,
+		"colour": "#ffffff",
+		"type": "white",
+		"emoji": "⬜"
 	},
 	"black": {
 		"chance": 10.0,
+		"weight": 1,
+		"value": 1.0,
+		"colour": "#000000",
+		"type": "black",
+		"emoji": "black"
 	},
 }

@@ -1,7 +1,6 @@
 extends Interactable
 
 @export_category("Crate")
-#@export var accepts: String
 @export var current_fill: int = 0
 @export var max_capacity: int = 4
 @export var crate_value: float = 0.0
@@ -21,10 +20,10 @@ var busy: bool = false
 var autosell: bool = false
 var sell_multiplier: float = 1.0
 var actual_amount: int = 0
-var file_path: String = "res://resources/data/temp_types.json"
-#"res://resources/data/egg_types.json"
+var file_path: String = "res://resources/data/egg_types.json"
 var pool: Dictionary
 var current_order: Array
+var emoji_text: Array
 
 func _ready():
 	_add_to_group(self)
@@ -36,10 +35,6 @@ func _ready():
 	max_capacity = 0
 	
 	pool = Manager.get_file_contents(file_path)
-	#var egg_types = Manager.get_file_contents(file_path)
-	
-	#for key in egg_types.keys():
-	#	pool[key] = egg_types[key].chance
 		
 	_create_order()
 	
@@ -68,15 +63,16 @@ func _create_order():
 	var amount = randi_range(2, 5)
 	
 	current_order = []
+	emoji_text = []
 	max_capacity = 0
 	
 	for i in range(amount):
 		var egg = _get_random_egg()
 		
-		current_order.append(egg)
+		current_order.append(pool[egg].type)
+		emoji_text.append(pool[egg].emoji)
 		max_capacity += pool[egg].weight
 	
-	#$order.text = ", ".join(current_order)
 	_update_text()
 	
 func _hover_state():
@@ -91,29 +87,14 @@ func _hover_state():
 func _update_text():
 	$current_value.text = "[%d/%d] Value: £%.2f" % [current_fill, max_capacity, crate_value]
 	$sell_receipt.text = "+£%.2f" % (crate_value * sell_multiplier)
-	$order.text = ", ".join(current_order)
-	
-#func _set_hover_text(action: String):
-	#match action:
-	#	"full":
-	#		hover_text = "[FULL] %s Crate" % accepts.capitalize()
-	#	"default":
-	#		hover_text = "%s Crate" % accepts.capitalize()
+	$order.text = ", ".join(emoji_text)
 		
 func _check_if_full(weight) -> bool:
 	if max_capacity == current_fill:
-		#_set_hover_text("full")
-		
-		#if autosell: 
-		#	selling()
-			#_set_hover_text("default")
-		
 		return true
 	elif weight > max_capacity - current_fill:
-		#_set_hover_text("default")
 		return true
-	
-	#_set_hover_text("default")
+		
 	return false
 	
 func _show_egg():
@@ -135,10 +116,6 @@ func selling():
 	busy = true
 	block_click = true
 	
-	#if max_capacity == current_fill and sell_multiplier == 2.0:
-	#	Manager.change_money("add", crate_value * 2.0)
-	#else:
-	#	Manager.change_money("add", crate_value)
 	Manager.change_money("add", crate_value)
 
 	$AnimationPlayer.play("sell_receipt")
@@ -152,7 +129,7 @@ func selling():
 	for egg in display_eggs.get_children(): egg.visible = false
 	
 	_create_order()
-	#_set_hover_text("default")
+
 	busy = false
 	block_click = false
 	_hover_state()
@@ -171,11 +148,9 @@ func _filling():
 	
 	if current_order.has(type):
 		current_order.erase(type)
+		emoji_text.erase(pool[type].emoji)
 	else:
 		multiplier = 0.5
-	
-	#if accepts != Manager.egg.get_type():
-	#	multiplier = 0.5
 	
 	crate_value += sell_value * multiplier
 	current_fill += weight
@@ -186,8 +161,6 @@ func _filling():
 	_show_egg()
 	
 	Manager.end_hold_egg()
-	
-	#_check_if_full(weight)
 	
 	busy = false
 	block_click = false
@@ -218,7 +191,9 @@ func exit_hover():
 	_hover_state()
 	
 func _on_start_hold():
-	$red_outline.visible = true
+	if current_order.has(Manager.egg.get_type()):
+		$red_outline.visible = true
+		
 	crate_state = CrateState.FILLING
 	
 func _on_end_hold():
@@ -226,10 +201,11 @@ func _on_end_hold():
 	crate_state = CrateState.SELLING
 
 func _on_upgrade_bought(key: String):
-	if key == "storage":
-		max_capacity += 4 if self.accepts != "special" else 0
-		_update_text()
-	elif key == "autosell":
-		autosell = true
-	elif key == "bonus":
-		sell_multiplier = 2.0
+	#if key == "storage":
+	#	max_capacity += 4 if self.accepts != "special" else 0
+	#	_update_text()
+	#elif key == "autosell":
+	#	autosell = true
+	#elif key == "bonus":
+	#	sell_multiplier = 2.0
+	pass

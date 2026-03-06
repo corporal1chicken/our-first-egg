@@ -280,7 +280,7 @@ offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/normal_font_size = 32
-text = "Purchase all 5 upgrades and make £150  to reach the end!"
+text = "Purchase all 5 upgrades and make £150 to reach the end!"
 horizontal_alignment = 1
 vertical_alignment = 1
 

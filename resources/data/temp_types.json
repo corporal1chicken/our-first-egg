@@ -1,18 +1,30 @@
 {
 	"regular": {
 		"chance": 25.0,
-		"weight": 1
+		"weight": 1,
+		"value": 3.5,
+		"colour": "#ffffff",
+		"type": "regular"
 	},
 	"burnt": {
 		"chance": 25.0,
-		"weight": 1
+		"weight": 1,
+		"value": 2.0,
+		"colour": "#000000",
+		"type": "burnt"
 	},
 	"yellow": {
 		"chance": 25.0,
-		"weight": 2
+		"weight": 2,
+		"value": 5.0,
+		"colour": "#f7c600",
+		"type": "yellow"
 	},
 	"special": {
 		"chance": 25.0,
-		"weight": 3
+		"weight": 3,
+		"value": 8.0,
+		"colour": "#00c6d5",
+		"type": "special"
 	}
 }

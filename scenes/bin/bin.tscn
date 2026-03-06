@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsimiwtrir428"]
+
+[ext_resource type="Script" uid="uid://b84t1p7faceoy" path="res://scenes/bin/bin.gd" id="1_0kp4f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ohph6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0kp4f"]
+
+[node name="bin" type="AnimatableBody3D"]
+script = ExtResource("1_0kp4f")
+hover_text = "Bin"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ohph6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_0kp4f")
