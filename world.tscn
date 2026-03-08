@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://oo6t5nyoeyde"]
+[gd_scene format=3 uid="uid://oo6t5nyoeyde"]
 
 [ext_resource type="Script" uid="uid://2xm1eo2six2a" path="res://scripts/hover.gd" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://xjxmssdetvb4" path="res://world.gd" id="1_ioo17"]
@@ -25,85 +25,85 @@ sky = SubResource("Sky_f3sb7")
 
 [sub_resource type="BoxMesh" id="BoxMesh_tlwt5"]
 
-[node name="world" type="Node3D"]
+[node name="world" type="Node3D" unique_id=1659380563]
 script = ExtResource("1_ioo17")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1109664357]
 environment = SubResource("Environment_fj7yv")
 
-[node name="hover" type="Node3D" parent="."]
+[node name="hover" type="Node3D" parent="." unique_id=1293885691]
 script = ExtResource("1_f3sb7")
 
-[node name="build" type="Node3D" parent="."]
+[node name="build" type="Node3D" parent="." unique_id=1273940412]
 
-[node name="floor" type="MeshInstance3D" parent="build"]
+[node name="floor" type="MeshInstance3D" parent="build" unique_id=698828793]
 transform = Transform3D(10.248668, 0, 0, 0, 0.25347352, 0, 0, 0, 9.458154, -0.31444752, 0, 0)
 mesh = SubResource("BoxMesh_tlwt5")
 skeleton = NodePath("../..")
 
-[node name="rack" parent="build" instance=ExtResource("6_dwbse")]
+[node name="rack" parent="build" unique_id=131459640 instance=ExtResource("6_dwbse")]
 transform = Transform3D(0.4943264, 0, -0.49562222, 0, 0.7, 0, 0.49562222, 0, 0.4943264, -1.863878, 1.3329825, 1.6959925)
 
-[node name="rack2" parent="build" instance=ExtResource("6_dwbse")]
+[node name="rack2" parent="build" unique_id=1268562604 instance=ExtResource("6_dwbse")]
 transform = Transform3D(0.6341674, 0, 0.2963642, 0, 0.7, 0, -0.2963642, 0, 0.6341674, 2.5102785, 1.3329825, 2.9112635)
 
-[node name="crates" type="Node3D" parent="build"]
+[node name="crates" type="Node3D" parent="build" unique_id=1702974535]
 
-[node name="1" parent="build/crates" instance=ExtResource("5_036b0")]
+[node name="1" parent="build/crates" unique_id=1698556785 instance=ExtResource("5_036b0")]
 transform = Transform3D(0.3653911, 0, 0.34130535, 0, 0.5, 0, -0.34130535, 0, 0.3653911, -1.9335861, 0.52806133, 0.99138165)
 max_capacity = 6
 hover_position = Vector3(-1.47, 0.528, 0.522)
 hover_text = "Regular Crate"
 
-[node name="2" parent="build/crates" instance=ExtResource("5_036b0")]
+[node name="2" parent="build/crates" unique_id=1005043956 instance=ExtResource("5_036b0")]
 transform = Transform3D(0.22788128, 0, 0.4450507, 0, 0.5, 0, -0.4450507, 0, 0.22788128, -0.9452728, 0.52806133, 1.954659)
 hover_position = Vector3(-0.58, 0.528, 1.476)
 hover_text = "Yellow Crate"
 
-[node name="3" parent="build/crates" instance=ExtResource("5_036b0")]
+[node name="3" parent="build/crates" unique_id=12029861 instance=ExtResource("5_036b0")]
 transform = Transform3D(0.45019737, 0, 0.2175369, 0, 0.5, 0, -0.2175369, 0, 0.45019737, -1.9872838, 1.8254209, 1.1341082)
 max_capacity = 3
 hover_position = Vector3(-1.476, 1.825, 0.673)
 hover_text = "Burnt Crate"
 
-[node name="4" parent="build/crates" instance=ExtResource("5_036b0")]
+[node name="4" parent="build/crates" unique_id=1573683226 instance=ExtResource("5_036b0")]
 transform = Transform3D(0.3486703, 0, 0.35837013, 0, 0.5, 0, -0.35837013, 0, 0.3486703, -1.0074911, 1.8254209, 2.0984046)
 max_capacity = 3
 hover_position = Vector3(-0.48, 1.825, 1.537)
 hover_text = "Special Crate"
 
-[node name="decor" type="Node3D" parent="build"]
+[node name="decor" type="Node3D" parent="build" unique_id=282915924]
 
-[node name="decor_crate" parent="build/decor" instance=ExtResource("7_pkg7o")]
+[node name="decor_crate" parent="build/decor" unique_id=1834719473 instance=ExtResource("7_pkg7o")]
 transform = Transform3D(0.34818697, 0, 0.19689043, 0, 0.4, 0, -0.19689043, 0, 0.34818697, -3.4814038, 0.601429, 0.13679272)
 
-[node name="decor_crate4" parent="build/decor" instance=ExtResource("7_pkg7o")]
+[node name="decor_crate4" parent="build/decor" unique_id=1291806232 instance=ExtResource("7_pkg7o")]
 transform = Transform3D(0.08718232, 0, -0.39038342, 0, 0.39999995, 0, 0.39038342, 0, 0.08718232, 0.122151315, 0.601429, 3.1683037)
 
-[node name="decor_crate5" parent="build/decor" instance=ExtResource("7_pkg7o")]
+[node name="decor_crate5" parent="build/decor" unique_id=1222493275 instance=ExtResource("7_pkg7o")]
 transform = Transform3D(-0.15971088, 0, -0.36673206, 0, 0.39999992, 0, 0.36673206, 0, -0.15971088, 0.08705056, 1.4608794, 3.1683037)
 
-[node name="decor_crate2" parent="build/decor" instance=ExtResource("7_pkg7o")]
+[node name="decor_crate2" parent="build/decor" unique_id=288025350 instance=ExtResource("7_pkg7o")]
 transform = Transform3D(0.399321, 0, 0.023297414, 0, 0.39999998, 0, -0.023297414, 0, 0.399321, -3.4814038, 0.6004257, -1.0735626)
 
-[node name="decor_crate3" parent="build/decor" instance=ExtResource("7_pkg7o")]
+[node name="decor_crate3" parent="build/decor" unique_id=1210832288 instance=ExtResource("7_pkg7o")]
 transform = Transform3D(0.2211007, 0, 0.33333835, 0, 0.39999995, 0, -0.33333835, 0, 0.2211007, -3.4814038, 1.4678327, -0.36431777)
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1324722349]
 transform = Transform3D(-0.92672557, -0.22032298, 0.30436435, 5.7281353e-09, 0.8100418, 0.58637226, -0.37573913, 0.5434061, -0.75068635, 0.036373496, 3.0407865, -0.37115204)
 
-[node name="user_interface" parent="." instance=ExtResource("4_aqk2v")]
+[node name="user_interface" parent="." unique_id=1498074921 instance=ExtResource("4_aqk2v")]
 
-[node name="chicken" parent="." instance=ExtResource("4_036b0")]
+[node name="chicken" parent="." unique_id=1081540142 instance=ExtResource("4_036b0")]
 transform = Transform3D(-0.5609289, 0, 0.41875872, 0, 0.6999999, 0, -0.41875872, 0, -0.5609289, 0.75999594, 0.45620292, 2.1840346)
 hover_text = "Get Egg"
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=227668669]
 transform = Transform3D(-0.85775065, -0.23591211, 0.45673794, 0.0053635146, 0.88432556, 0.46684036, -0.5140382, 0.40288228, -0.7572653, 4.569177, 6.444495, -8.916667)
 light_energy = 0.5
 
-[node name="template" parent="." instance=ExtResource("5_dwbse")]
+[node name="template" parent="." unique_id=93928228 instance=ExtResource("5_dwbse")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.4, 5, 1.5)
 
-[node name="bin" parent="." instance=ExtResource("9_ioo17")]
+[node name="bin" parent="." unique_id=1420960629 instance=ExtResource("9_ioo17")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1.7856419, 0.6344373, 3.134418)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8iqk8sncrk2x"]
+[gd_scene format=3 uid="uid://c8iqk8sncrk2x"]
 
 [ext_resource type="Script" uid="uid://dvxefxtxbeb4x" path="res://ui/hud/hud.gd" id="1_w75iv"]
 [ext_resource type="FontFile" uid="uid://2lelg2toamun" path="res://assets/fonts/jetbrains_extrabold.ttf" id="2_imuuq"]
@@ -142,7 +142,7 @@ _data = {
 &"enter": SubResource("Animation_imuuq")
 }
 
-[node name="hud" type="Control"]
+[node name="hud" type="Control" unique_id=709182465]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -153,7 +153,7 @@ mouse_filter = 2
 theme = SubResource("Theme_kwc50")
 script = ExtResource("1_w75iv")
 
-[node name="interaction_label" type="RichTextLabel" parent="."]
+[node name="interaction_label" type="RichTextLabel" parent="." unique_id=1994619540]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -174,7 +174,7 @@ text = "text goes here"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="money" type="RichTextLabel" parent="."]
+[node name="money" type="RichTextLabel" parent="." unique_id=845876376]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.013541667
@@ -190,7 +190,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="egg_status" type="RichTextLabel" parent="."]
+[node name="egg_status" type="RichTextLabel" parent="." unique_id=234984046]
 visible = false
 layout_mode = 1
 anchors_preset = 4
@@ -207,7 +207,7 @@ text = "Holding Egg"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="menu" type="Button" parent="."]
+[node name="menu" type="Button" parent="." unique_id=246980324]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.013541667
@@ -226,7 +226,7 @@ theme_override_styles/hover = ExtResource("4_o2lis")
 text = "MENU"
 metadata/_edit_use_anchors_ = true
 
-[node name="sell_all" type="Button" parent="."]
+[node name="sell_all" type="Button" parent="." unique_id=1783757012]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.013541667
@@ -245,7 +245,7 @@ theme_override_styles/hover = ExtResource("4_o2lis")
 text = "SELL ALL"
 metadata/_edit_use_anchors_ = true
 
-[node name="info" type="Button" parent="."]
+[node name="info" type="Button" parent="." unique_id=1116169849]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.4
@@ -265,7 +265,7 @@ theme_override_styles/hover = ExtResource("4_o2lis")
 text = "!"
 metadata/_edit_use_anchors_ = true
 
-[node name="instructions" type="RichTextLabel" parent="info"]
+[node name="instructions" type="RichTextLabel" parent="info" unique_id=898337283]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -284,7 +284,7 @@ text = "Purchase all 5 upgrades and make £150 to reach the end!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="upgrades" type="VBoxContainer" parent="."]
+[node name="upgrades" type="VBoxContainer" parent="." unique_id=1100457421]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0140625
@@ -300,7 +300,7 @@ theme_override_constants/separation = 12
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="value" type="Button" parent="upgrades"]
+[node name="value" type="Button" parent="upgrades" unique_id=1017078570]
 layout_mode = 2
 tooltip_text = "Sell eggs for 1.5x more value!"
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -311,10 +311,11 @@ theme_override_styles/normal = ExtResource("3_kwc50")
 theme_override_styles/pressed_mirrored = ExtResource("3_kwc50")
 theme_override_styles/hover = ExtResource("4_o2lis")
 theme_override_styles/disabled = ExtResource("5_imuuq")
+disabled = true
 text = "BETTER VALUE"
 metadata/_edit_use_anchors_ = true
 
-[node name="cost" type="RichTextLabel" parent="upgrades/value"]
+[node name="cost" type="RichTextLabel" parent="upgrades/value" unique_id=1598316730]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -332,9 +333,9 @@ theme_override_font_sizes/normal_font_size = 21
 text = "[£24.00]"
 vertical_alignment = 1
 
-[node name="storage" type="Button" parent="upgrades"]
+[node name="size" type="Button" parent="upgrades" unique_id=47784810]
 layout_mode = 2
-tooltip_text = "Upgrade all crates to have +4 storage!"
+tooltip_text = "Orders are no between 4-7"
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_imuuq")
@@ -343,10 +344,10 @@ theme_override_styles/normal = ExtResource("3_kwc50")
 theme_override_styles/pressed_mirrored = ExtResource("3_kwc50")
 theme_override_styles/hover = ExtResource("4_o2lis")
 theme_override_styles/disabled = ExtResource("5_imuuq")
-text = "MORE STORAGE"
+text = "BIGGER ORDERS"
 metadata/_edit_use_anchors_ = true
 
-[node name="cost" type="RichTextLabel" parent="upgrades/storage"]
+[node name="cost" type="RichTextLabel" parent="upgrades/size" unique_id=1711419604]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -364,7 +365,7 @@ theme_override_font_sizes/normal_font_size = 21
 text = "[£35.00]"
 vertical_alignment = 1
 
-[node name="special" type="Button" parent="upgrades"]
+[node name="special" type="Button" parent="upgrades" unique_id=31338210]
 layout_mode = 2
 tooltip_text = "Add special eggs to the mix!"
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -375,10 +376,11 @@ theme_override_styles/normal = ExtResource("3_kwc50")
 theme_override_styles/pressed_mirrored = ExtResource("3_kwc50")
 theme_override_styles/hover = ExtResource("4_o2lis")
 theme_override_styles/disabled = ExtResource("5_imuuq")
+disabled = true
 text = "SPECIAL EGGS"
 metadata/_edit_use_anchors_ = true
 
-[node name="cost" type="RichTextLabel" parent="upgrades/special"]
+[node name="cost" type="RichTextLabel" parent="upgrades/special" unique_id=872557428]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -396,7 +398,7 @@ theme_override_font_sizes/normal_font_size = 21
 text = "[£48.00]"
 vertical_alignment = 1
 
-[node name="bonus" type="Button" parent="upgrades"]
+[node name="bonus" type="Button" parent="upgrades" unique_id=1920140282]
 layout_mode = 2
 tooltip_text = "Double the value of the crate if sold when full!"
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -407,10 +409,11 @@ theme_override_styles/normal = ExtResource("3_kwc50")
 theme_override_styles/pressed_mirrored = ExtResource("3_kwc50")
 theme_override_styles/hover = ExtResource("4_o2lis")
 theme_override_styles/disabled = ExtResource("5_imuuq")
+disabled = true
 text = "EXTRA BONUS"
 metadata/_edit_use_anchors_ = true
 
-[node name="cost" type="RichTextLabel" parent="upgrades/bonus"]
+[node name="cost" type="RichTextLabel" parent="upgrades/bonus" unique_id=1230272781]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -428,7 +431,7 @@ theme_override_font_sizes/normal_font_size = 21
 text = "[£56.00]"
 vertical_alignment = 1
 
-[node name="autosell" type="Button" parent="upgrades"]
+[node name="autosell" type="Button" parent="upgrades" unique_id=568168622]
 layout_mode = 2
 tooltip_text = "When the crate is full, sell automatically!"
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -439,10 +442,11 @@ theme_override_styles/normal = ExtResource("3_kwc50")
 theme_override_styles/pressed_mirrored = ExtResource("3_kwc50")
 theme_override_styles/hover = ExtResource("4_o2lis")
 theme_override_styles/disabled = ExtResource("5_imuuq")
+disabled = true
 text = "AUTO SELL"
 metadata/_edit_use_anchors_ = true
 
-[node name="cost" type="RichTextLabel" parent="upgrades/autosell"]
+[node name="cost" type="RichTextLabel" parent="upgrades/autosell" unique_id=419790009]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -460,10 +464,8 @@ theme_override_font_sizes/normal_font_size = 21
 text = "[£70.00]"
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_gfles")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2020105237]
+libraries/ = SubResource("AnimationLibrary_gfles")
 
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="sell_all" to="." method="_on_sell_all_pressed"]

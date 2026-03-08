@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ddikpf4n1i5wd"]
+[gd_scene format=3 uid="uid://ddikpf4n1i5wd"]
 
 [ext_resource type="Script" uid="uid://bs481merf0egh" path="res://scenes/crate/crate.gd" id="1_jpei4"]
 [ext_resource type="PackedScene" uid="uid://bjw31wopisgbx" path="res://scenes/crate/crate.glb" id="2_j1jke"]
@@ -54,10 +54,10 @@ tracks/0/path = NodePath("sell_receipt:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.662686, -0.009417782, -0.24992484), Vector3(-0.662686, 0.8286186, -0.24992484)]
+"values": [Vector3(-0.662686, -0.009417782, -0.24992484), Vector3(-0.662686, 0.8286186, -0.24992484), Vector3(-0.662686, 0.84441066, -0.24992484)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -110,35 +110,19 @@ grow_amount = 0.01
 [sub_resource type="BoxShape3D" id="BoxShape3D_j1jke"]
 size = Vector3(1.5881348, 0.7529297, 2.2070313)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ssudb"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37q77"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2m3p"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mr6sf"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wltqf"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ysvy"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lddwh"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2rbhf"]
-
-[node name="crate" type="AnimatableBody3D"]
+[node name="crate" type="AnimatableBody3D" unique_id=546551509]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 script = ExtResource("1_jpei4")
 hover_text = "Basic Crate"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_37q77")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=646782335]
+libraries/ = SubResource("AnimationLibrary_37q77")
 
-[node name="mesh" parent="." instance=ExtResource("2_j1jke")]
+[node name="mesh" parent="." unique_id=384308469 instance=ExtResource("2_j1jke")]
 
-[node name="white_outline" parent="." instance=ExtResource("2_j1jke")]
+[node name="white_outline" parent="." unique_id=1984625493 instance=ExtResource("2_j1jke")]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0.008723259, 0, 0)
 visible = false
 
@@ -151,7 +135,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_j1jke")
 [node name="floor" parent="white_outline" index="2"]
 surface_material_override/0 = SubResource("StandardMaterial3D_j1jke")
 
-[node name="red_outline" parent="." instance=ExtResource("2_j1jke")]
+[node name="red_outline" parent="." unique_id=73382139 instance=ExtResource("2_j1jke")]
 transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0.008723259, 0, 0)
 visible = false
 
@@ -164,22 +148,23 @@ surface_material_override/0 = SubResource("StandardMaterial3D_3v208")
 [node name="floor" parent="red_outline" index="2"]
 surface_material_override/0 = SubResource("StandardMaterial3D_3v208")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1933151748]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65826416, 0, -0.2734375)
 shape = SubResource("BoxShape3D_j1jke")
 
-[node name="current_value" type="Label3D" parent="."]
-transform = Transform3D(-4.371138e-08, 0, 0.99999976, 0, 0.99999976, 0, -0.99999976, 0, -4.371138e-08, 0.07380207, -0.0542468, -0.28156188)
+[node name="current_value" type="Label3D" parent="." unique_id=657706011]
+transform = Transform3D(-4.371138e-08, 0, 0.99999976, 0, 0.99999976, 0, -0.99999976, 0, -4.371138e-08, -1.1127203, 0.793359, -0.28156182)
 text = "[0/4] Value: £0.00"
 font = ExtResource("3_3v208")
 font_size = 28
 
-[node name="order" type="Label3D" parent="."]
-transform = Transform3D(-4.371138e-08, 0, 0.99999976, 0, 0.99999976, 0, -0.99999976, 0, -4.371138e-08, -0.64897424, 0.6374425, -0.28156182)
+[node name="order" type="Label3D" parent="." unique_id=479451430]
+transform = Transform3D(-4.371138e-08, 0, 0.99999976, 0, 0.99999976, 0, -0.99999976, 0, -4.371138e-08, 0.0959131, -0.04158417, -0.28156182)
+text = "order goes here"
 font = ExtResource("3_3v208")
 font_size = 28
 
-[node name="sell_receipt" type="Label3D" parent="."]
+[node name="sell_receipt" type="Label3D" parent="." unique_id=1756882082]
 transform = Transform3D(-4.371138e-08, 0, 0.99999976, 0, 0.99999976, 0, -0.99999976, 0, -4.371138e-08, -0.662686, -0.009417782, -0.24992484)
 modulate = Color(1, 1, 1, 0)
 outline_modulate = Color(0, 0, 0, 0)
@@ -187,75 +172,139 @@ text = "+£0.00"
 font = ExtResource("3_3v208")
 font_size = 48
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Node3D" type="Node3D" parent="." unique_id=258746915]
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -0.6536404, 0.24810758, -0.25898972)
 
-[node name="eggs" type="Node3D" parent="."]
+[node name="eggs" type="Node3D" parent="." unique_id=993401881]
 
-[node name="7" parent="eggs" instance=ExtResource("4_ssudb")]
-transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.4691065, -0.10219388, -0.48945984)
-visible = false
-
-[node name="Sphere" parent="eggs/7" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_ssudb")
-
-[node name="8" parent="eggs" instance=ExtResource("4_ssudb")]
-transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.4691065, -0.10219388, -0.9134933)
-visible = false
-
-[node name="Sphere" parent="eggs/8" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_37q77")
-
-[node name="3" parent="eggs" instance=ExtResource("4_ssudb")]
-transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.887787, -0.10219388, -0.48945984)
-visible = false
-
-[node name="Sphere" parent="eggs/3" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_p2m3p")
-
-[node name="4" parent="eggs" instance=ExtResource("4_ssudb")]
-transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.887787, -0.10219388, -0.9134933)
-visible = false
-
-[node name="Sphere" parent="eggs/4" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_mr6sf")
-
-[node name="5" parent="eggs" instance=ExtResource("4_ssudb")]
-transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.4691065, -0.10219388, 0.3535861)
-visible = false
-
-[node name="Sphere" parent="eggs/5" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_wltqf")
-
-[node name="6" parent="eggs" instance=ExtResource("4_ssudb")]
-transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.4691065, -0.10219388, -0.070447385)
-visible = false
-
-[node name="Sphere" parent="eggs/6" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_6ysvy")
-
-[node name="1" parent="eggs" instance=ExtResource("4_ssudb")]
-transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.887787, -0.10219388, 0.3535861)
+[node name="1" parent="eggs" unique_id=1448054694 instance=ExtResource("4_ssudb")]
+transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.8445434, 0.19265166, 0.3535861)
 visible = false
 
 [node name="Sphere" parent="eggs/1" index="1"]
 surface_material_override/0 = SubResource("StandardMaterial3D_lddwh")
 
-[node name="2" parent="eggs" instance=ExtResource("4_ssudb")]
-transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.887787, -0.10219388, -0.070447266)
+[node name="multipler" type="Label3D" parent="eggs/1" unique_id=457712962]
+transform = Transform3D(-4.371136e-08, 0, 0.9999994, 0, 0.9999996, 0, -0.9999994, 0, -4.371136e-08, 0.012932777, 1.8875468, 0)
+modulate = Color(0.16470589, 0.9607843, 0.15294118, 1)
+text = "1x"
+font = ExtResource("3_3v208")
+font_size = 155
+outline_size = 30
+
+[node name="2" parent="eggs" unique_id=1389303952 instance=ExtResource("4_ssudb")]
+transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.8445434, 0.19265166, -0.07595816)
 visible = false
 
 [node name="Sphere" parent="eggs/2" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_2rbhf")
+surface_material_override/0 = SubResource("StandardMaterial3D_lddwh")
+
+[node name="multipler" type="Label3D" parent="eggs/2" unique_id=630261457]
+transform = Transform3D(-4.371136e-08, 0, 0.9999994, 0, 0.9999996, 0, -0.9999994, 0, -4.371136e-08, 0.012932777, 1.8875468, 0)
+modulate = Color(0.16470589, 0.9607843, 0.15294118, 1)
+text = "1x"
+font = ExtResource("3_3v208")
+font_size = 155
+outline_size = 30
+
+[node name="3" parent="eggs" unique_id=1043478543 instance=ExtResource("4_ssudb")]
+transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.8445434, 0.19265166, -0.4988343)
+visible = false
+
+[node name="Sphere" parent="eggs/3" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_lddwh")
+
+[node name="multipler" type="Label3D" parent="eggs/3" unique_id=57925489]
+transform = Transform3D(-4.371136e-08, 0, 0.9999994, 0, 0.9999996, 0, -0.9999994, 0, -4.371136e-08, 0.012932777, 1.8875468, 0)
+modulate = Color(0.16470589, 0.9607843, 0.15294118, 1)
+text = "1x"
+font = ExtResource("3_3v208")
+font_size = 155
+outline_size = 30
+
+[node name="4" parent="eggs" unique_id=373459927 instance=ExtResource("4_ssudb")]
+transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.8445434, 0.19265166, -0.92837864)
+visible = false
+
+[node name="Sphere" parent="eggs/4" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_lddwh")
+
+[node name="multipler" type="Label3D" parent="eggs/4" unique_id=937272008]
+transform = Transform3D(-4.371136e-08, 0, 0.9999994, 0, 0.9999996, 0, -0.9999994, 0, -4.371136e-08, 0.012932777, 1.8875468, 0)
+modulate = Color(0.16470589, 0.9607843, 0.15294118, 1)
+text = "1x"
+font = ExtResource("3_3v208")
+font_size = 155
+outline_size = 30
+
+[node name="5" parent="eggs" unique_id=1521402423 instance=ExtResource("4_ssudb")]
+transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.41210973, 0.19265166, 0.3535861)
+visible = false
+
+[node name="Sphere" parent="eggs/5" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_lddwh")
+
+[node name="multipler" type="Label3D" parent="eggs/5" unique_id=1017746776]
+transform = Transform3D(-4.371136e-08, 0, 0.9999994, 0, 0.9999996, 0, -0.9999994, 0, -4.371136e-08, 0.012932777, 1.8875468, 0)
+modulate = Color(0.16470589, 0.9607843, 0.15294118, 1)
+text = "1x"
+font = ExtResource("3_3v208")
+font_size = 155
+outline_size = 30
+
+[node name="6" parent="eggs" unique_id=726533748 instance=ExtResource("4_ssudb")]
+transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.41210973, 0.19265166, -0.07595816)
+visible = false
+
+[node name="Sphere" parent="eggs/6" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_lddwh")
+
+[node name="multipler" type="Label3D" parent="eggs/6" unique_id=1784771632]
+transform = Transform3D(-4.371136e-08, 0, 0.9999994, 0, 0.9999996, 0, -0.9999994, 0, -4.371136e-08, 0.012932777, 1.8875468, 0)
+modulate = Color(0.16470589, 0.9607843, 0.15294118, 1)
+text = "1x"
+font = ExtResource("3_3v208")
+font_size = 155
+outline_size = 30
+
+[node name="7" parent="eggs" unique_id=1649662740 instance=ExtResource("4_ssudb")]
+transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.41210973, 0.19265166, -0.4988343)
+visible = false
+
+[node name="Sphere" parent="eggs/7" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_lddwh")
+
+[node name="multipler" type="Label3D" parent="eggs/7" unique_id=1419566715]
+transform = Transform3D(-4.371136e-08, 0, 0.9999994, 0, 0.9999996, 0, -0.9999994, 0, -4.371136e-08, 0.012932777, 1.8875468, 0)
+modulate = Color(0.16470589, 0.9607843, 0.15294118, 1)
+text = "1x"
+font = ExtResource("3_3v208")
+font_size = 155
+outline_size = 30
+
+[node name="8" parent="eggs" unique_id=223173005 instance=ExtResource("4_ssudb")]
+transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0.41210973, 0.19265166, -0.92837864)
+visible = false
+
+[node name="Sphere" parent="eggs/8" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_lddwh")
+
+[node name="multipler" type="Label3D" parent="eggs/8" unique_id=1775425304]
+transform = Transform3D(-4.371136e-08, 0, 0.9999994, 0, 0.9999996, 0, -0.9999994, 0, -4.371136e-08, 0.012932777, 1.8875468, 0)
+modulate = Color(0.16470589, 0.9607843, 0.15294118, 1)
+text = "1x"
+font = ExtResource("3_3v208")
+font_size = 155
+outline_size = 30
 
 [editable path="mesh"]
 [editable path="white_outline"]
 [editable path="red_outline"]
-[editable path="eggs/7"]
-[editable path="eggs/8"]
+[editable path="eggs/1"]
+[editable path="eggs/2"]
 [editable path="eggs/3"]
 [editable path="eggs/4"]
 [editable path="eggs/5"]
 [editable path="eggs/6"]
-[editable path="eggs/1"]
-[editable path="eggs/2"]
+[editable path="eggs/7"]
+[editable path="eggs/8"]

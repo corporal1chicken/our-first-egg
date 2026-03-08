@@ -10,8 +10,8 @@ var upgrades = {
 		key = "value",
 		cost = 24.0
 	},
-	storage = {
-		key = "storage",
+	size = {
+		key = "size",
 		cost = 35.0
 	},
 	special = {

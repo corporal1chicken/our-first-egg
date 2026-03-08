@@ -4,7 +4,7 @@ var template: Interactable
 var crates: Node3D
 
 # Test Amount: 1178
-var player_money: float = 0.0
+var player_money: float = 72.0
 var on_menu: bool = true
 var holding_egg: bool = false
 

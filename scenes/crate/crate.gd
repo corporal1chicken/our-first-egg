@@ -7,6 +7,8 @@ extends Interactable
 @export var hover_position: Vector3
 @export var default_position: Vector3
 @export var item_position: Vector3
+@export var min_size: int = 2
+@export var max_size: int = 4
 
 @onready var display_eggs: Node3D = $eggs
 
@@ -60,7 +62,7 @@ func _get_random_egg():
 	return "red"
 	
 func _create_order():
-	var amount = randi_range(2, 5)
+	var amount = randi_range(min_size, max_size)
 	
 	current_order = []
 	emoji_text = []
@@ -97,17 +99,24 @@ func _check_if_full(weight) -> bool:
 		
 	return false
 	
-func _show_egg():
+func _show_egg(value: float):
 	var found_egg = display_eggs.get_node_or_null(str(actual_amount))
 	
 	if found_egg == null:
 		return
 	
 	var sphere = found_egg.get_node("Sphere")
+	var label = found_egg.get_node("multipler")
 	var material_clone = sphere.get_surface_override_material(0).duplicate()
 	material_clone.albedo_color = Manager.egg.current_type.colour
 	sphere.set_surface_override_material(0, material_clone)
 	found_egg.visible = true
+	label.text = "%sx" % str(value)
+	
+	if value == 1.0:
+		label.modulate = Color.html("#2af527")
+	else:
+		label.modulate = Color.html("#fb003a")
 	
 func selling():	
 	if busy: return
@@ -117,10 +126,14 @@ func selling():
 	block_click = true
 	
 	Manager.change_money("add", crate_value)
+	$current_value.visible = false
+	$order.text = "SELLING"
 
 	$AnimationPlayer.play("sell_receipt")
 	await $AnimationPlayer.animation_finished
 	$AnimationPlayer.play("RESET")
+	
+	$current_value.visible = true
 	
 	current_fill = 0
 	crate_value = 0.0
@@ -158,7 +171,7 @@ func _filling():
 	actual_amount += 1
 	
 	_update_text()
-	_show_egg()
+	_show_egg(multiplier)
 	
 	Manager.end_hold_egg()
 	
@@ -208,4 +221,11 @@ func _on_upgrade_bought(key: String):
 	#	autosell = true
 	#elif key == "bonus":
 	#	sell_multiplier = 2.0
+	
+	if key == "autosell":
+		autosell = true
+	elif key == "size":
+		min_size = 4
+		max_size = 7
+	
 	pass
