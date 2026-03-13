@@ -58,6 +58,9 @@ func show_menu():
 	animation_player.play_backwards("play")
 	
 func hide_menu():	
+	if not Manager.game_started:
+		Manager.start_game()
+	
 	Manager.on_menu = false
 	animation_player.play("play")
 	await animation_player.animation_finished

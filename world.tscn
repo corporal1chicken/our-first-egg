@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b5w366um4o6mg" path="res://assets/meshes/rack.glb" id="6_dwbse"]
 [ext_resource type="PackedScene" uid="uid://6f5dggfdh0rf" path="res://assets/meshes/large_crate.glb" id="7_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://dsimiwtrir428" path="res://scenes/bin/bin.tscn" id="9_ioo17"]
+[ext_resource type="PackedScene" uid="uid://dgigw2lt6nn5q" path="res://scenes/pallet/pallet.tscn" id="10_wse8f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
 sky_top_color = Color(0, 0.33471826, 0.59548074, 1)
@@ -53,24 +54,24 @@ transform = Transform3D(0.6341674, 0, 0.2963642, 0, 0.7, 0, -0.2963642, 0, 0.634
 transform = Transform3D(0.3653911, 0, 0.34130535, 0, 0.5, 0, -0.34130535, 0, 0.3653911, -1.9335861, 0.52806133, 0.99138165)
 max_capacity = 6
 hover_position = Vector3(-1.47, 0.528, 0.522)
-hover_text = "Regular Crate"
+hover_text = "Crate #4"
 
 [node name="2" parent="build/crates" unique_id=1005043956 instance=ExtResource("5_036b0")]
 transform = Transform3D(0.22788128, 0, 0.4450507, 0, 0.5, 0, -0.4450507, 0, 0.22788128, -0.9452728, 0.52806133, 1.954659)
 hover_position = Vector3(-0.58, 0.528, 1.476)
-hover_text = "Yellow Crate"
+hover_text = "Crate #3"
 
 [node name="3" parent="build/crates" unique_id=12029861 instance=ExtResource("5_036b0")]
 transform = Transform3D(0.45019737, 0, 0.2175369, 0, 0.5, 0, -0.2175369, 0, 0.45019737, -1.9872838, 1.8254209, 1.1341082)
 max_capacity = 3
 hover_position = Vector3(-1.476, 1.825, 0.673)
-hover_text = "Burnt Crate"
+hover_text = "Crate #2"
 
 [node name="4" parent="build/crates" unique_id=1573683226 instance=ExtResource("5_036b0")]
 transform = Transform3D(0.3486703, 0, 0.35837013, 0, 0.5, 0, -0.35837013, 0, 0.3486703, -1.0074911, 1.8254209, 2.0984046)
 max_capacity = 3
 hover_position = Vector3(-0.48, 1.825, 1.537)
-hover_text = "Special Crate"
+hover_text = "Crate #1"
 
 [node name="decor" type="Node3D" parent="build" unique_id=282915924]
 
@@ -90,12 +91,12 @@ transform = Transform3D(0.399321, 0, 0.023297414, 0, 0.39999998, 0, -0.023297414
 transform = Transform3D(0.2211007, 0, 0.33333835, 0, 0.39999995, 0, -0.33333835, 0, 0.2211007, -3.4814038, 1.4678327, -0.36431777)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1324722349]
-transform = Transform3D(-0.92672557, -0.22032298, 0.30436435, 5.7281353e-09, 0.8100418, 0.58637226, -0.37573913, 0.5434061, -0.75068635, 0.036373496, 3.0407865, -0.37115204)
+transform = Transform3D(-0.87591964, -0.28289938, 0.3908104, -1.6667661e-08, 0.81004196, 0.58637226, -0.4824571, 0.5136149, -0.70953155, 0.036373496, 3.0407865, -0.44475925)
 
 [node name="user_interface" parent="." unique_id=1498074921 instance=ExtResource("4_aqk2v")]
 
 [node name="chicken" parent="." unique_id=1081540142 instance=ExtResource("4_036b0")]
-transform = Transform3D(-0.5609289, 0, 0.41875872, 0, 0.6999999, 0, -0.41875872, 0, -0.5609289, 0.75999594, 0.45620292, 2.1840346)
+transform = Transform3D(-0.5609289, 0, 0.41875872, 0, 0.6999999, 0, -0.41875872, 0, -0.5609289, 0.75999594, 4.790263, 2.1840346)
 hover_text = "Get Egg"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=227668669]
@@ -107,3 +108,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.4, 5, 1.5)
 
 [node name="bin" parent="." unique_id=1420960629 instance=ExtResource("9_ioo17")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 1.7856419, 0.6344373, 3.134418)
+
+[node name="pallet" parent="." unique_id=1861965737 node_paths=PackedStringArray("temp") instance=ExtResource("10_wse8f")]
+transform = Transform3D(0.40424776, 0, 0.91464955, 0, 1, 0, -0.91464955, 0, 0.40424776, 0.5451395, 0.32400942, 1.6056103)
+temp = NodePath("../template")

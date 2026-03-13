@@ -5,7 +5,7 @@
 		"value": 1.0,
 		"colour": "#fb003a",
 		"type": "red",
-		"emoji": "🟥"
+		"emoji": "🔴"
 	},
 	"orange": {
 		"chance": 10.0,
@@ -13,7 +13,7 @@
 		"value": 1.0,
 		"colour": "#ff9d00",
 		"type": "orange",
-		"emoji": "🟧"
+		"emoji": "🟠"
 	},
 	"yellow": {
 		"chance": 10.0,
@@ -21,7 +21,7 @@
 		"value": 1.0,
 		"colour": "#f5eb27",
 		"type": "yellow",
-		"emoji": "🟨"
+		"emoji": "🟡"
 	},
 	"green": {
 		"chance": 10.0,
@@ -29,7 +29,7 @@
 		"value": 1.0,
 		"colour": "#2af527",
 		"type": "green",
-		"emoji": "🟩"
+		"emoji": "🟢"
 	},
 	"blue": {
 		"chance": 10.0,
@@ -37,7 +37,7 @@
 		"value": 1.0,
 		"colour": "#2761f5",
 		"type": "blue",
-		"emoji": "🟦"
+		"emoji": "🔵"
 	},
 	"purple": {
 		"chance": 10.0,
@@ -45,23 +45,15 @@
 		"value": 1.0,
 		"colour": "#9f27f5",
 		"type": "purple",
-		"emoji": "🟪"
+		"emoji": "🟣"
 	},
-	"pink": {
+	"brown": {
 		"chance": 10.0,
 		"weight": 1,
 		"value": 1.0,
-		"colour": "#f527eb",
-		"type": "pink",
-		"emoji": "pink"
-	},
-	"grey": {
-		"chance": 10.0,
-		"weight": 1,
-		"value": 1.0,
-		"colour": "#808080",
-		"type": "grey",
-		"emoji": "grey"
+		"colour": "#754700",
+		"type": "brown",
+		"emoji": "🟤"
 	},
 	"white": {
 		"chance": 10.0,
@@ -69,7 +61,7 @@
 		"value": 1.0,
 		"colour": "#ffffff",
 		"type": "white",
-		"emoji": "⬜"
+		"emoji": "⚪️"
 	},
 	"black": {
 		"chance": 10.0,
@@ -77,6 +69,6 @@
 		"value": 1.0,
 		"colour": "#000000",
 		"type": "black",
-		"emoji": "black"
+		"emoji": "⚫️"
 	},
 }

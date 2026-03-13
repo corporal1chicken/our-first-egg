@@ -6,6 +6,8 @@ signal hover_ended()
 signal update_ui()
 signal menu_opened()
 signal menu_closed()
+signal game_started()
+signal start_round()
 
 signal start_hold_egg()
 signal end_hold_egg()

@@ -26,6 +26,7 @@ func _process(_delta: float):
 			
 	if current_hover != hit:
 		if current_hover:
+			
 			current_hover.call("exit_hover")
 			Signals.hover_ended.emit()
 		

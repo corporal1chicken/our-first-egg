@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://dgigw2lt6nn5q"]
+
+[ext_resource type="Script" uid="uid://duaxiq0ndvj2q" path="res://scenes/pallet/pallet.gd" id="1_f5gwx"]
+[ext_resource type="PackedScene" uid="uid://bicp0i368104h" path="res://scenes/egg/egg.tscn" id="2_3vrls"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_waf7a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f5gwx"]
+
+[node name="pallet" type="Node3D" unique_id=1861965737]
+script = ExtResource("1_f5gwx")
+egg = ExtResource("2_3vrls")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1208641058]
+transform = Transform3D(1.2, 0, 0, 0, 0.12, 0, 0, 0, 1.2, 0, 0, 0)
+mesh = SubResource("BoxMesh_waf7a")
+surface_material_override/0 = SubResource("StandardMaterial3D_f5gwx")
+
+[node name="positions" type="Node3D" parent="." unique_id=691815732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3669505, 0.12483886, -0.24335122)
+
+[node name="eggs" type="Node3D" parent="." unique_id=2021284050]
+
+[node name="1" parent="eggs" unique_id=1687730437 instance=ExtResource("2_3vrls")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.4289422, 0.07298359, 0.42202318)
+visible = false
+block_hover = true
+block_click = true
+
+[node name="2" parent="eggs" unique_id=610216095 instance=ExtResource("2_3vrls")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.4289422, 0.07298359, 0.19762361)
+visible = false
+block_hover = true
+block_click = true
+
+[node name="3" parent="eggs" unique_id=1054339821 instance=ExtResource("2_3vrls")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.4289422, 0.07298359, -0.022875518)
+visible = false
+block_hover = true
+block_click = true
+
+[node name="4" parent="eggs" unique_id=1357142554 instance=ExtResource("2_3vrls")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.4289422, 0.07298359, -0.2397637)
+visible = false
+block_hover = true
+block_click = true
+
+[node name="5" parent="eggs" unique_id=6315187 instance=ExtResource("2_3vrls")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.4289422, 0.07298359, -0.45387128)
+visible = false
+block_hover = true
+block_click = true
+
+[node name="6" parent="eggs" unique_id=822409505 instance=ExtResource("2_3vrls")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.15507126, 0.07298359, 0.42202318)
+visible = false
+block_hover = true
+block_click = true
+
+[node name="7" parent="eggs" unique_id=1971732768 instance=ExtResource("2_3vrls")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.15507126, 0.07298359, 0.19762361)
+visible = false
+block_hover = true
+block_click = true
+
+[node name="8" parent="eggs" unique_id=1841755279 instance=ExtResource("2_3vrls")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.15507126, 0.07298359, -0.022875518)
+visible = false
+block_hover = true
+block_click = true
+
+[node name="9" parent="eggs" unique_id=2139264889 instance=ExtResource("2_3vrls")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.15507126, 0.07298359, -0.2397637)
+visible = false
+block_hover = true
+block_click = true
+
+[node name="10" parent="eggs" unique_id=1333534145 instance=ExtResource("2_3vrls")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.15507126, 0.07298359, -0.45387128)
+visible = false
+block_hover = true
+block_click = true
+
+[node name="11" parent="eggs" unique_id=1608833614 instance=ExtResource("2_3vrls")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.11703277, 0.07298359, 0.42202318)
+visible = false
+block_hover = true
+block_click = true
+
+[node name="12" parent="eggs" unique_id=1616023722 instance=ExtResource("2_3vrls")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.11703277, 0.07298359, 0.19762361)
+visible = false
+block_hover = true
+block_click = true
+
+[node name="13" parent="eggs" unique_id=2092832643 instance=ExtResource("2_3vrls")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.11703277, 0.07298359, -0.022875518)
+visible = false
+block_hover = true
+block_click = true
+
+[node name="14" parent="eggs" unique_id=65277776 instance=ExtResource("2_3vrls")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.11703277, 0.07298359, -0.2397637)
+visible = false
+block_hover = true
+block_click = true
+
+[node name="15" parent="eggs" unique_id=939010662 instance=ExtResource("2_3vrls")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.11703277, 0.07298359, -0.45387128)
+visible = false
+block_hover = true
+block_click = true
+
+[node name="16" parent="eggs" unique_id=583094305 instance=ExtResource("2_3vrls")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.38555932, 0.07298359, 0.42202318)
+visible = false
+block_hover = true
+block_click = true
+
+[node name="17" parent="eggs" unique_id=2040470917 instance=ExtResource("2_3vrls")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.38555932, 0.07298359, 0.19762361)
+visible = false
+block_hover = true
+block_click = true
+
+[node name="18" parent="eggs" unique_id=1805161198 instance=ExtResource("2_3vrls")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.38555932, 0.07298359, -0.022875518)
+visible = false
+block_hover = true
+block_click = true
+
+[node name="19" parent="eggs" unique_id=1643932647 instance=ExtResource("2_3vrls")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.38555932, 0.07298359, -0.2397637)
+visible = false
+block_hover = true
+block_click = true
+
+[node name="20" parent="eggs" unique_id=1410460895 instance=ExtResource("2_3vrls")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.38555932, 0.07298359, -0.45387128)
+visible = false
+block_hover = true
+block_click = true

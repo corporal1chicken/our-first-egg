@@ -26,6 +26,7 @@ var file_path: String = "res://resources/data/egg_types.json"
 var pool: Dictionary
 var current_order: Array
 var emoji_text: Array
+var can_sell: bool = true
 
 func _ready():
 	_add_to_group(self)
@@ -117,8 +118,14 @@ func _show_egg(value: float):
 		label.modulate = Color.html("#2af527")
 	else:
 		label.modulate = Color.html("#fb003a")
-	
+
+func _reset_crate():
+	pass
+
 func selling():	
+	if not can_sell:
+		return
+	
 	if busy: return
 	if current_fill == 0: return
 	
@@ -133,21 +140,23 @@ func selling():
 	await $AnimationPlayer.animation_finished
 	$AnimationPlayer.play("RESET")
 	
-	$current_value.visible = true
+	$current_value.visible = false
 	
 	current_fill = 0
 	crate_value = 0.0
 	actual_amount = 0
 	
 	for egg in display_eggs.get_children(): egg.visible = false
-	
-	_create_order()
 
 	busy = false
 	block_click = false
+	can_sell = false
+	$order.text = "COMPLETE"
+	
 	_hover_state()
 	
 func _filling():
+	if not can_sell: return
 	if busy: return
 	if not Manager.holding_egg: return
 	

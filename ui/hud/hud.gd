@@ -59,6 +59,7 @@ func _on_menu_closed():
 	$AnimationPlayer.play("enter")
 
 func _on_holding_egg():
+	$egg_status.text = "Holding %s Egg" % Manager.egg.name.capitalize()
 	$egg_status.visible = true
 	
 func _on_cancel_egg():

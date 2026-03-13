@@ -55,18 +55,18 @@ func _pick_egg() -> String:
 			
 	return "red"
 
-func setup():
+func setup(colour):
 	await get_tree().process_frame
 	
-	var chosen_egg = _pick_egg()
-	current_type = new_egg_types[chosen_egg]
+	#var chosen_egg = _pick_egg()
+	current_type = new_egg_types[colour]
 	
 	var material = mesh_instance.get_surface_override_material(0)
 	material.albedo_color = Color.html(current_type.colour)
 	
-	self.hover_text = "[Value: £%.2f] %s Egg" % [get_sell_value(), chosen_egg.capitalize()]
+	self.hover_text = "[Value: £%.2f] %s Egg" % [get_sell_value(), colour.capitalize()]
 	
-	tween_egg("position", GROUND_POSITION, 1.0)
+	#tween_egg("position", GROUND_POSITION, 1.0)
 
 func get_sell_value():
 	return current_type.value
@@ -86,8 +86,7 @@ func exit_hover():
 func clicked():
 	match current_state:
 		0:
-			if Manager.holding_egg: return
-			Manager.start_hold_egg()
+			Manager.start_hold_egg(self)
 			current_state = State.HELD
 		1:
 			Manager.cancel_hold_egg()
