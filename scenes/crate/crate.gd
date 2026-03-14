@@ -27,6 +27,7 @@ var pool: Dictionary
 var current_order: Array
 var emoji_text: Array
 var can_sell: bool = true
+var streak_broken: bool = false
 
 func _ready():
 	_add_to_group(self)
@@ -44,6 +45,7 @@ func _ready():
 	Signals.start_hold_egg.connect(_on_start_hold)
 	Signals.end_hold_egg.connect(_on_end_hold)
 	Signals.upgrade_bought.connect(_on_upgrade_bought)
+	Signals.game_started.connect(_create_order)
 
 func _get_random_egg():
 	var total_weight = 0
@@ -77,6 +79,7 @@ func _create_order():
 		max_capacity += pool[egg].weight
 	
 	_update_text()
+	can_sell = true
 	
 func _hover_state():
 	var target_position = hover_position if mouse_hovering else default_position
@@ -116,6 +119,8 @@ func _show_egg(value: float):
 	
 	if value == 1.0:
 		label.modulate = Color.html("#2af527")
+	elif value == 1.2:
+		label.modulate = Color.html("#ffb33d")
 	else:
 		label.modulate = Color.html("#fb003a")
 
@@ -123,11 +128,10 @@ func _reset_crate():
 	pass
 
 func selling():	
-	if not can_sell:
-		return
-	
 	if busy: return
-	if current_fill == 0: return
+	if current_fill != max_capacity: return
+	
+	if not can_sell: return
 	
 	busy = true
 	block_click = true
@@ -135,7 +139,20 @@ func selling():
 	Manager.change_money("add", crate_value)
 	$current_value.visible = false
 	$order.text = "SELLING"
-
+	
+	for egg in display_eggs.get_children():
+		if not egg.visible: continue
+		
+		var sphere = egg.get_node("Sphere")
+		var label = egg.get_node("multipler")
+		var material = sphere.get_surface_override_material(0)
+		
+		var tween = create_tween()
+		tween.set_parallel(true)
+		tween.tween_property(material, "albedo_color:a", 0.0, 0.3)
+		tween.tween_property(label, "modulate:a", 0.0, 0.3)
+		await tween.finished
+	
 	$AnimationPlayer.play("sell_receipt")
 	await $AnimationPlayer.animation_finished
 	$AnimationPlayer.play("RESET")
@@ -145,8 +162,9 @@ func selling():
 	current_fill = 0
 	crate_value = 0.0
 	actual_amount = 0
+	Manager.crates_sold += 1
 	
-	for egg in display_eggs.get_children(): egg.visible = false
+	#for egg in display_eggs.get_children(): egg.visible = false
 
 	busy = false
 	block_click = false
@@ -169,6 +187,15 @@ func _filling():
 		return
 	
 	if current_order.has(type):
+		if current_order[0] == type:
+			if not streak_broken:
+				Signals.debug_signal.emit("is first")
+			
+				multiplier = 1.2
+		else:
+			Signals.debug_signal.emit("streak_broken")
+			streak_broken = true
+		
 		current_order.erase(type)
 		emoji_text.erase(pool[type].emoji)
 	else:

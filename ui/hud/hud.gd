@@ -36,6 +36,7 @@ func _ready():
 	Signals.menu_closed.connect(_on_menu_closed)
 	Signals.start_hold_egg.connect(_on_holding_egg)
 	Signals.end_hold_egg.connect(_on_cancel_egg)
+	Signals.debug_signal.connect(_on_debug_signal)
 	
 	for upgrade in upgrades_holder.get_children():
 		upgrade.pressed.connect(_on_upgrade_pressed.bind(upgrade))
@@ -87,3 +88,6 @@ func _on_info_mouse_entered() -> void:
 
 func _on_info_mouse_exited() -> void:
 	$info/instructions.visible = false
+
+func _on_debug_signal(new_text):
+	$debug.text = new_text

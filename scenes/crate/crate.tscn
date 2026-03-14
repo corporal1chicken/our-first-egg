@@ -110,7 +110,29 @@ grow_amount = 0.01
 [sub_resource type="BoxShape3D" id="BoxShape3D_j1jke"]
 size = Vector3(1.5881348, 0.7529297, 2.2070313)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2m3p"]
+transparency = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mr6sf"]
+transparency = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wltqf"]
+transparency = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ysvy"]
+transparency = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2rbhf"]
+transparency = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qr5d"]
+transparency = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mdd4e"]
+transparency = 1
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lddwh"]
+transparency = 1
 
 [node name="crate" type="AnimatableBody3D" unique_id=546551509]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
@@ -182,11 +204,12 @@ transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0
 visible = false
 
 [node name="Sphere" parent="eggs/1" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_lddwh")
+surface_material_override/0 = SubResource("StandardMaterial3D_p2m3p")
 
 [node name="multipler" type="Label3D" parent="eggs/1" unique_id=457712962]
-transform = Transform3D(-4.371136e-08, 0, 0.9999994, 0, 0.9999996, 0, -0.9999994, 0, -4.371136e-08, 0.012932777, 1.8875468, 0)
+transform = Transform3D(-4.371136e-08, 0, 0.9999994, 0, 0.9999996, 0, -0.9999994, 0, -4.371136e-08, 0.013, 1.88, 0)
 modulate = Color(0.16470589, 0.9607843, 0.15294118, 1)
+outline_modulate = Color(0, 0, 0, 0)
 text = "1x"
 font = ExtResource("3_3v208")
 font_size = 155
@@ -197,11 +220,12 @@ transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0
 visible = false
 
 [node name="Sphere" parent="eggs/2" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_lddwh")
+surface_material_override/0 = SubResource("StandardMaterial3D_mr6sf")
 
 [node name="multipler" type="Label3D" parent="eggs/2" unique_id=630261457]
 transform = Transform3D(-4.371136e-08, 0, 0.9999994, 0, 0.9999996, 0, -0.9999994, 0, -4.371136e-08, 0.012932777, 1.8875468, 0)
 modulate = Color(0.16470589, 0.9607843, 0.15294118, 1)
+outline_modulate = Color(0, 0, 0, 0)
 text = "1x"
 font = ExtResource("3_3v208")
 font_size = 155
@@ -212,11 +236,12 @@ transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0
 visible = false
 
 [node name="Sphere" parent="eggs/3" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_lddwh")
+surface_material_override/0 = SubResource("StandardMaterial3D_wltqf")
 
 [node name="multipler" type="Label3D" parent="eggs/3" unique_id=57925489]
 transform = Transform3D(-4.371136e-08, 0, 0.9999994, 0, 0.9999996, 0, -0.9999994, 0, -4.371136e-08, 0.012932777, 1.8875468, 0)
 modulate = Color(0.16470589, 0.9607843, 0.15294118, 1)
+outline_modulate = Color(0, 0, 0, 0)
 text = "1x"
 font = ExtResource("3_3v208")
 font_size = 155
@@ -227,11 +252,12 @@ transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0
 visible = false
 
 [node name="Sphere" parent="eggs/4" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_lddwh")
+surface_material_override/0 = SubResource("StandardMaterial3D_6ysvy")
 
 [node name="multipler" type="Label3D" parent="eggs/4" unique_id=937272008]
 transform = Transform3D(-4.371136e-08, 0, 0.9999994, 0, 0.9999996, 0, -0.9999994, 0, -4.371136e-08, 0.012932777, 1.8875468, 0)
 modulate = Color(0.16470589, 0.9607843, 0.15294118, 1)
+outline_modulate = Color(0, 0, 0, 0)
 text = "1x"
 font = ExtResource("3_3v208")
 font_size = 155
@@ -242,11 +268,12 @@ transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0
 visible = false
 
 [node name="Sphere" parent="eggs/5" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_lddwh")
+surface_material_override/0 = SubResource("StandardMaterial3D_2rbhf")
 
 [node name="multipler" type="Label3D" parent="eggs/5" unique_id=1017746776]
 transform = Transform3D(-4.371136e-08, 0, 0.9999994, 0, 0.9999996, 0, -0.9999994, 0, -4.371136e-08, 0.012932777, 1.8875468, 0)
 modulate = Color(0.16470589, 0.9607843, 0.15294118, 1)
+outline_modulate = Color(0, 0, 0, 0)
 text = "1x"
 font = ExtResource("3_3v208")
 font_size = 155
@@ -257,11 +284,12 @@ transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0
 visible = false
 
 [node name="Sphere" parent="eggs/6" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_lddwh")
+surface_material_override/0 = SubResource("StandardMaterial3D_6qr5d")
 
 [node name="multipler" type="Label3D" parent="eggs/6" unique_id=1784771632]
 transform = Transform3D(-4.371136e-08, 0, 0.9999994, 0, 0.9999996, 0, -0.9999994, 0, -4.371136e-08, 0.012932777, 1.8875468, 0)
 modulate = Color(0.16470589, 0.9607843, 0.15294118, 1)
+outline_modulate = Color(0, 0, 0, 0)
 text = "1x"
 font = ExtResource("3_3v208")
 font_size = 155
@@ -272,11 +300,12 @@ transform = Transform3D(0.19999996, 0, 0, 0, 0.19999996, 0, 0, 0, 0.19999996, -0
 visible = false
 
 [node name="Sphere" parent="eggs/7" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_lddwh")
+surface_material_override/0 = SubResource("StandardMaterial3D_mdd4e")
 
 [node name="multipler" type="Label3D" parent="eggs/7" unique_id=1419566715]
 transform = Transform3D(-4.371136e-08, 0, 0.9999994, 0, 0.9999996, 0, -0.9999994, 0, -4.371136e-08, 0.012932777, 1.8875468, 0)
 modulate = Color(0.16470589, 0.9607843, 0.15294118, 1)
+outline_modulate = Color(0, 0, 0, 0)
 text = "1x"
 font = ExtResource("3_3v208")
 font_size = 155
@@ -292,6 +321,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_lddwh")
 [node name="multipler" type="Label3D" parent="eggs/8" unique_id=1775425304]
 transform = Transform3D(-4.371136e-08, 0, 0.9999994, 0, 0.9999996, 0, -0.9999994, 0, -4.371136e-08, 0.012932777, 1.8875468, 0)
 modulate = Color(0.16470589, 0.9607843, 0.15294118, 1)
+outline_modulate = Color(0, 0, 0, 0)
 text = "1x"
 font = ExtResource("3_3v208")
 font_size = 155

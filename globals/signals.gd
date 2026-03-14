@@ -15,3 +15,5 @@ signal end_hold_egg()
 signal upgrade_bought(key: String)
 
 signal ending_reached()
+
+signal debug_signal(text)

@@ -207,6 +207,22 @@ text = "Holding Egg"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="debug" type="RichTextLabel" parent="." unique_id=2140064312]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6947917
+anchor_top = 0.88703704
+anchor_right = 0.99322915
+anchor_bottom = 0.9907407
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 0.56078434)
+theme_override_fonts/normal_font = ExtResource("2_imuuq")
+theme_override_font_sizes/normal_font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="menu" type="Button" parent="." unique_id=246980324]
 layout_mode = 1
 anchors_preset = -1
@@ -227,6 +243,7 @@ text = "MENU"
 metadata/_edit_use_anchors_ = true
 
 [node name="sell_all" type="Button" parent="." unique_id=1783757012]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.013541667

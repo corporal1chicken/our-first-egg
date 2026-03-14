@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://3xj71bw3hus4"]
+[gd_scene format=3 uid="uid://3xj71bw3hus4"]
 
 [ext_resource type="Theme" uid="uid://byc6vgm5a6k8w" path="res://resources/themes/default.tres" id="1_mu8pm"]
 [ext_resource type="Script" uid="uid://2eqlbmxx5g8w" path="res://ui/main_menu/main_menu.gd" id="1_uhj5c"]
 [ext_resource type="StyleBox" uid="uid://blhovwbquxv71" path="res://resources/buttons/normal.tres" id="3_omy8q"]
 [ext_resource type="StyleBox" uid="uid://ycngd8comrtl" path="res://resources/buttons/hover.tres" id="4_i5wg5"]
 [ext_resource type="Texture2D" uid="uid://cn48kdutpbro5" path="res://assets/images/godot_logo.png" id="5_3c04x"]
+[ext_resource type="StyleBox" uid="uid://ca6hnsey3780x" path="res://resources/buttons/disabled.tres" id="5_joh67"]
 
 [sub_resource type="Animation" id="Animation_omy8q"]
 length = 0.001
@@ -158,7 +159,7 @@ _data = {
 &"play": SubResource("Animation_mu8pm")
 }
 
-[node name="main_menu" type="Control"]
+[node name="main_menu" type="Control" unique_id=408120304]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -169,7 +170,7 @@ mouse_filter = 2
 theme = ExtResource("1_mu8pm")
 script = ExtResource("1_uhj5c")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=521908186]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -178,7 +179,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.45490196)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect" unique_id=1746542308]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -195,7 +196,7 @@ grow_vertical = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="play" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="play" type="Button" parent="ColorRect/VBoxContainer" unique_id=1661357459]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
@@ -203,10 +204,11 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("3_omy8q")
 theme_override_styles/pressed = ExtResource("4_i5wg5")
 theme_override_styles/hover = ExtResource("4_i5wg5")
+theme_override_styles/disabled = ExtResource("5_joh67")
 disabled = true
 text = "PLAY"
 
-[node name="about" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="about" type="Button" parent="ColorRect/VBoxContainer" unique_id=1266845523]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
@@ -214,10 +216,11 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("3_omy8q")
 theme_override_styles/pressed = ExtResource("4_i5wg5")
 theme_override_styles/hover = ExtResource("4_i5wg5")
+theme_override_styles/disabled = ExtResource("5_joh67")
 disabled = true
 text = "ABOUT"
 
-[node name="info" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="info" type="Button" parent="ColorRect/VBoxContainer" unique_id=1146314219]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
@@ -225,10 +228,11 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("3_omy8q")
 theme_override_styles/pressed = ExtResource("4_i5wg5")
 theme_override_styles/hover = ExtResource("4_i5wg5")
+theme_override_styles/disabled = ExtResource("5_joh67")
 disabled = true
 text = "EGGS"
 
-[node name="how_to" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="how_to" type="Button" parent="ColorRect/VBoxContainer" unique_id=2122891738]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
@@ -236,10 +240,11 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("3_omy8q")
 theme_override_styles/pressed = ExtResource("4_i5wg5")
 theme_override_styles/hover = ExtResource("4_i5wg5")
+theme_override_styles/disabled = ExtResource("5_joh67")
 disabled = true
 text = "HOW TO PLAY"
 
-[node name="quit" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="quit" type="Button" parent="ColorRect/VBoxContainer" unique_id=1259745129]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
@@ -247,10 +252,11 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("3_omy8q")
 theme_override_styles/pressed = ExtResource("4_i5wg5")
 theme_override_styles/hover = ExtResource("4_i5wg5")
+theme_override_styles/disabled = ExtResource("5_joh67")
 disabled = true
 text = "QUIT"
 
-[node name="about_screen" type="ColorRect" parent="ColorRect"]
+[node name="about_screen" type="ColorRect" parent="ColorRect" unique_id=1822046102]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -260,25 +266,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="back" type="Button" parent="ColorRect/about_screen"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0109375
-anchor_top = 0.8759259
-anchor_right = 0.18072917
-anchor_bottom = 0.9425926
-offset_top = 6.1035156e-05
-grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = ExtResource("3_omy8q")
-theme_override_styles/pressed = ExtResource("4_i5wg5")
-theme_override_styles/hover = ExtResource("4_i5wg5")
-text = "BACK"
-metadata/_edit_use_anchors_ = true
-
-[node name="description" type="RichTextLabel" parent="ColorRect/about_screen"]
+[node name="description" type="RichTextLabel" parent="ColorRect/about_screen" unique_id=1441170683]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.051041666
@@ -292,7 +280,7 @@ text = "This was my first 3D game in Godot. I've done a couple of UI only projec
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="links" type="HBoxContainer" parent="ColorRect/about_screen"]
+[node name="links" type="HBoxContainer" parent="ColorRect/about_screen" unique_id=336963265]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -308,7 +296,7 @@ grow_vertical = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="youtube" type="Button" parent="ColorRect/about_screen/links"]
+[node name="youtube" type="Button" parent="ColorRect/about_screen/links" unique_id=1907283600]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -320,7 +308,7 @@ theme_override_styles/hover = ExtResource("4_i5wg5")
 text = "YouTube"
 metadata/_edit_use_anchors_ = true
 
-[node name="notion" type="Button" parent="ColorRect/about_screen/links"]
+[node name="notion" type="Button" parent="ColorRect/about_screen/links" unique_id=1207927465]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -332,7 +320,7 @@ theme_override_styles/hover = ExtResource("4_i5wg5")
 text = "Notion"
 metadata/_edit_use_anchors_ = true
 
-[node name="info_screen" type="ColorRect" parent="ColorRect"]
+[node name="info_screen" type="ColorRect" parent="ColorRect" unique_id=114845817]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -342,25 +330,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="back" type="Button" parent="ColorRect/info_screen"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0109375
-anchor_top = 0.8759259
-anchor_right = 0.18072917
-anchor_bottom = 0.9425926
-offset_top = 6.1035156e-05
-grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = ExtResource("3_omy8q")
-theme_override_styles/pressed = ExtResource("4_i5wg5")
-theme_override_styles/hover = ExtResource("4_i5wg5")
-text = "BACK"
-metadata/_edit_use_anchors_ = true
-
-[node name="description" type="RichTextLabel" parent="ColorRect/info_screen"]
+[node name="description" type="RichTextLabel" parent="ColorRect/info_screen" unique_id=439476413]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.023958333
@@ -380,7 +350,7 @@ Regular 	Rate (50%) | Value (£3.50) | Weight (1)
 [color=white]"
 metadata/_edit_use_anchors_ = true
 
-[node name="how_to_screen" type="ColorRect" parent="ColorRect"]
+[node name="how_to_screen" type="ColorRect" parent="ColorRect" unique_id=1875489133]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -390,25 +360,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="back" type="Button" parent="ColorRect/how_to_screen"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0109375
-anchor_top = 0.8759259
-anchor_right = 0.18072917
-anchor_bottom = 0.9425926
-offset_top = 6.1035156e-05
-grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = ExtResource("3_omy8q")
-theme_override_styles/pressed = ExtResource("4_i5wg5")
-theme_override_styles/hover = ExtResource("4_i5wg5")
-text = "BACK"
-metadata/_edit_use_anchors_ = true
-
-[node name="description" type="RichTextLabel" parent="ColorRect/how_to_screen"]
+[node name="description" type="RichTextLabel" parent="ColorRect/how_to_screen" unique_id=2095431849]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.023958333
@@ -421,15 +373,14 @@ theme_override_font_sizes/normal_font_size = 52
 bbcode_enabled = true
 text = "HOW TO PLAY:
 
-1. Click the crate to get an egg
-2. Click the egg and put it in it's respective crate
-3. Egg and Crate types are displayed at the bottom
-4. Click the crate with an egg to fill it, click the crate without an egg to sell its contents
-5. Purchase all 5 upgrades and get £150 to finish"
+1. Sort the eggs into the correct crates. Do it in the correct order to get a bonus
+2. Once the crate is full, click to sell to complete the order
+3. Excessive or incorrect eggs can be put in the bin for half its value
+4. Finish 3 rounds to beat the game"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="game_name" type="RichTextLabel" parent="ColorRect"]
+[node name="game_name" type="RichTextLabel" parent="ColorRect" unique_id=66296168]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -451,7 +402,7 @@ v2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="made_with" type="RichTextLabel" parent="ColorRect"]
+[node name="made_with" type="RichTextLabel" parent="ColorRect" unique_id=1229275654]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -471,7 +422,7 @@ theme_override_font_sizes/normal_font_size = 54
 text = "Made with Godot"
 horizontal_alignment = 1
 
-[node name="logo" type="TextureRect" parent="ColorRect"]
+[node name="logo" type="TextureRect" parent="ColorRect" unique_id=1836009932]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -489,11 +440,25 @@ mouse_filter = 2
 texture = ExtResource("5_3c04x")
 expand_mode = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_i5wg5")
-}
+[node name="back" type="Button" parent="ColorRect" unique_id=2080555010]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0109375
+anchor_top = 0.8759259
+anchor_right = 0.18072917
+anchor_bottom = 0.9425926
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = ExtResource("3_omy8q")
+theme_override_styles/pressed = ExtResource("4_i5wg5")
+theme_override_styles/hover = ExtResource("4_i5wg5")
+text = "BACK"
+metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="ColorRect/about_screen/back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="ColorRect/info_screen/back" to="." method="_on_info_back_pressed"]
-[connection signal="pressed" from="ColorRect/how_to_screen/back" to="." method="_on_how_to_back_pressed"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1595425246]
+libraries/ = SubResource("AnimationLibrary_i5wg5")
+
+[connection signal="pressed" from="ColorRect/back" to="." method="_on_back_pressed"]

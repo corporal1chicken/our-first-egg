@@ -13,8 +13,10 @@ var special_unlocked: bool = false
 
 var upgrades_bought: int = 0
 var total_eggs: int = 0
+var crates_sold: int = 0
 
 var game_started: bool = false
+var rounds_played: int = 0
 
 func change_money(action: String, amount: float):
 	match action:
@@ -22,7 +24,7 @@ func change_money(action: String, amount: float):
 		"remove": player_money -= amount
 		
 	Signals.update_ui.emit()
-	check_if_finished()
+	#check_if_finished()
 
 func start_hold_egg(held_egg):
 	egg = held_egg
@@ -42,8 +44,23 @@ func end_hold_egg():
 	
 	total_eggs -= 1
 	
+	var test = "left: %d | crates: %d" % [total_eggs, crates_sold]
+	Signals.debug_signal.emit(test)
+	_check_end_round()
+	
 	holding_egg = false
 	Signals.end_hold_egg.emit()
+	
+func _check_end_round():
+	if total_eggs == 0 and crates_sold == 4:
+		Signals.debug_signal.emit("round complete")
+		Signals.game_started.emit()
+		
+		rounds_played += 1
+		crates_sold = 0
+		
+		if rounds_played == 2:
+			Signals.ending_reached.emit()
 
 func sell_all():
 	for child in crates.get_children():
@@ -54,8 +71,6 @@ func get_orders() -> Array:
 	
 	for child in crates.get_children():
 		orders.append_array(child.current_order)
-	
-	total_eggs = orders.size()
 	
 	return orders
 	
