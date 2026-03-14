@@ -16,7 +16,7 @@ var total_eggs: int = 0
 var crates_sold: int = 0
 
 var game_started: bool = false
-var rounds_played: int = 0
+var rounds_played: int = 1
 
 func change_money(action: String, amount: float):
 	match action:
@@ -43,28 +43,26 @@ func end_hold_egg():
 	egg = null
 	
 	total_eggs -= 1
-	
-	var test = "left: %d | crates: %d" % [total_eggs, crates_sold]
-	Signals.debug_signal.emit(test)
-	_check_end_round()
+	check_end_round()
 	
 	holding_egg = false
 	Signals.end_hold_egg.emit()
 	
-func _check_end_round():
+func check_end_round():
 	if total_eggs == 0 and crates_sold == 4:
 		Signals.debug_signal.emit("round complete")
-		Signals.game_started.emit()
 		
-		rounds_played += 1
-		crates_sold = 0
-		
-		if rounds_played == 2:
+		if rounds_played == 4:
 			Signals.ending_reached.emit()
-
-func sell_all():
-	for child in crates.get_children():
-		child.selling()
+			return
+			
+		_new_round()
+			
+func _new_round():
+	Signals.start_round.emit()
+		
+	rounds_played += 1
+	crates_sold = 0
 		
 func get_orders() -> Array:
 	var orders = []
@@ -87,13 +85,7 @@ func pass_upgrade(upgrade_info: Dictionary):
 	
 	upgrades_bought += 1
 	
-	check_if_finished()
-	
 	return true
-
-func check_if_finished():
-	if upgrades_bought == 5 and player_money >= 150.0:
-		Signals.ending_reached.emit()
 
 func get_file_contents(file_path: String) -> Dictionary:
 	var json_text = FileAccess.get_file_as_string(file_path)

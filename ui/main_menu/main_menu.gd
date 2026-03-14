@@ -22,6 +22,11 @@ func _on_option_pressed(button: Button):
 	match button.name:
 		"play":
 			hide_menu()
+			
+			if not Manager.game_started:
+				Manager.start_game()
+			else:
+				Signals.resume_game.emit()
 		"about":
 			$ColorRect/VBoxContainer.visible = false
 			$ColorRect/back.visible = true
@@ -52,20 +57,16 @@ func _on_link_pressed(button: Button):
 func show_menu():
 	Manager.on_menu = true
 	self.visible = true
-	Signals.menu_opened.emit()
+	Signals.pause_game.emit()
 	
 	animation_player.play_backwards("play")
 	
-func hide_menu():	
-	if not Manager.game_started:
-		Manager.start_game()
-	
+func hide_menu():
 	Manager.on_menu = false
 	animation_player.play("play")
 	await animation_player.animation_finished
 	
 	self.visible = false
-	Signals.menu_closed.emit()
 
 func _enable_buttons():
 	for button in $ColorRect/VBoxContainer.get_children():

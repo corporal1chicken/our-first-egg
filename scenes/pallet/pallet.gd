@@ -10,6 +10,7 @@ var file_path: String = "res://resources/data/egg_types.json"
 var pool: Dictionary
 
 func _ready():
+	Signals.start_round.connect(_set_pallet)
 	Signals.game_started.connect(_set_pallet)
 	
 	pool = Manager.get_file_contents(file_path)

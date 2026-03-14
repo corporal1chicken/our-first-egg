@@ -137,6 +137,11 @@ transparency = 1
 [node name="crate" type="AnimatableBody3D" unique_id=546551509]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 script = ExtResource("1_jpei4")
+colours = Dictionary[float, String]({
+0.5: "#fb003a",
+1.0: "#2af527",
+1.2: "#ffb33d"
+})
 hover_text = "Basic Crate"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=646782335]

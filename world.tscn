@@ -52,7 +52,6 @@ transform = Transform3D(0.6341674, 0, 0.2963642, 0, 0.7, 0, -0.2963642, 0, 0.634
 
 [node name="1" parent="build/crates" unique_id=1698556785 instance=ExtResource("5_036b0")]
 transform = Transform3D(0.3653911, 0, 0.34130535, 0, 0.5, 0, -0.34130535, 0, 0.3653911, -1.9335861, 0.52806133, 0.99138165)
-max_capacity = 6
 hover_position = Vector3(-1.47, 0.528, 0.522)
 hover_text = "Crate #4"
 
@@ -63,13 +62,11 @@ hover_text = "Crate #3"
 
 [node name="3" parent="build/crates" unique_id=12029861 instance=ExtResource("5_036b0")]
 transform = Transform3D(0.45019737, 0, 0.2175369, 0, 0.5, 0, -0.2175369, 0, 0.45019737, -1.9872838, 1.8254209, 1.1341082)
-max_capacity = 3
 hover_position = Vector3(-1.476, 1.825, 0.673)
 hover_text = "Crate #2"
 
 [node name="4" parent="build/crates" unique_id=1573683226 instance=ExtResource("5_036b0")]
 transform = Transform3D(0.3486703, 0, 0.35837013, 0, 0.5, 0, -0.35837013, 0, 0.3486703, -1.0074911, 1.8254209, 2.0984046)
-max_capacity = 3
 hover_position = Vector3(-0.48, 1.825, 1.537)
 hover_text = "Crate #1"
 

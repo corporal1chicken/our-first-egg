@@ -32,11 +32,13 @@ func _ready():
 	Signals.hover_started.connect(_on_hover_started)
 	Signals.hover_ended.connect(_on_hover_ended)
 	Signals.update_ui.connect(_on_update_ui)
-	Signals.menu_opened.connect(_on_menu_opened)
-	Signals.menu_closed.connect(_on_menu_closed)
+	Signals.pause_game.connect(_on_menu_opened)
+	Signals.resume_game.connect(_on_menu_closed)
 	Signals.start_hold_egg.connect(_on_holding_egg)
 	Signals.end_hold_egg.connect(_on_cancel_egg)
 	Signals.debug_signal.connect(_on_debug_signal)
+	Signals.start_round.connect(_on_start_round)
+	Signals.game_started.connect(_on_game_started)
 	
 	for upgrade in upgrades_holder.get_children():
 		upgrade.pressed.connect(_on_upgrade_pressed.bind(upgrade))
@@ -52,11 +54,14 @@ func _on_update_ui():
 	$money.text = "£%.2f" % Manager.player_money
 
 func _on_menu_opened():
+	if not Manager.game_started: return
+	
 	$AnimationPlayer.play_backwards("enter")
 	await $AnimationPlayer.animation_finished
 	self.visible = true
 	
 func _on_menu_closed():
+	if not Manager.game_started: return
 	$AnimationPlayer.play("enter")
 
 func _on_holding_egg():
@@ -82,7 +87,6 @@ func _on_upgrade_pressed(button: Button):
 func _on_menu_pressed():
 	main_menu.show_menu()
 
-
 func _on_info_mouse_entered() -> void:
 	$info/instructions.visible = true
 
@@ -91,3 +95,20 @@ func _on_info_mouse_exited() -> void:
 
 func _on_debug_signal(new_text):
 	$debug.text = new_text
+
+func _on_start_round():
+	$AnimationPlayer.play_backwards("enter")
+	await $AnimationPlayer.animation_finished	
+	
+	$round_end/label.text = "NEW ROUND\n[%d/3]" % Manager.rounds_played
+	$AnimationPlayer.play("round_end")
+	await $AnimationPlayer.animation_finished	
+	
+	$AnimationPlayer.play("enter")	
+
+func _on_game_started():
+	$round_end/label.text = "ROUND STARTED\n[1/3]"
+	$AnimationPlayer.play("round_end")
+	await $AnimationPlayer.animation_finished	
+	
+	$AnimationPlayer.play("enter")

@@ -71,6 +71,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(-178, 909)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("round_end:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_imuuq"]
 resource_name = "enter"
@@ -136,10 +148,27 @@ tracks/4/keys = {
 "values": [Vector2(-178, 909), Vector2(296, 909)]
 }
 
+[sub_resource type="Animation" id="Animation_o2lis"]
+resource_name = "round_end"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("round_end:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gfles"]
 _data = {
 &"RESET": SubResource("Animation_kwc50"),
-&"enter": SubResource("Animation_imuuq")
+&"enter": SubResource("Animation_imuuq"),
+&"round_end": SubResource("Animation_o2lis")
 }
 
 [node name="hud" type="Control" unique_id=709182465]
@@ -483,6 +512,37 @@ vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2020105237]
 libraries/ = SubResource("AnimationLibrary_gfles")
+
+[node name="round_end" type="ColorRect" parent="." unique_id=1687275308]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.45490196)
+
+[node name="label" type="RichTextLabel" parent="round_end" unique_id=2060043601]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -507.0
+offset_top = -191.0
+offset_right = 507.0
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 72
+text = "ROUND COMPLETE
+[1/3]"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="sell_all" to="." method="_on_sell_all_pressed"]
