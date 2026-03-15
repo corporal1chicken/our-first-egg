@@ -14,74 +14,50 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("money:position")
+tracks/0/path = NodePath("round_end:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-446, 776)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("menu:position")
+tracks/1/path = NodePath("upgrades:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-446, 861)]
+"values": [Vector2(-448, 36)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("sell_all:position")
+tracks/2/path = NodePath("menu:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-446, 946)]
+"values": [Vector2(-448, 946)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("upgrades:position")
+tracks/3/path = NodePath("money:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-446, 36)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("info:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-178, 909)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("round_end:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Vector2(-448, 861)]
 }
 
 [sub_resource type="Animation" id="Animation_imuuq"]
@@ -90,62 +66,38 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("money:position")
-tracks/0/interp = 2
+tracks/0/path = NodePath("upgrades:position")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-446, 776), Vector2(34, 776)]
+"values": [Vector2(-448, 36), Vector2(34, 36)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("menu:position")
-tracks/1/interp = 2
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-446, 861), Vector2(34, 861)]
+"values": [Vector2(-448, 946), Vector2(34, 946)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("sell_all:position")
-tracks/2/interp = 2
+tracks/2/path = NodePath("money:position")
+tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-446, 946), Vector2(34, 946)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("upgrades:position")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-446, 36), Vector2(34, 36)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("info:position")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-178, 909), Vector2(296, 909)]
+"values": [Vector2(-448, 861), Vector2(34, 861)]
 }
 
 [sub_resource type="Animation" id="Animation_o2lis"]
@@ -155,7 +107,7 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("round_end:modulate")
-tracks/0/interp = 2
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 2.5, 3),
@@ -207,11 +159,13 @@ vertical_alignment = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.013541667
-anchor_top = 0.7185185
+anchor_top = 0.94074076
 anchor_right = 0.1453125
-anchor_bottom = 0.7824074
-offset_left = -472.0
-offset_right = -472.0
+anchor_bottom = 1.0046296
+offset_left = -474.0
+offset_top = -155.0
+offset_right = -474.0
+offset_bottom = -155.0
 theme_override_fonts/normal_font = ExtResource("2_imuuq")
 theme_override_font_sizes/normal_font_size = 48
 text = "£0.00"
@@ -237,6 +191,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="debug" type="RichTextLabel" parent="." unique_id=2140064312]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.6947917
@@ -256,11 +211,13 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.013541667
-anchor_top = 0.7972222
+anchor_top = 1.0194445
 anchor_right = 0.1453125
-anchor_bottom = 0.85833335
-offset_left = -472.0
-offset_right = -472.0
+anchor_bottom = 1.0805556
+offset_left = -474.0
+offset_top = -155.0
+offset_right = -474.0
+offset_bottom = -155.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_imuuq")
@@ -279,8 +236,8 @@ anchor_left = 0.013541667
 anchor_top = 0.8759259
 anchor_right = 0.1453125
 anchor_bottom = 0.93703705
-offset_left = -472.0
-offset_right = -472.0
+offset_left = 8.0
+offset_right = 8.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_imuuq")
@@ -292,14 +249,15 @@ text = "SELL ALL"
 metadata/_edit_use_anchors_ = true
 
 [node name="info" type="Button" parent="." unique_id=1116169849]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.4
 anchor_top = 0.84166664
 anchor_right = 0.4328125
 anchor_bottom = 0.8935185
-offset_left = -946.0
-offset_right = -959.0
+offset_left = -472.0
+offset_right = -485.0
 offset_bottom = -5.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
@@ -333,14 +291,12 @@ vertical_alignment = 1
 [node name="upgrades" type="VBoxContainer" parent="." unique_id=1100457421]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0140625
-anchor_top = 0.012037037
-anchor_right = 0.15468775
-anchor_bottom = 0.26944444
-offset_left = -473.0
-offset_top = 23.0
-offset_right = -473.0
-offset_bottom = 23.0
+anchor_left = 0.017708333
+anchor_top = 0.033333335
+anchor_right = 0.15833358
+anchor_bottom = 0.29074073
+offset_left = -482.0
+offset_right = -482.0
 grow_vertical = 2
 theme_override_constants/separation = 12
 alignment = 1
@@ -348,7 +304,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="value" type="Button" parent="upgrades" unique_id=1017078570]
 layout_mode = 2
-tooltip_text = "Sell eggs for 1.5x more value!"
+tooltip_text = "Sell eggs for 0.8x  more value!"
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_imuuq")
@@ -357,7 +313,6 @@ theme_override_styles/normal = ExtResource("3_kwc50")
 theme_override_styles/pressed_mirrored = ExtResource("3_kwc50")
 theme_override_styles/hover = ExtResource("4_o2lis")
 theme_override_styles/disabled = ExtResource("5_imuuq")
-disabled = true
 text = "BETTER VALUE"
 metadata/_edit_use_anchors_ = true
 
@@ -376,12 +331,12 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 21
-text = "[£24.00]"
+text = "[£5.00]"
 vertical_alignment = 1
 
-[node name="size" type="Button" parent="upgrades" unique_id=47784810]
+[node name="bonus" type="Button" parent="upgrades" unique_id=47784810]
 layout_mode = 2
-tooltip_text = "Orders are no between 4-7"
+tooltip_text = "Streak bonus increases from 1.2x to 1.5x"
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_imuuq")
@@ -390,10 +345,10 @@ theme_override_styles/normal = ExtResource("3_kwc50")
 theme_override_styles/pressed_mirrored = ExtResource("3_kwc50")
 theme_override_styles/hover = ExtResource("4_o2lis")
 theme_override_styles/disabled = ExtResource("5_imuuq")
-text = "BIGGER ORDERS"
+text = "BETTER BONUS"
 metadata/_edit_use_anchors_ = true
 
-[node name="cost" type="RichTextLabel" parent="upgrades/size" unique_id=1711419604]
+[node name="cost" type="RichTextLabel" parent="upgrades/bonus" unique_id=1711419604]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -408,12 +363,12 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 21
-text = "[£35.00]"
+text = "[£8.00]"
 vertical_alignment = 1
 
-[node name="special" type="Button" parent="upgrades" unique_id=31338210]
+[node name="shield" type="Button" parent="upgrades" unique_id=31338210]
 layout_mode = 2
-tooltip_text = "Add special eggs to the mix!"
+tooltip_text = "Incorrect eggs don't lose value if you put it in the wrong crate! Only applies once"
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_imuuq")
@@ -422,11 +377,10 @@ theme_override_styles/normal = ExtResource("3_kwc50")
 theme_override_styles/pressed_mirrored = ExtResource("3_kwc50")
 theme_override_styles/hover = ExtResource("4_o2lis")
 theme_override_styles/disabled = ExtResource("5_imuuq")
-disabled = true
-text = "SPECIAL EGGS"
+text = "ORDER SHIELD"
 metadata/_edit_use_anchors_ = true
 
-[node name="cost" type="RichTextLabel" parent="upgrades/special" unique_id=872557428]
+[node name="cost" type="RichTextLabel" parent="upgrades/shield" unique_id=872557428]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -441,12 +395,12 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 21
-text = "[£48.00]"
+text = "[£12.00]"
 vertical_alignment = 1
 
-[node name="bonus" type="Button" parent="upgrades" unique_id=1920140282]
+[node name="overflow" type="Button" parent="upgrades" unique_id=1920140282]
 layout_mode = 2
-tooltip_text = "Double the value of the crate if sold when full!"
+tooltip_text = "Crates hold one extra egg, that sells for 3x value"
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_imuuq")
@@ -455,11 +409,10 @@ theme_override_styles/normal = ExtResource("3_kwc50")
 theme_override_styles/pressed_mirrored = ExtResource("3_kwc50")
 theme_override_styles/hover = ExtResource("4_o2lis")
 theme_override_styles/disabled = ExtResource("5_imuuq")
-disabled = true
-text = "EXTRA BONUS"
+text = "CRATE OVERFLOW"
 metadata/_edit_use_anchors_ = true
 
-[node name="cost" type="RichTextLabel" parent="upgrades/bonus" unique_id=1230272781]
+[node name="cost" type="RichTextLabel" parent="upgrades/overflow" unique_id=1230272781]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -474,12 +427,12 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 21
-text = "[£56.00]"
+text = "[£15.00]"
 vertical_alignment = 1
 
-[node name="autosell" type="Button" parent="upgrades" unique_id=568168622]
+[node name="bin" type="Button" parent="upgrades" unique_id=568168622]
 layout_mode = 2
-tooltip_text = "When the crate is full, sell automatically!"
+tooltip_text = "Eggs sold to the bin sell for 1x value instead of 0.5x"
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_imuuq")
@@ -488,11 +441,10 @@ theme_override_styles/normal = ExtResource("3_kwc50")
 theme_override_styles/pressed_mirrored = ExtResource("3_kwc50")
 theme_override_styles/hover = ExtResource("4_o2lis")
 theme_override_styles/disabled = ExtResource("5_imuuq")
-disabled = true
-text = "AUTO SELL"
+text = "BETTER BIN"
 metadata/_edit_use_anchors_ = true
 
-[node name="cost" type="RichTextLabel" parent="upgrades/autosell" unique_id=419790009]
+[node name="cost" type="RichTextLabel" parent="upgrades/bin" unique_id=419790009]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -507,11 +459,8 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 21
-text = "[£70.00]"
+text = "[£18.00]"
 vertical_alignment = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2020105237]
-libraries/ = SubResource("AnimationLibrary_gfles")
 
 [node name="round_end" type="ColorRect" parent="." unique_id=1687275308]
 modulate = Color(1, 1, 1, 0)
@@ -522,7 +471,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 0.45490196)
+color = Color(0, 0, 0, 1)
 
 [node name="label" type="RichTextLabel" parent="round_end" unique_id=2060043601]
 layout_mode = 1
@@ -541,6 +490,28 @@ mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 72
 text = "ROUND COMPLETE
 [1/3]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2020105237]
+libraries/ = SubResource("AnimationLibrary_gfles")
+
+[node name="version" type="RichTextLabel" parent="." unique_id=369251884]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -129.0
+offset_top = -103.0
+offset_right = -25.0
+offset_bottom = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/default_color = Color(1, 1, 1, 0.37254903)
+theme_override_font_sizes/normal_font_size = 54
+text = "v2"
 horizontal_alignment = 1
 vertical_alignment = 1
 

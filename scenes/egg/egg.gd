@@ -2,43 +2,31 @@ extends Interactable
 
 @onready var mesh_instance: MeshInstance3D = $mesh/Sphere
 
-const GROUND_POSITION = Vector3(1.4, 0.3, 1.5)
-
 enum State{IDLE, HELD}
+var state: State
 
 var current_type: Dictionary
-var current_state: State
 
 var move_tween: Tween
 
 var pool = {}
 
 var file_path = "res://resources/data/egg_types.json"
-var new_egg_types: Dictionary
+var egg_types: Dictionary
 
 func _ready():
 	randomize()
 	
 	_add_to_group(self)
 	
-	current_state = State.IDLE
-	new_egg_types = Manager.get_file_contents(file_path)
+	state = State.IDLE
+	egg_types = Manager.get_file_contents(file_path)
 	
-	Signals.upgrade_bought.connect(_on_upgrade_bought)
-
-func tween_egg(property: String, change, duration: float):
-	if move_tween and move_tween.is_running():
-		move_tween.kill()
-	
-	move_tween = create_tween()
-	
-	move_tween.tween_property(self, property, change, duration).set_trans(Tween.TRANS_SINE)
-
 func _pick_egg() -> String:
 	var total_weight = 0
 
-	for key in new_egg_types.keys():
-		var chance = new_egg_types[key].chance
+	for key in egg_types.keys():
+		var chance = egg_types[key].chance
 		pool[key] = chance
 	
 	for chance in pool.values(): 
@@ -46,27 +34,29 @@ func _pick_egg() -> String:
 	
 	var roll = randi_range(1, total_weight)
 	
-	var c = 0
+	var cumulative_weight = 0
 	for egg in pool:
-		c += pool[egg]
+		cumulative_weight += pool[egg]
 		
-		if roll <= c:
+		if roll <= cumulative_weight:
 			return egg
 			
 	return "red"
 
 func setup(colour):
+	block_click = false
+	block_hover = false
+	
+	state = State.IDLE
+	
 	await get_tree().process_frame
 	
-	#var chosen_egg = _pick_egg()
-	current_type = new_egg_types[colour]
+	current_type = egg_types[colour]
 	
 	var material = mesh_instance.get_surface_override_material(0)
 	material.albedo_color = Color.html(current_type.colour)
 	
 	self.hover_text = "[Value: £%.2f] %s Egg" % [get_sell_value(), colour.capitalize()]
-	
-	#tween_egg("position", GROUND_POSITION, 1.0)
 
 func get_sell_value():
 	return current_type.value
@@ -84,16 +74,10 @@ func exit_hover():
 	pass
 	
 func clicked():
-	match current_state:
+	match state:
 		0:
 			Manager.start_hold_egg(self)
-			current_state = State.HELD
+			state = State.HELD
 		1:
 			Manager.cancel_hold_egg()
-			current_state = State.IDLE
-
-func _on_upgrade_bought(_key: String):
-	#if key == "value":
-	#	for type in egg_types.keys():
-	#		egg_types[type].value *= 1.5
-	pass
+			state = State.IDLE

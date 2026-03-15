@@ -33,7 +33,7 @@ func _get_random_egg():
 	return "red"
 	
 func _set_pallet():
-	print("starting round")
+	await get_tree().create_timer(1.5).timeout
 	
 	var count = 1
 	
@@ -44,9 +44,9 @@ func _set_pallet():
 		visual.name = str(count)
 		count += 1
 	
-	var order: Array = Manager.get_orders()
+	var order: Array = Manager.get_orders().duplicate()
 		
-	for i in randi_range(2, 4):
+	for i in range(4):
 		order.append(_get_random_egg())
 	
 	order.shuffle()

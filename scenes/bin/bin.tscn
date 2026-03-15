@@ -1,17 +1,57 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsimiwtrir428"]
+[gd_scene format=3 uid="uid://dsimiwtrir428"]
 
 [ext_resource type="Script" uid="uid://b84t1p7faceoy" path="res://scenes/bin/bin.gd" id="1_0kp4f"]
+[ext_resource type="PackedScene" uid="uid://d0jcmsepgcwdb" path="res://scenes/chicken/storage_crate.glb" id="2_y23yc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ohph6"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_0kp4f"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y23yc"]
+albedo_color = Color(0.99607843, 0.72156864, 0.5058824, 1)
 
-[node name="bin" type="AnimatableBody3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kr2s1"]
+albedo_color = Color(0.99472016, 0.7213384, 0.5063932, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5tbm6"]
+albedo_color = Color(0.99607843, 0.72156864, 0.5058824, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xvh7j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ykql6"]
+albedo_color = Color(0.69186264, 0.37854376, 0.039310504, 1)
+
+[node name="bin" type="AnimatableBody3D" unique_id=180605885]
 script = ExtResource("1_0kp4f")
 hover_text = "Bin"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=944348264]
 shape = SubResource("BoxShape3D_ohph6")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_0kp4f")
+[node name="storage_crate" parent="." unique_id=1166417266 instance=ExtResource("2_y23yc")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, -0.006014875, 0)
+
+[node name="inner" parent="storage_crate" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_y23yc")
+
+[node name="design" parent="storage_crate" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_kr2s1")
+
+[node name="lid" parent="storage_crate" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5tbm6")
+
+[node name="plaque" parent="storage_crate" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_xvh7j")
+
+[node name="frame" parent="storage_crate" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ykql6")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=422169414]
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, 0, -0.48022866)
+text = "Recycle
+:D"
+
+[node name="sell" type="Label3D" parent="." unique_id=54234441]
+transform = Transform3D(-0.8901252, 0, -0.45571578, 0, 1, 0, 0.45571578, 0, -0.8901252, -0.0039993525, 0.6765698, 0.0007381439)
+modulate = Color(0.31366226, 0.829971, 1.1551381e-06, 1)
+text = "0.5x"
+
+[editable path="storage_crate"]

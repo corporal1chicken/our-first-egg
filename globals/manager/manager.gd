@@ -9,9 +9,6 @@ var holding_egg: bool = false
 
 var egg: Interactable
 
-var special_unlocked: bool = false
-
-var upgrades_bought: int = 0
 var total_eggs: int = 0
 var crates_sold: int = 0
 
@@ -24,7 +21,6 @@ func change_money(action: String, amount: float):
 		"remove": player_money -= amount
 		
 	Signals.update_ui.emit()
-	#check_if_finished()
 
 func start_hold_egg(held_egg):
 	egg = held_egg
@@ -50,13 +46,13 @@ func end_hold_egg():
 	
 func check_end_round():
 	if total_eggs == 0 and crates_sold == 4:
-		Signals.debug_signal.emit("round complete")
+		Signals.start_round.emit()
 		
-		if rounds_played == 4:
+		rounds_played += 1
+		crates_sold = 0
+		
+		if rounds_played == 5:
 			Signals.ending_reached.emit()
-			return
-			
-		_new_round()
 			
 func _new_round():
 	Signals.start_round.emit()
@@ -77,13 +73,8 @@ func pass_upgrade(upgrade_info: Dictionary):
 		return false
 		
 	change_money("remove", upgrade_info.cost)
-	
-	if upgrade_info.key == "special":
-		special_unlocked = true
-	else:
-		Signals.upgrade_bought.emit(upgrade_info.key)
-	
-	upgrades_bought += 1
+
+	Signals.upgrade_bought.emit(upgrade_info.key)
 	
 	return true
 

@@ -221,6 +221,7 @@ disabled = true
 text = "ABOUT"
 
 [node name="info" type="Button" parent="ColorRect/VBoxContainer" unique_id=1146314219]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
@@ -397,8 +398,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 100
-text = "OUR FIRST EGG
-v2"
+text = "OUR FIRST EGG"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -460,5 +460,24 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1595425246]
 libraries/ = SubResource("AnimationLibrary_i5wg5")
+
+[node name="version" type="RichTextLabel" parent="." unique_id=1239023768]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -129.0
+offset_top = -103.0
+offset_right = -25.0
+offset_bottom = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/default_color = Color(1, 1, 1, 0.37254903)
+theme_override_font_sizes/normal_font_size = 54
+text = "v2"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="ColorRect/back" to="." method="_on_back_pressed"]

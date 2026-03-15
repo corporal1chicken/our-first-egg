@@ -140,7 +140,9 @@ script = ExtResource("1_jpei4")
 colours = Dictionary[float, String]({
 0.5: "#fb003a",
 1.0: "#2af527",
-1.2: "#ffb33d"
+1.2: "#ffb33d",
+1.5: "#F527E4",
+3.0: "#4927F5"
 })
 hover_text = "Basic Crate"
 
@@ -180,14 +182,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65826416, 0, -0.2734375)
 shape = SubResource("BoxShape3D_j1jke")
 
 [node name="current_value" type="Label3D" parent="." unique_id=657706011]
-transform = Transform3D(-4.371138e-08, 0, 0.99999976, 0, 0.99999976, 0, -0.99999976, 0, -4.371138e-08, -1.1127203, 0.793359, -0.28156182)
-text = "[0/4] Value: £0.00"
+transform = Transform3D(-4.371138e-08, 0, 0.99999976, 0, 0.99999976, 0, -0.99999976, 0, -4.371138e-08, -0.98866045, 0.793359, -0.28156182)
 font = ExtResource("3_3v208")
 font_size = 28
 
 [node name="order" type="Label3D" parent="." unique_id=479451430]
 transform = Transform3D(-4.371138e-08, 0, 0.99999976, 0, 0.99999976, 0, -0.99999976, 0, -4.371138e-08, 0.0959131, -0.04158417, -0.28156182)
-text = "order goes here"
+text = "
+"
 font = ExtResource("3_3v208")
 font_size = 28
 

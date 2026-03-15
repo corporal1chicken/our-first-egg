@@ -8,23 +8,23 @@ extends Control
 var upgrades = {
 	value = {
 		key = "value",
-		cost = 24.0
-	},
-	size = {
-		key = "size",
-		cost = 35.0
-	},
-	special = {
-		key = "special",
-		cost = 48.0
+		cost = 5.0
 	},
 	bonus = {
 		key = "bonus",
-		cost = 56.0
+		cost = 8.0
 	},
-	autosell = {
-		key = "autosell",
-		cost = 70.0
+	shield = {
+		key = "shield",
+		cost = 12.0
+	},
+	overflow = {
+		key = "overflow",
+		cost = 15.0
+	},
+	bin = {
+		key = "bin",
+		cost = 18.0
 	}
 }
 
@@ -97,17 +97,11 @@ func _on_debug_signal(new_text):
 	$debug.text = new_text
 
 func _on_start_round():
-	$AnimationPlayer.play_backwards("enter")
-	await $AnimationPlayer.animation_finished	
-	
-	$round_end/label.text = "NEW ROUND\n[%d/3]" % Manager.rounds_played
+	$round_end/label.text = "Creating Order\nRound: %d/5" % Manager.rounds_played
 	$AnimationPlayer.play("round_end")
-	await $AnimationPlayer.animation_finished	
-	
-	$AnimationPlayer.play("enter")	
 
 func _on_game_started():
-	$round_end/label.text = "ROUND STARTED\n[1/3]"
+	$round_end/label.text = "Creating Order\nRound: %d/5" % Manager.rounds_played
 	$AnimationPlayer.play("round_end")
 	await $AnimationPlayer.animation_finished	
 	
