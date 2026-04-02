@@ -1,6 +1,6 @@
-\# Our First Egg
+\# 3D Godot Game
 
-First 3D project. Goal of being something small and different for me.
+First 3D game. Goal of being something small and finished
 
 
 
